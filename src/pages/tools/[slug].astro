@@ -1,0 +1,153 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import { loadTools } from '../../lib/tools';
+
+export function getStaticPaths() {
+  const tools = loadTools();
+  return tools.map((tool) => ({
+    params: { slug: tool.slug },
+    props: { tool },
+  }));
+}
+
+const { tool } = Astro.props;
+
+const riskColors: Record<string, string> = {
+  low: 'chip-risk-low',
+  medium: 'chip-risk-medium',
+  high: 'chip-risk-high',
+  critical: 'chip-risk-critical',
+};
+---
+
+<Layout title={`${tool.binary} — Awesome Agent CLI`} description={tool.description}>
+  <Header />
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Back -->
+    <a href="/" class="inline-flex items-center gap-1 text-sm text-text-light-secondary dark:text-text-dark-secondary hover:text-text-light-primary dark:hover:text-text-dark-primary mb-6 transition-colors">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      Back to tools
+    </a>
+
+    <!-- Header -->
+    <div class="glass-card p-6 sm:p-8 mb-6">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <h1 class="font-mono text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+            {tool.binary}
+          </h1>
+          {tool.name !== tool.binary && (
+            <p class="text-sm text-text-light-muted dark:text-text-dark-muted">{tool.name}</p>
+          )}
+        </div>
+        <span class={`chip text-sm ${riskColors[tool.risk] ?? 'chip-default'}`}>
+          {tool.risk} risk
+        </span>
+      </div>
+
+      <p class="text-gray-600 dark:text-gray-400 text-lg mb-4">
+        {tool.description}
+      </p>
+
+      <div class="flex flex-wrap gap-2">
+        {tool.category.map((cat: string) => (
+          <span class="chip chip-default">{cat}</span>
+        ))}
+        <span class="chip chip-default">lang: {tool.lang.join(', ')}</span>
+        {tool.platform?.map((p: string) => (
+          <span class="chip chip-default">platform: {p}</span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Agent guidance -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      {tool.use_when && tool.use_when.length > 0 && (
+        <div class="glass-card p-5">
+          <h2 class="text-sm font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide mb-3">
+            ✓ Use when
+          </h2>
+          <ul class="space-y-2">
+            {tool.use_when.map((item: string) => (
+              <li class="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                <span class="text-emerald-500 mt-0.5">•</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {tool.avoid_when && tool.avoid_when.length > 0 && (
+        <div class="glass-card p-5">
+          <h2 class="text-sm font-semibold text-orange-600 dark:text-orange-400 uppercase tracking-wide mb-3">
+            ✗ Avoid when
+          </h2>
+          <ul class="space-y-2">
+            {tool.avoid_when.map((item: string) => (
+              <li class="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                <span class="text-orange-500 mt-0.5">•</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+
+    {tool.guardrails && tool.guardrails.length > 0 && (
+      <div class="glass-card p-5 mb-6">
+        <h2 class="text-sm font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wide mb-3">
+          ⚠ Guardrails
+        </h2>
+        <ul class="space-y-2">
+          {tool.guardrails.map((item: string) => (
+            <li class="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+              <span class="text-amber-500 mt-0.5">•</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <!-- Meta -->
+    <div class="glass-card p-5">
+      <h2 class="text-sm font-semibold text-text-light-secondary dark:text-text-dark-secondary uppercase tracking-wide mb-3">
+        Details
+      </h2>
+      <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
+        <div>
+          <dt class="text-text-light-muted dark:text-text-dark-muted">Binary</dt>
+          <dd class="font-mono text-gray-900 dark:text-gray-100">{tool.binary}</dd>
+        </div>
+        {tool.aliases && tool.aliases.length > 0 && (
+          <div>
+            <dt class="text-text-light-muted dark:text-text-dark-muted">Aliases</dt>
+            <dd class="font-mono text-gray-900 dark:text-gray-100">{tool.aliases.join(', ')}</dd>
+          </div>
+        )}
+        {tool.effects && tool.effects.length > 0 && (
+          <div>
+            <dt class="text-text-light-muted dark:text-text-dark-muted">Effects</dt>
+            <dd class="text-gray-900 dark:text-gray-100">{tool.effects.join(', ')}</dd>
+          </div>
+        )}
+        {tool.docs && (
+          <div>
+            <dt class="text-text-light-muted dark:text-text-dark-muted">Documentation</dt>
+            <dd>
+              <a href={tool.docs} target="_blank" rel="noopener" class="text-blue-500 hover:underline break-all">
+                {tool.docs}
+              </a>
+            </dd>
+          </div>
+        )}
+      </dl>
+    </div>
+  </main>
+</Layout>

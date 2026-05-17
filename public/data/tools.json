@@ -1,0 +1,5978 @@
+[
+  {
+    "slug": "act",
+    "name": "act",
+    "binary": "act",
+    "description": "Run GitHub Actions workflows locally.",
+    "category": [
+      "ci"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "secret_exposure",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Reproduce GitHub Actions jobs locally",
+      "Debug workflow syntax or runner setup before pushing"
+    ],
+    "avoid_when": [
+      "The workflow depends on hosted-only services or protected secrets"
+    ],
+    "guardrails": [
+      "Inspect workflow steps before running jobs locally."
+    ],
+    "docs": "https://nektosact.com/"
+  },
+  {
+    "slug": "adb",
+    "name": "adb",
+    "binary": "adb",
+    "description": "Android Debug Bridge for interacting with Android devices and emulators.",
+    "category": [
+      "mobile",
+      "device",
+      "debug"
+    ],
+    "lang": [
+      "all"
+    ],
+    "platform": [
+      "android"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect Android devices, install debug builds, run shell commands, or collect logcat output"
+    ],
+    "avoid_when": [
+      "No target device or emulator is selected"
+    ],
+    "guardrails": [
+      "Confirm the target device with `adb devices` before mutating device state."
+    ],
+    "docs": "https://developer.android.com/tools/adb"
+  },
+  {
+    "slug": "age",
+    "name": "age",
+    "binary": "age",
+    "description": "Simple file encryption tool and format.",
+    "category": [
+      "security"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "read_files",
+      "write_files",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Encrypt or decrypt files with age keys"
+    ],
+    "avoid_when": [
+      "Key ownership or recipient identity is unclear"
+    ],
+    "guardrails": [
+      "Keep private keys and decrypted output out of logs and commits."
+    ],
+    "docs": "https://github.com/FiloSottile/age#readme"
+  },
+  {
+    "slug": "aider",
+    "name": "aider",
+    "binary": "aider",
+    "description": "AI pair programming CLI that edits files through chat.",
+    "category": [
+      "agent"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Use an AI coding assistant that can edit repository files"
+    ],
+    "avoid_when": [
+      "The user has not asked for autonomous code edits"
+    ],
+    "guardrails": [
+      "Review generated diffs before treating changes as accepted."
+    ],
+    "docs": "https://aider.chat/docs/"
+  },
+  {
+    "slug": "amp",
+    "name": "amp",
+    "binary": "amp",
+    "description": "Terminal AI coding agent from Sourcegraph.",
+    "category": [
+      "agent"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Use Amp as a terminal-native coding agent"
+    ],
+    "avoid_when": [
+      "The task should stay inside the current agent session"
+    ],
+    "guardrails": [
+      "Review generated diffs before accepting agent changes."
+    ],
+    "docs": "https://ampcode.com/manual"
+  },
+  {
+    "slug": "ansible",
+    "name": "ansible",
+    "binary": "ansible",
+    "description": "Automation and configuration management CLI.",
+    "category": [
+      "infra"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "remote_write",
+      "secret_exposure"
+    ],
+    "aliases": [
+      "ansible-playbook"
+    ],
+    "use_when": [
+      "Inspect or run infrastructure automation playbooks"
+    ],
+    "avoid_when": [
+      "The target hosts or inventory are unclear"
+    ],
+    "guardrails": [
+      "Prefer check mode before applying changes to hosts."
+    ],
+    "docs": "https://docs.ansible.com/"
+  },
+  {
+    "slug": "ast-grep",
+    "name": "ast-grep",
+    "binary": "ast-grep",
+    "description": "Structural code search and rewrite tool based on AST patterns.",
+    "category": [
+      "search"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [
+      "sg"
+    ],
+    "use_when": [
+      "Search code by syntax structure instead of plain text",
+      "Apply structural rewrites with reviewable patterns"
+    ],
+    "avoid_when": [
+      "Plain text search is sufficient",
+      "The language or syntax is not supported by the configured parser"
+    ],
+    "guardrails": [
+      "Preview structural rewrites before writing changes."
+    ],
+    "docs": "https://ast-grep.github.io/"
+  },
+  {
+    "slug": "atuin",
+    "name": "atuin",
+    "binary": "atuin",
+    "description": "Searchable shell history with optional sync.",
+    "category": [
+      "shell"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "network_access",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Search shell history interactively"
+    ],
+    "avoid_when": [
+      "Command history may contain secrets that should not be synced"
+    ],
+    "guardrails": [
+      "Check sync and secret filtering settings before sharing history."
+    ],
+    "docs": "https://docs.atuin.sh/"
+  },
+  {
+    "slug": "awk",
+    "name": "awk",
+    "binary": "awk",
+    "description": "Pattern scanning and text processing language.",
+    "category": [
+      "text"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Transform line-oriented text streams",
+      "Summarize columns or logs from shell pipelines"
+    ],
+    "avoid_when": [
+      "Structured data has a proper parser available"
+    ],
+    "guardrails": [
+      "Use structured parsers for JSON, YAML, XML, or CSV when practical."
+    ],
+    "docs": "https://www.gnu.org/software/gawk/manual/"
+  },
+  {
+    "slug": "aws",
+    "name": "aws",
+    "binary": "aws",
+    "description": "Amazon Web Services command-line interface.",
+    "category": [
+      "cloud"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "cloud_mutation",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect or operate AWS resources from the terminal"
+    ],
+    "avoid_when": [
+      "Credentials, region, or target account are unknown"
+    ],
+    "guardrails": [
+      "Confirm account and region before write operations."
+    ],
+    "docs": "https://docs.aws.amazon.com/cli/"
+  },
+  {
+    "slug": "az",
+    "name": "az",
+    "binary": "az",
+    "description": "Microsoft Azure command-line interface.",
+    "category": [
+      "cloud"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "cloud_mutation",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect or operate Azure resources"
+    ],
+    "avoid_when": [
+      "Subscription, tenant, or credentials are unknown"
+    ],
+    "guardrails": [
+      "Confirm active subscription before write operations."
+    ],
+    "docs": "https://learn.microsoft.com/cli/azure/"
+  },
+  {
+    "slug": "bacon",
+    "name": "bacon",
+    "binary": "bacon",
+    "description": "Background Rust checker that runs cargo tasks on changes.",
+    "category": [
+      "automation"
+    ],
+    "lang": [
+      "rust"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Watch Rust projects while iterating on compile, clippy, or tests"
+    ],
+    "avoid_when": [
+      "One-shot CI validation is enough"
+    ],
+    "guardrails": [
+      "Stop background watchers when the task is finished."
+    ],
+    "docs": "https://dystroy.org/bacon/"
+  },
+  {
+    "slug": "bat",
+    "name": "bat",
+    "binary": "bat",
+    "description": "Syntax-highlighted cat replacement for reading files.",
+    "category": [
+      "file-viewer"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [
+      "batcat"
+    ],
+    "use_when": [
+      "Read source files with line numbers and syntax highlighting"
+    ],
+    "avoid_when": [
+      "Output must be plain machine-readable text"
+    ],
+    "guardrails": [
+      "Disable decorations when piping output into another parser."
+    ],
+    "docs": "https://github.com/sharkdp/bat#readme"
+  },
+  {
+    "slug": "biome",
+    "name": "biome",
+    "binary": "biome",
+    "description": "Fast formatter and linter for JavaScript, TypeScript, JSON, and CSS.",
+    "category": [
+      "lint"
+    ],
+    "lang": [
+      "javascript",
+      "typescript",
+      "json",
+      "css"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Lint or format projects configured for Biome"
+    ],
+    "avoid_when": [
+      "The repository uses ESLint and Prettier without Biome"
+    ],
+    "guardrails": [
+      "Prefer check mode before writing formatter or linter fixes."
+    ],
+    "docs": "https://biomejs.dev/reference/cli/"
+  },
+  {
+    "slug": "bottom",
+    "name": "bottom",
+    "binary": "btm",
+    "description": "Terminal system monitor for processes, CPU, memory, disks, and network.",
+    "category": [
+      "system"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_processes"
+    ],
+    "aliases": [
+      "bottom"
+    ],
+    "use_when": [
+      "Inspect system resource usage interactively"
+    ],
+    "avoid_when": [
+      "Non-interactive scripts need stable process output"
+    ],
+    "guardrails": [
+      "Use non-interactive commands for scripted diagnostics."
+    ],
+    "docs": "https://clementtsang.github.io/bottom/stable/"
+  },
+  {
+    "slug": "broot",
+    "name": "broot",
+    "binary": "broot",
+    "description": "Interactive directory tree navigator with fuzzy search.",
+    "category": [
+      "file-viewer"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Explore large directory trees interactively"
+    ],
+    "avoid_when": [
+      "Automation needs stable plain text output"
+    ],
+    "guardrails": [
+      "Use non-interactive file listing commands for scripts."
+    ],
+    "docs": "https://dystroy.org/broot/"
+  },
+  {
+    "slug": "brush",
+    "name": "brush",
+    "binary": "brush",
+    "description": "Unix-like shell tool for Windows command workflows.",
+    "category": [
+      "shell"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Running Unix-style commands on Windows when the workspace asks for brush"
+    ],
+    "avoid_when": [
+      "Native PowerShell cmdlets are the intended interface"
+    ],
+    "guardrails": [
+      "Use brush for Unix-style commands on Windows when AGENTS.md requires it."
+    ],
+    "docs": "https://github.com"
+  },
+  {
+    "slug": "buf",
+    "name": "buf",
+    "binary": "buf",
+    "description": "Protobuf linting, breaking-change detection, and code generation CLI.",
+    "category": [
+      "api"
+    ],
+    "lang": [
+      "protobuf"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Lint, generate, or check Protobuf APIs"
+    ],
+    "avoid_when": [
+      "The repository has no Buf or Protobuf setup"
+    ],
+    "guardrails": [
+      "Use existing buf configuration before generating code."
+    ],
+    "docs": "https://buf.build/docs/reference/cli/"
+  },
+  {
+    "slug": "bun",
+    "name": "bun",
+    "binary": "bun",
+    "description": "JavaScript runtime and package manager.",
+    "category": [
+      "package-manager",
+      "runtime",
+      "build",
+      "test"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run Bun-managed JavaScript projects"
+    ],
+    "avoid_when": [
+      "The repo uses npm, pnpm, or Yarn lockfiles"
+    ],
+    "guardrails": [
+      "Do not mix package managers in one repository."
+    ],
+    "docs": "https://bun.sh/docs"
+  },
+  {
+    "slug": "bundle",
+    "name": "bundle",
+    "binary": "bundle",
+    "description": "Ruby dependency manager and command runner.",
+    "category": [
+      "package-manager"
+    ],
+    "lang": [
+      "ruby"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [
+      "bundler"
+    ],
+    "use_when": [
+      "Install Ruby gems or run Ruby project commands"
+    ],
+    "avoid_when": [
+      "The repository has no Gemfile"
+    ],
+    "guardrails": [
+      "Use bundle exec for project-local Ruby commands."
+    ],
+    "docs": "https://bundler.io/docs.html"
+  },
+  {
+    "slug": "capacitor",
+    "name": "capacitor",
+    "binary": "cap",
+    "description": "Capacitor CLI for syncing web apps into native Android and iOS projects.",
+    "category": [
+      "build",
+      "mobile"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "platform": [
+      "android",
+      "ios",
+      "web"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files",
+      "network_access"
+    ],
+    "aliases": [
+      "capacitor"
+    ],
+    "use_when": [
+      "Sync, copy, open, or update native Capacitor projects from a web app"
+    ],
+    "avoid_when": [
+      "Native project changes should not be generated or overwritten"
+    ],
+    "guardrails": [
+      "Ask before running sync/update commands that rewrite native Android or iOS project files."
+    ],
+    "docs": "https://capacitorjs.com/docs/cli"
+  },
+  {
+    "slug": "cargo",
+    "name": "cargo",
+    "binary": "cargo",
+    "description": "Rust package manager and build tool.",
+    "category": [
+      "build",
+      "test",
+      "package-manager"
+    ],
+    "lang": [
+      "rust"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build, test, and run Rust projects"
+    ],
+    "avoid_when": [
+      "The current project is not a Rust crate or workspace"
+    ],
+    "guardrails": [
+      "Use cargo for Rust build, test, and run commands when Cargo.toml exists."
+    ],
+    "docs": "https://doc.rust-lang.org/cargo/"
+  },
+  {
+    "slug": "cargo-audit",
+    "name": "cargo-audit",
+    "binary": "cargo-audit",
+    "description": "Audit Rust dependency trees for known security vulnerabilities.",
+    "category": [
+      "security"
+    ],
+    "lang": [
+      "rust"
+    ],
+    "risk": "medium",
+    "effects": [
+      "network_access",
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Check Rust dependencies against RustSec advisories"
+    ],
+    "avoid_when": [
+      "The project is not a Rust crate or workspace"
+    ],
+    "guardrails": [
+      "Treat advisories as dependency risk signals, not automatic upgrade approval."
+    ],
+    "docs": "https://github.com/rustsec/rustsec/tree/main/cargo-audit#readme"
+  },
+  {
+    "slug": "cargo-binstall",
+    "name": "cargo-binstall",
+    "binary": "cargo-binstall",
+    "description": "Install Rust binary crates from prebuilt artifacts when available.",
+    "category": [
+      "package-manager"
+    ],
+    "lang": [
+      "rust"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "network_access",
+      "write_files",
+      "execute_code"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Install Rust CLI tools faster than building from source"
+    ],
+    "avoid_when": [
+      "Reproducible source builds are required"
+    ],
+    "guardrails": [
+      "Confirm the crate and source before installing global tools."
+    ],
+    "docs": "https://github.com/cargo-bins/cargo-binstall#readme"
+  },
+  {
+    "slug": "cargo-clippy",
+    "name": "cargo-clippy",
+    "binary": "cargo-clippy",
+    "description": "Rust linter distributed as a Cargo subcommand.",
+    "category": [
+      "lint"
+    ],
+    "lang": [
+      "rust"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run Rust lint checks"
+    ],
+    "avoid_when": [
+      "The current project is not a Rust crate or workspace"
+    ],
+    "guardrails": [
+      "Run clippy from the workspace root when Cargo.toml defines a workspace."
+    ],
+    "docs": "https://doc.rust-lang.org/clippy/"
+  },
+  {
+    "slug": "cargo-deny",
+    "name": "cargo-deny",
+    "binary": "cargo-deny",
+    "description": "Rust dependency policy checker for advisories, licenses, bans, and sources.",
+    "category": [
+      "security"
+    ],
+    "lang": [
+      "rust"
+    ],
+    "risk": "medium",
+    "effects": [
+      "network_access",
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Enforce Rust dependency license, advisory, and source policies"
+    ],
+    "avoid_when": [
+      "The project has no Rust dependency policy"
+    ],
+    "guardrails": [
+      "Use existing deny.toml policy before proposing dependency changes."
+    ],
+    "docs": "https://embarkstudios.github.io/cargo-deny/"
+  },
+  {
+    "slug": "cargo-fmt",
+    "name": "cargo-fmt",
+    "binary": "cargo-fmt",
+    "description": "Rust formatter distributed as a Cargo subcommand.",
+    "category": [
+      "formatter"
+    ],
+    "lang": [
+      "rust"
+    ],
+    "risk": "medium",
+    "effects": [
+      "write_files"
+    ],
+    "aliases": [
+      "rustfmt"
+    ],
+    "use_when": [
+      "Format Rust source files"
+    ],
+    "avoid_when": [
+      "The current project is not a Rust crate or workspace"
+    ],
+    "guardrails": [
+      "Use --check when only verifying formatting."
+    ],
+    "docs": "https://github.com/rust-lang/rustfmt#readme"
+  },
+  {
+    "slug": "cargo-nextest",
+    "name": "cargo-nextest",
+    "binary": "cargo-nextest",
+    "description": "Fast Rust test runner for Cargo projects.",
+    "category": [
+      "test"
+    ],
+    "lang": [
+      "rust"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run Rust tests faster with better reporting"
+    ],
+    "avoid_when": [
+      "The project relies on cargo test behavior that nextest does not support"
+    ],
+    "guardrails": [
+      "Use the repository's nextest profile when configured."
+    ],
+    "docs": "https://nexte.st/docs/"
+  },
+  {
+    "slug": "cargo-watch",
+    "name": "cargo-watch",
+    "binary": "cargo-watch",
+    "description": "Run Cargo commands whenever project files change.",
+    "category": [
+      "automation"
+    ],
+    "lang": [
+      "rust"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Re-run Rust checks or tests during active development"
+    ],
+    "avoid_when": [
+      "A single deterministic command is required for CI"
+    ],
+    "guardrails": [
+      "Stop watchers before running final validation commands."
+    ],
+    "docs": "https://github.com/watchexec/cargo-watch#readme"
+  },
+  {
+    "slug": "clang",
+    "name": "clang",
+    "binary": "clang",
+    "description": "LLVM C, C++, and Objective-C compiler.",
+    "category": [
+      "compiler"
+    ],
+    "lang": [
+      "c",
+      "cpp",
+      "objective-c"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [
+      "clang++"
+    ],
+    "use_when": [
+      "Compile C or C++ projects using Clang"
+    ],
+    "avoid_when": [
+      "The project build system selects another compiler"
+    ],
+    "guardrails": [
+      "Prefer the project build system over direct compiler invocations."
+    ],
+    "docs": "https://clang.llvm.org/docs/CommandGuide/clang.html"
+  },
+  {
+    "slug": "clang-format",
+    "name": "clang-format",
+    "binary": "clang-format",
+    "description": "Formatter for C, C++, Objective-C, Java, JavaScript, and related languages.",
+    "category": [
+      "formatter"
+    ],
+    "lang": [
+      "c",
+      "cpp",
+      "objective-c",
+      "java",
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Format C-family source code using project style"
+    ],
+    "avoid_when": [
+      "No clang-format configuration exists and style is not agreed"
+    ],
+    "guardrails": [
+      "Use dry-run or check mode before writing broad formatting changes."
+    ],
+    "docs": "https://clang.llvm.org/docs/ClangFormat.html"
+  },
+  {
+    "slug": "clang-tidy",
+    "name": "clang-tidy",
+    "binary": "clang-tidy",
+    "description": "C and C++ linter and static analysis tool.",
+    "category": [
+      "lint"
+    ],
+    "lang": [
+      "c",
+      "cpp"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run C or C++ lint and static analysis checks"
+    ],
+    "avoid_when": [
+      "compile_commands.json or project configuration is missing"
+    ],
+    "guardrails": [
+      "Run analysis with the project's compile database."
+    ],
+    "docs": "https://clang.llvm.org/extra/clang-tidy/"
+  },
+  {
+    "slug": "claude",
+    "name": "claude",
+    "binary": "claude",
+    "description": "Anthropic Claude Code command-line coding assistant.",
+    "category": [
+      "agent"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Use Claude Code project instructions or workflows"
+    ],
+    "avoid_when": [
+      "The task should not call a separate AI coding assistant"
+    ],
+    "guardrails": [
+      "Review tool permissions and diffs before accepting edits."
+    ],
+    "docs": "https://docs.anthropic.com/en/docs/claude-code"
+  },
+  {
+    "slug": "clickhouse",
+    "name": "clickhouse",
+    "binary": "clickhouse",
+    "description": "ClickHouse command-line client and local database tooling.",
+    "category": [
+      "database"
+    ],
+    "lang": [
+      "sql"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "remote_read",
+      "remote_write",
+      "secret_exposure"
+    ],
+    "aliases": [
+      "clickhouse-client"
+    ],
+    "use_when": [
+      "Query or inspect ClickHouse databases"
+    ],
+    "avoid_when": [
+      "Connection target or credentials are unknown"
+    ],
+    "guardrails": [
+      "Confirm the target database before write queries."
+    ],
+    "docs": "https://clickhouse.com/docs/interfaces/cli"
+  },
+  {
+    "slug": "cmake",
+    "name": "cmake",
+    "binary": "cmake",
+    "description": "Cross-platform build system generator.",
+    "category": [
+      "build"
+    ],
+    "lang": [
+      "c",
+      "cpp"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Configure, build, or test CMake projects"
+    ],
+    "avoid_when": [
+      "The project uses another build system and has no CMake files"
+    ],
+    "guardrails": [
+      "Use out-of-tree build directories or configured presets."
+    ],
+    "docs": "https://cmake.org/cmake/help/latest/"
+  },
+  {
+    "slug": "codex",
+    "name": "codex",
+    "binary": "codex",
+    "description": "OpenAI Codex command-line coding agent.",
+    "category": [
+      "agent"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run Codex agent workflows or inspect Codex project instructions"
+    ],
+    "avoid_when": [
+      "The task should stay within the current agent session"
+    ],
+    "guardrails": [
+      "Read AGENTS.md before starting repository work."
+    ],
+    "docs": "https://github.com/openai/codex#readme"
+  },
+  {
+    "slug": "composer",
+    "name": "composer",
+    "binary": "composer",
+    "description": "PHP dependency manager and project command runner.",
+    "category": [
+      "package-manager"
+    ],
+    "lang": [
+      "php"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Install PHP dependencies or run Composer scripts"
+    ],
+    "avoid_when": [
+      "The repository has no composer.json"
+    ],
+    "guardrails": [
+      "Use project scripts instead of global PHP tooling when composer.json defines them."
+    ],
+    "docs": "https://getcomposer.org/doc/"
+  },
+  {
+    "slug": "corepack",
+    "name": "corepack",
+    "binary": "corepack",
+    "description": "Node.js package manager shim for pnpm and Yarn.",
+    "category": [
+      "package-manager"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Activate the package manager declared by package.json"
+    ],
+    "avoid_when": [
+      "The project does not declare packageManager"
+    ],
+    "guardrails": [
+      "Use the package manager declared by package.json when present."
+    ],
+    "docs": "https://nodejs.org/api/corepack.html"
+  },
+  {
+    "slug": "cosign",
+    "name": "cosign",
+    "binary": "cosign",
+    "description": "Container image and artifact signing CLI from Sigstore.",
+    "category": [
+      "security"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_write",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Sign or verify container images and artifacts"
+    ],
+    "avoid_when": [
+      "Signing identity, keyless flow, or registry target is unclear"
+    ],
+    "guardrails": [
+      "Verify identity, registry, and artifact digest before signing."
+    ],
+    "docs": "https://docs.sigstore.dev/cosign/"
+  },
+  {
+    "slug": "curl",
+    "name": "curl",
+    "binary": "curl",
+    "description": "Command-line HTTP and network transfer client.",
+    "category": [
+      "network"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "network_access",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Test HTTP endpoints",
+      "Inspect response headers or bodies"
+    ],
+    "avoid_when": [
+      "Requests include secrets that could be logged",
+      "Browser behavior such as cookies or JavaScript is required"
+    ],
+    "guardrails": [
+      "Redact credentials and tokens from curl commands and output."
+    ],
+    "docs": "https://curl.se/docs/manpage.html"
+  },
+  {
+    "slug": "cursor-agent",
+    "name": "cursor-agent",
+    "binary": "cursor-agent",
+    "description": "Cursor's terminal coding agent.",
+    "category": [
+      "agent"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Use Cursor agent workflows from the terminal"
+    ],
+    "avoid_when": [
+      "The task should stay inside the current agent session"
+    ],
+    "guardrails": [
+      "Review generated changes before committing them."
+    ],
+    "docs": "https://docs.cursor.com/"
+  },
+  {
+    "slug": "delta",
+    "name": "delta",
+    "binary": "delta",
+    "description": "Syntax-highlighting pager for git, diff, and grep output.",
+    "category": [
+      "vcs"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [
+      "git-delta"
+    ],
+    "use_when": [
+      "Review diffs with syntax highlighting and side-by-side output"
+    ],
+    "avoid_when": [
+      "Machine-readable diff output is required"
+    ],
+    "guardrails": [
+      "Disable pager decoration when parsing diff output."
+    ],
+    "docs": "https://dandavison.github.io/delta/"
+  },
+  {
+    "slug": "deno",
+    "name": "deno",
+    "binary": "deno",
+    "description": "Secure JavaScript and TypeScript runtime with built-in tooling.",
+    "category": [
+      "runtime"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run, test, lint, or format Deno projects"
+    ],
+    "avoid_when": [
+      "The repository is managed by Node package managers"
+    ],
+    "guardrails": [
+      "Keep Deno permission flags explicit when running untrusted code."
+    ],
+    "docs": "https://docs.deno.com/"
+  },
+  {
+    "slug": "devcontainer",
+    "name": "devcontainer",
+    "binary": "devcontainer",
+    "description": "CLI for building and running Development Containers.",
+    "category": [
+      "environment"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files",
+      "container_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build or run repository development containers"
+    ],
+    "avoid_when": [
+      "The project has no devcontainer configuration"
+    ],
+    "guardrails": [
+      "Inspect devcontainer features and mounts before building."
+    ],
+    "docs": "https://github.com/devcontainers/cli#readme"
+  },
+  {
+    "slug": "direnv",
+    "name": "direnv",
+    "binary": "direnv",
+    "description": "Per-directory shell environment loader.",
+    "category": [
+      "environment"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "secret_exposure",
+      "environment_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Load project-specific environment variables and PATH changes"
+    ],
+    "avoid_when": [
+      "The .envrc file has not been reviewed"
+    ],
+    "guardrails": [
+      "Read .envrc before running direnv allow."
+    ],
+    "docs": "https://direnv.net/"
+  },
+  {
+    "slug": "docker",
+    "name": "docker",
+    "binary": "docker",
+    "description": "Container build and runtime CLI.",
+    "category": [
+      "container",
+      "build",
+      "deploy"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "read_files",
+      "write_files",
+      "remote_read",
+      "remote_write"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build and run containerized projects",
+      "Inspect local container state"
+    ],
+    "avoid_when": [
+      "Docker daemon is not available",
+      "The task does not require containers"
+    ],
+    "guardrails": [
+      "Verify the Docker daemon before blaming project code for Docker failures."
+    ],
+    "docs": "https://docs.docker.com/reference/cli/docker/"
+  },
+  {
+    "slug": "docker-compose",
+    "name": "docker-compose",
+    "binary": "docker-compose",
+    "description": "Docker Compose standalone CLI.",
+    "category": [
+      "container",
+      "deploy"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Manage multi-container Docker projects using Compose files"
+    ],
+    "avoid_when": [
+      "Docker daemon is unavailable",
+      "The project uses docker compose subcommands instead"
+    ],
+    "guardrails": [
+      "Verify Docker daemon availability before running Compose workflows."
+    ],
+    "docs": "https://docs.docker.com/compose/reference/"
+  },
+  {
+    "slug": "dotnet",
+    "name": "dotnet",
+    "binary": "dotnet",
+    "description": ".NET SDK command-line interface.",
+    "category": [
+      "build"
+    ],
+    "lang": [
+      "csharp",
+      "fsharp",
+      "visual-basic"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build, test, run, or manage .NET projects"
+    ],
+    "avoid_when": [
+      "The repository has no .csproj, .fsproj, .sln, or global.json context"
+    ],
+    "guardrails": [
+      "Prefer solution-level commands when a .sln file defines the project set."
+    ],
+    "docs": "https://learn.microsoft.com/dotnet/core/tools/"
+  },
+  {
+    "slug": "dua",
+    "name": "dua",
+    "binary": "dua",
+    "description": "Disk usage analyzer for finding large files and directories.",
+    "category": [
+      "file-viewer"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect disk usage interactively or from the terminal"
+    ],
+    "avoid_when": [
+      "The task only needs a simple directory listing"
+    ],
+    "guardrails": [
+      "Do not delete files from disk usage tools without explicit confirmation."
+    ],
+    "docs": "https://github.com/Byron/dua-cli#readme"
+  },
+  {
+    "slug": "duckdb",
+    "name": "duckdb",
+    "binary": "duckdb",
+    "description": "Embedded analytical database CLI.",
+    "category": [
+      "database"
+    ],
+    "lang": [
+      "sql"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Query local data files or embedded DuckDB databases"
+    ],
+    "avoid_when": [
+      "The task requires a remote transactional database"
+    ],
+    "guardrails": [
+      "Work on copies when experimenting with local database files."
+    ],
+    "docs": "https://duckdb.org/docs/stable/clients/cli/"
+  },
+  {
+    "slug": "dust",
+    "name": "dust",
+    "binary": "dust",
+    "description": "Visual disk usage summary for directories.",
+    "category": [
+      "file-viewer"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Find large directories quickly"
+    ],
+    "avoid_when": [
+      "Exact file-level accounting is required for automation"
+    ],
+    "guardrails": [
+      "Limit scan scope on very large filesystems."
+    ],
+    "docs": "https://github.com/bootandy/dust#readme"
+  },
+  {
+    "slug": "eas",
+    "name": "eas",
+    "binary": "eas",
+    "description": "Expo Application Services CLI for cloud builds, submissions, updates, and credentials.",
+    "category": [
+      "deploy",
+      "build",
+      "mobile"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "platform": [
+      "android",
+      "ios"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "remote_write",
+      "write_files",
+      "requires_auth"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run Expo cloud builds, submissions, updates, or credential workflows"
+    ],
+    "avoid_when": [
+      "The user has not approved remote build or store operations"
+    ],
+    "guardrails": [
+      "Treat EAS build, submit, update, and credentials commands as confirmation-gated remote writes."
+    ],
+    "docs": "https://docs.expo.dev/eas/"
+  },
+  {
+    "slug": "emulator",
+    "name": "emulator",
+    "binary": "emulator",
+    "description": "Android Emulator CLI for listing and launching Android virtual devices.",
+    "category": [
+      "mobile",
+      "simulator"
+    ],
+    "lang": [
+      "all"
+    ],
+    "platform": [
+      "android"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "List or launch Android virtual devices for mobile testing"
+    ],
+    "avoid_when": [
+      "A physical device is required or no AVDs are configured"
+    ],
+    "guardrails": [
+      "Avoid wipe-data or snapshot deletion flags unless explicitly requested."
+    ],
+    "docs": "https://developer.android.com/studio/run/emulator-commandline"
+  },
+  {
+    "slug": "eslint",
+    "name": "eslint",
+    "binary": "eslint",
+    "description": "JavaScript and TypeScript linting CLI.",
+    "category": [
+      "lint"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run JavaScript or TypeScript lint checks"
+    ],
+    "avoid_when": [
+      "The project has no ESLint configuration or lint script"
+    ],
+    "guardrails": [
+      "Prefer the package manager lint script when it exists."
+    ],
+    "docs": "https://eslint.org/docs/latest/use/command-line-interface"
+  },
+  {
+    "slug": "expo",
+    "name": "expo",
+    "binary": "expo",
+    "description": "Expo CLI for developing, prebuilding, and running React Native apps.",
+    "category": [
+      "build",
+      "runtime",
+      "mobile"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "platform": [
+      "android",
+      "ios",
+      "web"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Start, run, or prebuild Expo React Native apps"
+    ],
+    "avoid_when": [
+      "The project is not an Expo app or package-manager scripts should be used instead"
+    ],
+    "guardrails": [
+      "Prefer package-manager scripts and ask before running `expo prebuild` because it writes native project files."
+    ],
+    "docs": "https://docs.expo.dev/more/expo-cli/"
+  },
+  {
+    "slug": "eza",
+    "name": "eza",
+    "binary": "eza",
+    "description": "Modern directory listing tool.",
+    "category": [
+      "file-viewer"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [
+      "exa"
+    ],
+    "use_when": [
+      "Inspect directories with git status, tree layout, or metadata"
+    ],
+    "avoid_when": [
+      "Scripts require portable POSIX ls behavior"
+    ],
+    "guardrails": [
+      "Use stable machine-readable commands for automation."
+    ],
+    "docs": "https://eza.rocks/"
+  },
+  {
+    "slug": "fastlane",
+    "name": "fastlane",
+    "binary": "fastlane",
+    "description": "Automation CLI for mobile build, signing, beta distribution, and app store release workflows.",
+    "category": [
+      "deploy",
+      "mobile",
+      "signing"
+    ],
+    "lang": [
+      "ruby"
+    ],
+    "platform": [
+      "android",
+      "ios"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "read_files",
+      "write_files",
+      "remote_write",
+      "requires_auth"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run repository-defined mobile release, signing, screenshots, or store submission lanes"
+    ],
+    "avoid_when": [
+      "Lane behavior or credentials are unknown"
+    ],
+    "guardrails": [
+      "Inspect Fastfile lanes and verify authentication before running release or signing lanes."
+    ],
+    "docs": "https://docs.fastlane.tools/"
+  },
+  {
+    "slug": "fd",
+    "name": "fd",
+    "binary": "fd",
+    "description": "Fast filesystem entry finder.",
+    "category": [
+      "search"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [
+      "fdfind"
+    ],
+    "use_when": [
+      "Find files or directories by name",
+      "Build file lists before passing them to another command"
+    ],
+    "avoid_when": [
+      "Searching file contents",
+      "Structured code search"
+    ],
+    "guardrails": [
+      "Avoid piping fd output into destructive commands without reviewing the matched paths."
+    ],
+    "docs": "https://github.com/sharkdp/fd#readme"
+  },
+  {
+    "slug": "find",
+    "name": "find",
+    "binary": "gfind",
+    "description": "GNU find for locating files by name, type, time, and predicates.",
+    "category": [
+      "search"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Locate files by filesystem metadata"
+    ],
+    "avoid_when": [
+      "fd is available and simple name matching is enough"
+    ],
+    "guardrails": [
+      "Print matches before deleting or executing commands over them.",
+      "On Windows, plain find.exe is usually not GNU find; prefer fd unless gfind is installed."
+    ],
+    "docs": "https://www.gnu.org/software/findutils/manual/"
+  },
+  {
+    "slug": "firebase",
+    "name": "firebase",
+    "binary": "firebase",
+    "description": "Firebase project management and deployment CLI.",
+    "category": [
+      "cloud"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "deployment",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Deploy or inspect Firebase projects"
+    ],
+    "avoid_when": [
+      "Active project or authentication state is unknown"
+    ],
+    "guardrails": [
+      "Confirm active Firebase project before write operations."
+    ],
+    "docs": "https://firebase.google.com/docs/cli"
+  },
+  {
+    "slug": "flutter",
+    "name": "flutter",
+    "binary": "flutter",
+    "description": "Flutter SDK CLI for building, testing, and running Dart applications across mobile, web, and desktop.",
+    "category": [
+      "build",
+      "test",
+      "package-manager",
+      "mobile"
+    ],
+    "lang": [
+      "dart"
+    ],
+    "platform": [
+      "android",
+      "ios",
+      "web",
+      "desktop"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build, test, run, or inspect Flutter projects"
+    ],
+    "avoid_when": [
+      "The project is not a Flutter app or package"
+    ],
+    "guardrails": [
+      "Prefer project-defined Flutter scripts when present and confirm before touching connected devices."
+    ],
+    "docs": "https://docs.flutter.dev/reference/flutter-cli"
+  },
+  {
+    "slug": "flyctl",
+    "name": "flyctl",
+    "binary": "flyctl",
+    "description": "Fly.io command-line tool.",
+    "category": [
+      "cloud"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "cloud_mutation"
+    ],
+    "aliases": [
+      "fly"
+    ],
+    "use_when": [
+      "Deploy or inspect Fly.io applications"
+    ],
+    "avoid_when": [
+      "The task does not explicitly involve Fly.io"
+    ],
+    "guardrails": [
+      "Confirm target app and organization before Fly.io write operations."
+    ],
+    "docs": "https://fly.io/docs/flyctl/"
+  },
+  {
+    "slug": "fnm",
+    "name": "fnm",
+    "binary": "fnm",
+    "description": "Fast Node.js version manager.",
+    "category": [
+      "environment"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "network_access",
+      "environment_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Install or switch Node.js versions for a project"
+    ],
+    "avoid_when": [
+      "Node versions are managed by mise, Volta, or another configured manager"
+    ],
+    "guardrails": [
+      "Prefer the version manager already configured by the repository."
+    ],
+    "docs": "https://github.com/Schniz/fnm#readme"
+  },
+  {
+    "slug": "fzf",
+    "name": "fzf",
+    "binary": "fzf",
+    "description": "General-purpose command-line fuzzy finder.",
+    "category": [
+      "search"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Interactively filter files, history, branches, or command output"
+    ],
+    "avoid_when": [
+      "Fully non-interactive automation is required"
+    ],
+    "guardrails": [
+      "Use explicit non-interactive filters in scripts."
+    ],
+    "docs": "https://github.com/junegunn/fzf#readme"
+  },
+  {
+    "slug": "gcc",
+    "name": "gcc",
+    "binary": "gcc",
+    "description": "GNU Compiler Collection C and C++ compiler.",
+    "category": [
+      "compiler"
+    ],
+    "lang": [
+      "c",
+      "cpp",
+      "objective-c"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [
+      "g++"
+    ],
+    "use_when": [
+      "Compile C or C++ projects with GCC"
+    ],
+    "avoid_when": [
+      "The project build system selects another compiler"
+    ],
+    "guardrails": [
+      "Prefer project build scripts over ad hoc compiler commands."
+    ],
+    "docs": "https://gcc.gnu.org/onlinedocs/"
+  },
+  {
+    "slug": "gcloud",
+    "name": "gcloud",
+    "binary": "gcloud",
+    "description": "Google Cloud command-line interface.",
+    "category": [
+      "cloud"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "cloud_mutation",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect or operate Google Cloud resources"
+    ],
+    "avoid_when": [
+      "Project, account, or credentials are unknown"
+    ],
+    "guardrails": [
+      "Confirm active project and account before write operations."
+    ],
+    "docs": "https://cloud.google.com/sdk/gcloud"
+  },
+  {
+    "slug": "gemini",
+    "name": "gemini",
+    "binary": "gemini",
+    "description": "Google Gemini command-line AI assistant.",
+    "category": [
+      "agent"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Use Gemini CLI project context or AI assistant workflows"
+    ],
+    "avoid_when": [
+      "The task should not call a separate AI assistant"
+    ],
+    "guardrails": [
+      "Review repository instructions and generated diffs."
+    ],
+    "docs": "https://github.com/google-gemini/gemini-cli#readme"
+  },
+  {
+    "slug": "gh",
+    "name": "gh",
+    "binary": "gh",
+    "description": "GitHub command-line interface.",
+    "category": [
+      "vcs"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect GitHub pull requests, issues, and checks",
+      "Perform GitHub operations when authenticated and requested"
+    ],
+    "avoid_when": [
+      "Authentication state is unknown for write operations"
+    ],
+    "guardrails": [
+      "Verify gh auth status before write operations."
+    ],
+    "docs": "https://cli.github.com/manual/"
+  },
+  {
+    "slug": "git",
+    "name": "git",
+    "binary": "git",
+    "description": "Distributed version control system.",
+    "category": [
+      "vcs"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "read_files",
+      "write_files",
+      "remote_read",
+      "remote_write"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect repository state and history",
+      "Stage, commit, branch, or diff changes when requested"
+    ],
+    "avoid_when": [
+      "Reverting user changes without explicit approval"
+    ],
+    "guardrails": [
+      "Never discard user changes unless explicitly requested."
+    ],
+    "docs": "https://git-scm.com/docs"
+  },
+  {
+    "slug": "git-lfs",
+    "name": "git-lfs",
+    "binary": "git-lfs",
+    "description": "Git extension for large file storage.",
+    "category": [
+      "vcs"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "network_access",
+      "remote_read",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Fetch, track, or inspect Git LFS assets"
+    ],
+    "avoid_when": [
+      "The repository does not use Git LFS"
+    ],
+    "guardrails": [
+      "Check .gitattributes before changing LFS tracking."
+    ],
+    "docs": "https://github.com/git-lfs/git-lfs#readme"
+  },
+  {
+    "slug": "gitleaks",
+    "name": "gitleaks",
+    "binary": "gitleaks",
+    "description": "Secret scanner for git repositories and filesystems.",
+    "category": [
+      "security"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "read_files",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Scan repositories for committed secrets"
+    ],
+    "avoid_when": [
+      "Findings would expose secrets in shared logs"
+    ],
+    "guardrails": [
+      "Redact secret values from output shared with users or logs."
+    ],
+    "docs": "https://github.com/gitleaks/gitleaks#readme"
+  },
+  {
+    "slug": "glow",
+    "name": "glow",
+    "binary": "glow",
+    "description": "Terminal Markdown renderer.",
+    "category": [
+      "docs"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Read Markdown documentation in the terminal"
+    ],
+    "avoid_when": [
+      "Raw Markdown text is needed for editing or parsing"
+    ],
+    "guardrails": [
+      "Use raw file reads when exact Markdown syntax matters."
+    ],
+    "docs": "https://github.com/charmbracelet/glow#readme"
+  },
+  {
+    "slug": "go",
+    "name": "go",
+    "binary": "go",
+    "description": "Go toolchain for modules, build, test, and run.",
+    "category": [
+      "build"
+    ],
+    "lang": [
+      "go"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build, test, run, or manage Go modules"
+    ],
+    "avoid_when": [
+      "The repository has no Go module or workspace files"
+    ],
+    "guardrails": [
+      "Use go test ./... from the module root when validating broad changes."
+    ],
+    "docs": "https://go.dev/doc/"
+  },
+  {
+    "slug": "gofmt",
+    "name": "gofmt",
+    "binary": "gofmt",
+    "description": "Standard Go source formatter.",
+    "category": [
+      "formatter"
+    ],
+    "lang": [
+      "go"
+    ],
+    "risk": "medium",
+    "effects": [
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Format Go source files"
+    ],
+    "avoid_when": [
+      "The repository has no Go source files"
+    ],
+    "guardrails": [
+      "Use gofmt on touched files or gofmt -w after reviewing scope."
+    ],
+    "docs": "https://pkg.go.dev/cmd/gofmt"
+  },
+  {
+    "slug": "goose",
+    "name": "goose",
+    "binary": "goose",
+    "description": "Open-source local AI agent framework and CLI from Block.",
+    "category": [
+      "agent"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run local agent workflows with Goose"
+    ],
+    "avoid_when": [
+      "The task should stay inside the current agent session"
+    ],
+    "guardrails": [
+      "Review enabled extensions and generated diffs."
+    ],
+    "docs": "https://block.github.io/goose/"
+  },
+  {
+    "slug": "gradle",
+    "name": "gradle",
+    "binary": "gradle",
+    "description": "Gradle build automation CLI.",
+    "category": [
+      "build"
+    ],
+    "lang": [
+      "java",
+      "kotlin",
+      "groovy",
+      "scala"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build, test, or run Gradle projects"
+    ],
+    "avoid_when": [
+      "The project provides no Gradle wrapper or build file"
+    ],
+    "guardrails": [
+      "Prefer the project Gradle wrapper when present."
+    ],
+    "docs": "https://docs.gradle.org/current/userguide/command_line_interface.html"
+  },
+  {
+    "slug": "grep",
+    "name": "grep",
+    "binary": "grep",
+    "description": "Classic line-oriented text search.",
+    "category": [
+      "search"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Search text in files or streams on systems without rg"
+    ],
+    "avoid_when": [
+      "ripgrep is available for recursive codebase search"
+    ],
+    "guardrails": [
+      "Prefer rg for repository-wide searches when available."
+    ],
+    "docs": "https://www.gnu.org/software/grep/manual/"
+  },
+  {
+    "slug": "grpcurl",
+    "name": "grpcurl",
+    "binary": "grpcurl",
+    "description": "Command-line gRPC client for inspecting and calling services.",
+    "category": [
+      "api"
+    ],
+    "lang": [
+      "protobuf"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "remote_read",
+      "remote_write",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect or call gRPC services from the terminal"
+    ],
+    "avoid_when": [
+      "Target service or credentials are unknown"
+    ],
+    "guardrails": [
+      "Confirm target host and method before invoking mutating RPCs."
+    ],
+    "docs": "https://github.com/fullstorydev/grpcurl#readme"
+  },
+  {
+    "slug": "grype",
+    "name": "grype",
+    "binary": "grype",
+    "description": "Vulnerability scanner for container images and filesystems.",
+    "category": [
+      "security"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "network_access"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Scan images, SBOMs, or filesystems for vulnerabilities"
+    ],
+    "avoid_when": [
+      "The scan target is unclear or too broad"
+    ],
+    "guardrails": [
+      "Treat vulnerability results as triage inputs requiring version and context review."
+    ],
+    "docs": "https://github.com/anchore/grype#readme"
+  },
+  {
+    "slug": "hatch",
+    "name": "hatch",
+    "binary": "hatch",
+    "description": "Python project, environment, and packaging manager.",
+    "category": [
+      "package-manager"
+    ],
+    "lang": [
+      "python"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Manage Python projects configured for Hatch"
+    ],
+    "avoid_when": [
+      "The project uses uv, Poetry, or another package manager"
+    ],
+    "guardrails": [
+      "Use Hatch only when the project configuration indicates it."
+    ],
+    "docs": "https://hatch.pypa.io/latest/"
+  },
+  {
+    "slug": "helix",
+    "name": "helix",
+    "binary": "hx",
+    "description": "Modal terminal editor with built-in LSP and tree-sitter support.",
+    "category": [
+      "editor"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [
+      "helix"
+    ],
+    "use_when": [
+      "Edit files interactively in a terminal editor"
+    ],
+    "avoid_when": [
+      "Non-interactive scripted edits are required"
+    ],
+    "guardrails": [
+      "Use scripted patch tools for auditable automated edits."
+    ],
+    "docs": "https://docs.helix-editor.com/"
+  },
+  {
+    "slug": "helm",
+    "name": "helm",
+    "binary": "helm",
+    "description": "Kubernetes package manager for charts.",
+    "category": [
+      "kubernetes"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "cloud_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Work with Kubernetes Helm charts"
+    ],
+    "avoid_when": [
+      "The task does not involve Kubernetes chart packaging or release management"
+    ],
+    "guardrails": [
+      "Check Kubernetes context and namespace before Helm write operations."
+    ],
+    "docs": "https://helm.sh/docs/helm/"
+  },
+  {
+    "slug": "httpie",
+    "name": "httpie",
+    "binary": "http",
+    "description": "Human-friendly command-line HTTP client.",
+    "category": [
+      "network"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "network_access",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Manually inspect HTTP APIs with readable output"
+    ],
+    "avoid_when": [
+      "curl compatibility is required",
+      "Minimal dependency environments are preferred"
+    ],
+    "guardrails": [
+      "Avoid printing authorization headers or API keys."
+    ],
+    "docs": "https://httpie.io/docs/cli"
+  },
+  {
+    "slug": "hyperfine",
+    "name": "hyperfine",
+    "binary": "hyperfine",
+    "description": "Command-line benchmarking tool.",
+    "category": [
+      "benchmark"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Compare command performance with statistically useful runs"
+    ],
+    "avoid_when": [
+      "The command has irreversible side effects"
+    ],
+    "guardrails": [
+      "Benchmark commands should be repeatable and side-effect controlled."
+    ],
+    "docs": "https://github.com/sharkdp/hyperfine#readme"
+  },
+  {
+    "slug": "imagemagick",
+    "name": "imagemagick",
+    "binary": "magick",
+    "description": "ImageMagick CLI suite for inspecting, converting, and transforming images.",
+    "category": [
+      "image",
+      "docs"
+    ],
+    "lang": [
+      "all"
+    ],
+    "platform": [
+      "local"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [
+      "convert"
+    ],
+    "use_when": [
+      "Convert image formats, resize images, or inspect image metadata"
+    ],
+    "avoid_when": [
+      "Editing source images in place without a backup"
+    ],
+    "guardrails": [
+      "Write transformed images to new files unless replacement is requested."
+    ],
+    "docs": "https://imagemagick.org/script/command-line-processing.php"
+  },
+  {
+    "slug": "java",
+    "name": "java",
+    "binary": "java",
+    "description": "Java runtime command-line launcher.",
+    "category": [
+      "runtime"
+    ],
+    "lang": [
+      "java"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run Java applications or inspect JVM version"
+    ],
+    "avoid_when": [
+      "Build tooling should be invoked through Maven or Gradle"
+    ],
+    "guardrails": [
+      "Prefer project build tools for compile and test workflows."
+    ],
+    "docs": "https://docs.oracle.com/en/java/javase/"
+  },
+  {
+    "slug": "jest",
+    "name": "jest",
+    "binary": "jest",
+    "description": "JavaScript testing framework CLI.",
+    "category": [
+      "test"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run Jest unit tests"
+    ],
+    "avoid_when": [
+      "The project uses Vitest, Node test runner, or another test script"
+    ],
+    "guardrails": [
+      "Prefer the package manager test script when configured."
+    ],
+    "docs": "https://jestjs.io/docs/cli"
+  },
+  {
+    "slug": "jq",
+    "name": "jq",
+    "binary": "jq",
+    "description": "Command-line JSON processor.",
+    "category": [
+      "data"
+    ],
+    "lang": [
+      "json"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Query or transform JSON",
+      "Inspect machine-readable command output"
+    ],
+    "avoid_when": [
+      "Editing JSON files in place without validating the output"
+    ],
+    "guardrails": [
+      "Validate jq output before overwriting existing files."
+    ],
+    "docs": "https://jqlang.github.io/jq/manual/"
+  },
+  {
+    "slug": "just",
+    "name": "just",
+    "binary": "just",
+    "description": "Command runner for project recipes.",
+    "category": [
+      "automation",
+      "build",
+      "test"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run project-defined recipes"
+    ],
+    "avoid_when": [
+      "Recipe behavior is unknown and may mutate state"
+    ],
+    "guardrails": [
+      "Inspect recipe names before running ambiguous just commands."
+    ],
+    "docs": "https://just.systems/man/en/"
+  },
+  {
+    "slug": "k6",
+    "name": "k6",
+    "binary": "k6",
+    "description": "Load testing CLI for APIs and services.",
+    "category": [
+      "test"
+    ],
+    "lang": [
+      "javascript"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "remote_write"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run configured load or performance tests"
+    ],
+    "avoid_when": [
+      "Target environment or rate limits are unknown"
+    ],
+    "guardrails": [
+      "Confirm target environment and test intensity before running load tests."
+    ],
+    "docs": "https://grafana.com/docs/k6/latest/using-k6/k6-options/reference/"
+  },
+  {
+    "slug": "k9s",
+    "name": "k9s",
+    "binary": "k9s",
+    "description": "Terminal UI for managing Kubernetes clusters.",
+    "category": [
+      "kubernetes"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "cloud_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect Kubernetes resources interactively"
+    ],
+    "avoid_when": [
+      "Non-interactive automation or audit logs are required"
+    ],
+    "guardrails": [
+      "Confirm current Kubernetes context before mutations."
+    ],
+    "docs": "https://k9scli.io/"
+  },
+  {
+    "slug": "kind",
+    "name": "kind",
+    "binary": "kind",
+    "description": "Run local Kubernetes clusters in Docker containers.",
+    "category": [
+      "kubernetes"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files",
+      "container_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Create local Kubernetes clusters for testing"
+    ],
+    "avoid_when": [
+      "Docker is unavailable or the task targets a remote cluster"
+    ],
+    "guardrails": [
+      "Name clusters explicitly to avoid modifying the wrong local cluster."
+    ],
+    "docs": "https://kind.sigs.k8s.io/"
+  },
+  {
+    "slug": "kubectl",
+    "name": "kubectl",
+    "binary": "kubectl",
+    "description": "Kubernetes command-line tool.",
+    "category": [
+      "kubernetes"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "cloud_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect or manage Kubernetes resources"
+    ],
+    "avoid_when": [
+      "The current context and namespace are unknown"
+    ],
+    "guardrails": [
+      "Check current context and namespace before mutating Kubernetes resources."
+    ],
+    "docs": "https://kubernetes.io/docs/reference/kubectl/"
+  },
+  {
+    "slug": "kustomize",
+    "name": "kustomize",
+    "binary": "kustomize",
+    "description": "Kubernetes configuration customization tool.",
+    "category": [
+      "kubernetes"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build or inspect Kustomize Kubernetes manifests"
+    ],
+    "avoid_when": [
+      "The repository uses Helm or plain manifests without Kustomize"
+    ],
+    "guardrails": [
+      "Review generated manifests before applying to a cluster."
+    ],
+    "docs": "https://kubectl.docs.kubernetes.io/references/kustomize/"
+  },
+  {
+    "slug": "lazygit",
+    "name": "lazygit",
+    "binary": "lazygit",
+    "description": "Terminal UI for git repositories.",
+    "category": [
+      "vcs"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files",
+      "vcs_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect and stage git changes interactively"
+    ],
+    "avoid_when": [
+      "Scripted git operations require exact commands"
+    ],
+    "guardrails": [
+      "Use explicit git commands for auditable automated workflows."
+    ],
+    "docs": "https://github.com/jesseduffield/lazygit#readme"
+  },
+  {
+    "slug": "lsd",
+    "name": "lsd",
+    "binary": "lsd",
+    "description": "Modern ls alternative with colors, icons, and tree output.",
+    "category": [
+      "file-viewer"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect directories with readable colors and tree output"
+    ],
+    "avoid_when": [
+      "Scripts need stable portable ls output"
+    ],
+    "guardrails": [
+      "Use machine-oriented commands for automation."
+    ],
+    "docs": "https://github.com/lsd-rs/lsd#readme"
+  },
+  {
+    "slug": "make",
+    "name": "make",
+    "binary": "make",
+    "description": "Build automation tool driven by Makefile targets.",
+    "category": [
+      "build",
+      "test",
+      "automation"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run project-defined build or test targets"
+    ],
+    "avoid_when": [
+      "Makefile targets are unknown and may mutate state"
+    ],
+    "guardrails": [
+      "Inspect Makefile targets before running ambiguous or destructive targets."
+    ],
+    "docs": "https://www.gnu.org/software/make/manual/"
+  },
+  {
+    "slug": "mdbook",
+    "name": "mdbook",
+    "binary": "mdbook",
+    "description": "Build books and documentation sites from Markdown.",
+    "category": [
+      "docs"
+    ],
+    "lang": [
+      "markdown"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build or serve mdBook documentation"
+    ],
+    "avoid_when": [
+      "The documentation site uses another generator"
+    ],
+    "guardrails": [
+      "Check book.toml before generating or publishing docs."
+    ],
+    "docs": "https://rust-lang.github.io/mdBook/"
+  },
+  {
+    "slug": "minikube",
+    "name": "minikube",
+    "binary": "minikube",
+    "description": "Local Kubernetes development cluster manager.",
+    "category": [
+      "kubernetes"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files",
+      "container_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Start or inspect a local Kubernetes cluster"
+    ],
+    "avoid_when": [
+      "The task targets a managed remote Kubernetes cluster"
+    ],
+    "guardrails": [
+      "Check current profile before mutating a minikube cluster."
+    ],
+    "docs": "https://minikube.sigs.k8s.io/docs/"
+  },
+  {
+    "slug": "miniserve",
+    "name": "miniserve",
+    "binary": "miniserve",
+    "description": "Small CLI for serving files over HTTP.",
+    "category": [
+      "network"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "read_files",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Temporarily serve local files over HTTP"
+    ],
+    "avoid_when": [
+      "Files contain secrets or should not be exposed on the network"
+    ],
+    "guardrails": [
+      "Bind to localhost unless the user explicitly wants network exposure."
+    ],
+    "docs": "https://github.com/svenstaro/miniserve#readme"
+  },
+  {
+    "slug": "mise",
+    "name": "mise",
+    "binary": "mise",
+    "description": "Development tool version manager and task runner.",
+    "category": [
+      "environment"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "environment_mutation",
+      "write_files"
+    ],
+    "aliases": [
+      "rtx"
+    ],
+    "use_when": [
+      "Install or select project tool versions",
+      "Run tasks defined by mise"
+    ],
+    "avoid_when": [
+      "Tool versions should be managed by another project-specific manager"
+    ],
+    "guardrails": [
+      "Review mise.toml before installing tools from a new project."
+    ],
+    "docs": "https://mise.jdx.dev/"
+  },
+  {
+    "slug": "mongosh",
+    "name": "mongosh",
+    "binary": "mongosh",
+    "description": "MongoDB Shell for querying and administering MongoDB.",
+    "category": [
+      "database"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "remote_read",
+      "remote_write",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Query or inspect MongoDB databases"
+    ],
+    "avoid_when": [
+      "Connection target or credentials are unknown"
+    ],
+    "guardrails": [
+      "Confirm database and collection before write operations."
+    ],
+    "docs": "https://www.mongodb.com/docs/mongodb-shell/"
+  },
+  {
+    "slug": "mvn",
+    "name": "mvn",
+    "binary": "mvn",
+    "description": "Apache Maven build and dependency management CLI.",
+    "category": [
+      "build"
+    ],
+    "lang": [
+      "java",
+      "kotlin",
+      "scala"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build, test, or package Maven projects"
+    ],
+    "avoid_when": [
+      "The repository uses Gradle or another JVM build tool"
+    ],
+    "guardrails": [
+      "Prefer the Maven wrapper when present."
+    ],
+    "docs": "https://maven.apache.org/guides/"
+  },
+  {
+    "slug": "mypy",
+    "name": "mypy",
+    "binary": "mypy",
+    "description": "Static type checker for Python.",
+    "category": [
+      "type-checker"
+    ],
+    "lang": [
+      "python"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run Python static type checks"
+    ],
+    "avoid_when": [
+      "The project uses a different type checker or has no mypy config"
+    ],
+    "guardrails": [
+      "Run mypy with the repository's configured target paths."
+    ],
+    "docs": "https://mypy.readthedocs.io/"
+  },
+  {
+    "slug": "mysql",
+    "name": "mysql",
+    "binary": "mysql",
+    "description": "MySQL command-line client.",
+    "category": [
+      "database"
+    ],
+    "lang": [
+      "sql"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect MySQL or MariaDB databases"
+    ],
+    "avoid_when": [
+      "Connection target and environment are unclear"
+    ],
+    "guardrails": [
+      "Confirm host, database, and environment before mutating MySQL data."
+    ],
+    "docs": "https://dev.mysql.com/doc/refman/en/mysql.html"
+  },
+  {
+    "slug": "netlify",
+    "name": "netlify",
+    "binary": "netlify",
+    "description": "Netlify CLI for local development and deployment.",
+    "category": [
+      "cloud"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_write",
+      "cloud_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Develop or deploy Netlify projects"
+    ],
+    "avoid_when": [
+      "The task does not explicitly involve Netlify"
+    ],
+    "guardrails": [
+      "Confirm deployment intent before creating remote Netlify deployments."
+    ],
+    "docs": "https://cli.netlify.com/"
+  },
+  {
+    "slug": "ninja",
+    "name": "ninja",
+    "binary": "ninja",
+    "description": "Small build system focused on speed.",
+    "category": [
+      "build"
+    ],
+    "lang": [
+      "c",
+      "cpp"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build projects generated for Ninja"
+    ],
+    "avoid_when": [
+      "The repository has no Ninja build file or preset"
+    ],
+    "guardrails": [
+      "Prefer the configured build directory generated by the project."
+    ],
+    "docs": "https://ninja-build.org/manual.html"
+  },
+  {
+    "slug": "nix",
+    "name": "nix",
+    "binary": "nix",
+    "description": "Reproducible package manager and build system.",
+    "category": [
+      "environment"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files",
+      "environment_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Enter reproducible development shells or build Nix projects"
+    ],
+    "avoid_when": [
+      "The repo has no Nix files and another environment manager is configured"
+    ],
+    "guardrails": [
+      "Review flake inputs before building untrusted Nix code."
+    ],
+    "docs": "https://nixos.org/manual/nix/stable/"
+  },
+  {
+    "slug": "node",
+    "name": "node",
+    "binary": "node",
+    "description": "JavaScript runtime for Node.js projects.",
+    "category": [
+      "runtime"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run JavaScript tooling",
+      "Execute project scripts through the declared package manager"
+    ],
+    "avoid_when": [
+      "The project is not a JavaScript or TypeScript project"
+    ],
+    "guardrails": [
+      "Prefer the repository package manager over direct node commands for project scripts."
+    ],
+    "docs": "https://nodejs.org/docs/"
+  },
+  {
+    "slug": "npm",
+    "name": "npm",
+    "binary": "npm",
+    "description": "Node.js package manager bundled with npm.",
+    "category": [
+      "package-manager",
+      "build",
+      "test"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Install and run scripts in npm-managed projects"
+    ],
+    "avoid_when": [
+      "The repo uses pnpm-lock.yaml, yarn.lock, or bun.lock"
+    ],
+    "guardrails": [
+      "Do not mix package managers in one repository."
+    ],
+    "docs": "https://docs.npmjs.com/"
+  },
+  {
+    "slug": "nu",
+    "name": "nu",
+    "binary": "nu",
+    "description": "Structured shell and scripting language.",
+    "category": [
+      "shell"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [
+      "nushell"
+    ],
+    "use_when": [
+      "Work with structured shell pipelines and tables"
+    ],
+    "avoid_when": [
+      "Scripts must run in POSIX sh, Bash, or PowerShell"
+    ],
+    "guardrails": [
+      "Do not assume Nushell syntax works in Bash or PowerShell."
+    ],
+    "docs": "https://www.nushell.sh/book/"
+  },
+  {
+    "slug": "oha",
+    "name": "oha",
+    "binary": "oha",
+    "description": "HTTP load generator and benchmark tool.",
+    "category": [
+      "benchmark",
+      "network"
+    ],
+    "lang": [
+      "all"
+    ],
+    "platform": [
+      "network"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "execute_code"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Benchmark local HTTP services with concise latency and throughput reports"
+    ],
+    "avoid_when": [
+      "The target is a production or third-party service without permission"
+    ],
+    "guardrails": [
+      "Benchmark localhost by default and ask before load testing shared or remote services."
+    ],
+    "docs": "https://github.com/hatoo/oha#readme"
+  },
+  {
+    "slug": "op",
+    "name": "op",
+    "binary": "op",
+    "description": "1Password CLI for secrets, vaults, and service accounts.",
+    "category": [
+      "secrets"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "requires_auth",
+      "secret_exposure",
+      "remote_read"
+    ],
+    "aliases": [
+      "1password"
+    ],
+    "use_when": [
+      "Read or inject secrets through 1Password CLI"
+    ],
+    "avoid_when": [
+      "The user has not requested secret access"
+    ],
+    "guardrails": [
+      "Never print secret values unless explicitly requested for a secure context."
+    ],
+    "docs": "https://developer.1password.com/docs/cli/reference/"
+  },
+  {
+    "slug": "opencode",
+    "name": "opencode",
+    "binary": "opencode",
+    "description": "Terminal-based AI coding agent.",
+    "category": [
+      "agent"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Use an AI coding agent from the terminal"
+    ],
+    "avoid_when": [
+      "The task should stay within the current agent session"
+    ],
+    "guardrails": [
+      "Review generated diffs and project instructions before accepting changes."
+    ],
+    "docs": "https://opencode.ai/docs/"
+  },
+  {
+    "slug": "openssl",
+    "name": "openssl",
+    "binary": "openssl",
+    "description": "Cryptography, certificate, and TLS inspection toolkit.",
+    "category": [
+      "security"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "read_files",
+      "write_files",
+      "network_access",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect certificates, generate keys, or test TLS connections"
+    ],
+    "avoid_when": [
+      "Secret key material would be exposed in logs or shell history"
+    ],
+    "guardrails": [
+      "Keep private keys out of command output, logs, and committed files."
+    ],
+    "docs": "https://docs.openssl.org/"
+  },
+  {
+    "slug": "ouch",
+    "name": "ouch",
+    "binary": "ouch",
+    "description": "User-friendly archive compression and extraction CLI.",
+    "category": [
+      "archive"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Compress or extract archives without remembering format-specific flags"
+    ],
+    "avoid_when": [
+      "Exact tar or zip flags are required for reproducible packaging"
+    ],
+    "guardrails": [
+      "List archive contents before extracting untrusted files."
+    ],
+    "docs": "https://github.com/ouch-org/ouch#readme"
+  },
+  {
+    "slug": "pandoc",
+    "name": "pandoc",
+    "binary": "pandoc",
+    "description": "Universal document converter for Markdown, HTML, DOCX, LaTeX, and more.",
+    "category": [
+      "docs",
+      "text"
+    ],
+    "lang": [
+      "markdown"
+    ],
+    "platform": [
+      "local"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Convert documents between markup and publishing formats",
+      "Extract readable text from supported document sources"
+    ],
+    "avoid_when": [
+      "Layout fidelity matters more than text content"
+    ],
+    "guardrails": [
+      "Write converted output to a new file unless the user requests replacement."
+    ],
+    "docs": "https://pandoc.org/MANUAL.html"
+  },
+  {
+    "slug": "paseo",
+    "name": "paseo",
+    "binary": "paseo",
+    "description": "Local daemon and CLI for supervising AI coding agents, worktrees, schedules, and terminals.",
+    "category": [
+      "agent",
+      "automation",
+      "terminal"
+    ],
+    "lang": [
+      "all"
+    ],
+    "platform": [
+      "local"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files",
+      "remote_read",
+      "remote_write"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Create or coordinate coding agents and managed worktrees",
+      "Run or capture long-lived workspace terminals"
+    ],
+    "avoid_when": [
+      "The local daemon is unavailable or restarting would interrupt active agents"
+    ],
+    "guardrails": [
+      "Never restart the daemon without explicit user approval."
+    ],
+    "docs": "https://github.com/mariozechner/pi-coding-agent"
+  },
+  {
+    "slug": "pdftoppm",
+    "name": "pdftoppm",
+    "binary": "pdftoppm",
+    "description": "Poppler CLI for rendering PDF pages to image files.",
+    "category": [
+      "docs",
+      "file-viewer"
+    ],
+    "lang": [
+      "all"
+    ],
+    "platform": [
+      "local"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Render PDF pages for visual inspection or OCR workflows"
+    ],
+    "avoid_when": [
+      "Text extraction is enough"
+    ],
+    "guardrails": [
+      "Limit page ranges when rendering large PDFs."
+    ],
+    "docs": "https://www.mankier.com/1/pdftoppm"
+  },
+  {
+    "slug": "pdftotext",
+    "name": "pdftotext",
+    "binary": "pdftotext",
+    "description": "Poppler CLI for extracting text from PDF files.",
+    "category": [
+      "docs",
+      "text",
+      "file-viewer"
+    ],
+    "lang": [
+      "all"
+    ],
+    "platform": [
+      "local"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Extract text from PDFs for reading, summarization, or search"
+    ],
+    "avoid_when": [
+      "The PDF is scanned images and needs OCR"
+    ],
+    "guardrails": [
+      "Use OCR tools for image-only PDFs when extracted text is empty or garbled."
+    ],
+    "docs": "https://www.mankier.com/1/pdftotext"
+  },
+  {
+    "slug": "php",
+    "name": "php",
+    "binary": "php",
+    "description": "PHP runtime command-line interface.",
+    "category": [
+      "runtime"
+    ],
+    "lang": [
+      "php"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run PHP scripts or inspect PHP runtime version"
+    ],
+    "avoid_when": [
+      "Project commands should be invoked through Composer"
+    ],
+    "guardrails": [
+      "Prefer Composer scripts when composer.json defines the workflow."
+    ],
+    "docs": "https://www.php.net/manual/en/features.commandline.php"
+  },
+  {
+    "slug": "pip",
+    "name": "pip",
+    "binary": "pip",
+    "description": "Python package installer.",
+    "category": [
+      "package-manager"
+    ],
+    "lang": [
+      "python"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [
+      "pip3"
+    ],
+    "use_when": [
+      "Install dependencies from requirements.txt"
+    ],
+    "avoid_when": [
+      "The project uses uv, Poetry, Conda, or another environment manager"
+    ],
+    "guardrails": [
+      "Prefer virtual environments over global pip installs."
+    ],
+    "docs": "https://pip.pypa.io/en/stable/cli/"
+  },
+  {
+    "slug": "pip-audit",
+    "name": "pip-audit",
+    "binary": "pip-audit",
+    "description": "Python dependency vulnerability scanner from PyPA.",
+    "category": [
+      "security"
+    ],
+    "lang": [
+      "python"
+    ],
+    "platform": [
+      "local"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "network_access"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Audit Python dependencies for known vulnerabilities"
+    ],
+    "avoid_when": [
+      "Network access to vulnerability databases is not allowed"
+    ],
+    "guardrails": [
+      "Treat vulnerability output as potentially sensitive before sharing externally."
+    ],
+    "docs": "https://github.com/pypa/pip-audit#readme"
+  },
+  {
+    "slug": "pipx",
+    "name": "pipx",
+    "binary": "pipx",
+    "description": "Install and run Python CLI applications in isolated environments.",
+    "category": [
+      "package-manager"
+    ],
+    "lang": [
+      "python"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Install Python CLI applications without polluting project environments"
+    ],
+    "avoid_when": [
+      "Installing project dependencies"
+    ],
+    "guardrails": [
+      "Do not use pipx for project dependency management."
+    ],
+    "docs": "https://pipx.pypa.io/stable/"
+  },
+  {
+    "slug": "playwright",
+    "name": "playwright",
+    "binary": "playwright",
+    "description": "End-to-end browser testing and automation CLI.",
+    "category": [
+      "browser-test"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run browser-based tests or capture UI behavior"
+    ],
+    "avoid_when": [
+      "The project has no browser test setup"
+    ],
+    "guardrails": [
+      "Prefer configured project scripts for browser tests."
+    ],
+    "docs": "https://playwright.dev/docs/test-cli"
+  },
+  {
+    "slug": "pnpm",
+    "name": "pnpm",
+    "binary": "pnpm",
+    "description": "Fast disk-efficient JavaScript package manager.",
+    "category": [
+      "package-manager",
+      "build",
+      "test"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Install and run scripts in pnpm-managed projects"
+    ],
+    "avoid_when": [
+      "The repo declares another package manager"
+    ],
+    "guardrails": [
+      "If pnpm-lock.yaml exists, avoid npm install unless explicitly requested."
+    ],
+    "docs": "https://pnpm.io/motivation"
+  },
+  {
+    "slug": "pod",
+    "name": "pod",
+    "binary": "pod",
+    "description": "CocoaPods dependency manager CLI for Apple platform projects.",
+    "category": [
+      "package-manager",
+      "mobile"
+    ],
+    "lang": [
+      "swift",
+      "objective-c"
+    ],
+    "platform": [
+      "ios",
+      "macos"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [
+      "cocoapods"
+    ],
+    "use_when": [
+      "Install or update iOS/macOS dependencies managed by CocoaPods"
+    ],
+    "avoid_when": [
+      "The project uses Swift Package Manager only"
+    ],
+    "guardrails": [
+      "Prefer `pod install` over `pod update` unless dependency updates are requested."
+    ],
+    "docs": "https://guides.cocoapods.org/terminal/commands.html"
+  },
+  {
+    "slug": "podman",
+    "name": "podman",
+    "binary": "podman",
+    "description": "Daemonless container engine compatible with many Docker workflows.",
+    "category": [
+      "container"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build or run containers without Docker daemon"
+    ],
+    "avoid_when": [
+      "The project assumes Docker-specific behavior"
+    ],
+    "guardrails": [
+      "Confirm Docker compatibility assumptions before substituting Podman."
+    ],
+    "docs": "https://docs.podman.io/"
+  },
+  {
+    "slug": "poetry",
+    "name": "poetry",
+    "binary": "poetry",
+    "description": "Python packaging and dependency management tool.",
+    "category": [
+      "package-manager",
+      "build",
+      "test"
+    ],
+    "lang": [
+      "python"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Manage Python projects that use poetry.lock"
+    ],
+    "avoid_when": [
+      "The project uses uv.lock, requirements.txt only, or Conda"
+    ],
+    "guardrails": [
+      "If poetry.lock exists, prefer Poetry for dependency operations."
+    ],
+    "docs": "https://python-poetry.org/docs/"
+  },
+  {
+    "slug": "pre-commit",
+    "name": "pre-commit",
+    "binary": "pre-commit",
+    "description": "Framework for running repository-defined checks before commits.",
+    "category": [
+      "automation",
+      "lint",
+      "test"
+    ],
+    "lang": [
+      "all"
+    ],
+    "platform": [
+      "local"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files",
+      "network_access"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run the same checks configured for repository commits",
+      "Verify cross-language formatting, linting, and policy hooks"
+    ],
+    "avoid_when": [
+      "Hook behavior is unknown and may perform writes or network access"
+    ],
+    "guardrails": [
+      "Inspect .pre-commit-config.yaml before running unfamiliar hooks."
+    ],
+    "docs": "https://pre-commit.com/"
+  },
+  {
+    "slug": "prettier",
+    "name": "prettier",
+    "binary": "prettier",
+    "description": "Opinionated code formatter for JavaScript and related formats.",
+    "category": [
+      "formatter"
+    ],
+    "lang": [
+      "javascript",
+      "typescript",
+      "css",
+      "html",
+      "json",
+      "markdown",
+      "yaml"
+    ],
+    "risk": "medium",
+    "effects": [
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Format JavaScript, TypeScript, CSS, Markdown, or JSON files"
+    ],
+    "avoid_when": [
+      "The repository uses another formatter for the target files"
+    ],
+    "guardrails": [
+      "Use --check when only verifying formatting."
+    ],
+    "docs": "https://prettier.io/docs/cli"
+  },
+  {
+    "slug": "procs",
+    "name": "procs",
+    "binary": "procs",
+    "description": "Modern process viewer.",
+    "category": [
+      "system"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_processes"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect running processes with richer columns than ps"
+    ],
+    "avoid_when": [
+      "Scripts need portable process output"
+    ],
+    "guardrails": [
+      "Use stable system APIs for automation."
+    ],
+    "docs": "https://github.com/dalance/procs#readme"
+  },
+  {
+    "slug": "psql",
+    "name": "psql",
+    "binary": "psql",
+    "description": "PostgreSQL interactive terminal.",
+    "category": [
+      "database"
+    ],
+    "lang": [
+      "sql"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect PostgreSQL databases"
+    ],
+    "avoid_when": [
+      "Connection target and environment are unclear"
+    ],
+    "guardrails": [
+      "Confirm host, database, and environment before mutating PostgreSQL data."
+    ],
+    "docs": "https://www.postgresql.org/docs/current/app-psql.html"
+  },
+  {
+    "slug": "pulumi",
+    "name": "pulumi",
+    "binary": "pulumi",
+    "description": "Infrastructure as code CLI for Pulumi stacks.",
+    "category": [
+      "infra"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "cloud_mutation",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect, preview, or update Pulumi infrastructure stacks"
+    ],
+    "avoid_when": [
+      "Stack, backend, or credentials are unknown"
+    ],
+    "guardrails": [
+      "Use pulumi preview before infrastructure mutations."
+    ],
+    "docs": "https://www.pulumi.com/docs/iac/cli/"
+  },
+  {
+    "slug": "pyright",
+    "name": "pyright",
+    "binary": "pyright",
+    "description": "Static type checker for Python.",
+    "category": [
+      "type-checker"
+    ],
+    "lang": [
+      "python"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run Python type checks in Pyright-configured projects"
+    ],
+    "avoid_when": [
+      "The project uses mypy or another type checker exclusively"
+    ],
+    "guardrails": [
+      "Use the repository's pyrightconfig.json when present."
+    ],
+    "docs": "https://microsoft.github.io/pyright/"
+  },
+  {
+    "slug": "pytest",
+    "name": "pytest",
+    "binary": "pytest",
+    "description": "Python testing framework CLI.",
+    "category": [
+      "test"
+    ],
+    "lang": [
+      "python"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run Python tests"
+    ],
+    "avoid_when": [
+      "The project uses unittest commands or another test runner"
+    ],
+    "guardrails": [
+      "Prefer focused test paths before broad test suites when iterating."
+    ],
+    "docs": "https://docs.pytest.org/"
+  },
+  {
+    "slug": "python",
+    "name": "python",
+    "binary": "python",
+    "description": "Python interpreter.",
+    "category": [
+      "runtime"
+    ],
+    "lang": [
+      "python"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [
+      "py",
+      "python3"
+    ],
+    "use_when": [
+      "Run Python scripts or tooling"
+    ],
+    "avoid_when": [
+      "A project-specific environment manager should be used instead"
+    ],
+    "guardrails": [
+      "Prefer the project virtual environment when one exists."
+    ],
+    "docs": "https://docs.python.org/"
+  },
+  {
+    "slug": "q",
+    "name": "q",
+    "binary": "q",
+    "description": "Amazon Q Developer command-line assistant.",
+    "category": [
+      "agent"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "requires_auth",
+      "write_files",
+      "secret_exposure"
+    ],
+    "aliases": [
+      "amazon-q"
+    ],
+    "use_when": [
+      "Use Amazon Q Developer from the terminal"
+    ],
+    "avoid_when": [
+      "The task should stay inside the current agent session"
+    ],
+    "guardrails": [
+      "Review command permissions and generated changes before accepting them."
+    ],
+    "docs": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line.html"
+  },
+  {
+    "slug": "qpdf",
+    "name": "qpdf",
+    "binary": "qpdf",
+    "description": "Command-line tool for inspecting, transforming, splitting, and repairing PDF files.",
+    "category": [
+      "docs",
+      "file-viewer"
+    ],
+    "lang": [
+      "all"
+    ],
+    "platform": [
+      "local"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect PDF structure or split, merge, decrypt, and repair PDFs"
+    ],
+    "avoid_when": [
+      "Extracting plain text is enough and pdftotext is available"
+    ],
+    "guardrails": [
+      "Preserve original PDF files and write transformed output separately."
+    ],
+    "docs": "https://qpdf.readthedocs.io/"
+  },
+  {
+    "slug": "qwen",
+    "name": "qwen",
+    "binary": "qwen",
+    "description": "Qwen command-line AI coding assistant.",
+    "category": [
+      "agent"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Use Qwen CLI project context or agent workflows"
+    ],
+    "avoid_when": [
+      "The task should stay inside the current agent session"
+    ],
+    "guardrails": [
+      "Review generated diffs before accepting changes."
+    ],
+    "docs": "https://github.com/QwenLM/qwen-code#readme"
+  },
+  {
+    "slug": "railway",
+    "name": "railway",
+    "binary": "railway",
+    "description": "Railway deployment and project management CLI.",
+    "category": [
+      "deploy"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "deployment",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Deploy or inspect Railway projects"
+    ],
+    "avoid_when": [
+      "Project link or authentication state is unknown"
+    ],
+    "guardrails": [
+      "Confirm the linked Railway project before write operations."
+    ],
+    "docs": "https://docs.railway.com/reference/cli-api"
+  },
+  {
+    "slug": "redis-cli",
+    "name": "redis-cli",
+    "binary": "redis-cli",
+    "description": "Redis command-line client.",
+    "category": [
+      "database"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect Redis state or connectivity"
+    ],
+    "avoid_when": [
+      "Production keys could be modified or deleted unintentionally"
+    ],
+    "guardrails": [
+      "Never run destructive Redis commands without explicit confirmation."
+    ],
+    "docs": "https://redis.io/docs/latest/develop/tools/cli/"
+  },
+  {
+    "slug": "rg",
+    "name": "rg",
+    "binary": "rg",
+    "description": "Fast recursive text search for codebases.",
+    "category": [
+      "search"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [
+      "ripgrep"
+    ],
+    "use_when": [
+      "Search text across a repository",
+      "Find symbols, config keys, logs, or error messages"
+    ],
+    "avoid_when": [
+      "Semantic AST rewriting",
+      "Structured JSON or YAML mutation"
+    ],
+    "guardrails": [
+      "Prefer exact or literal search flags when searching for fixed strings."
+    ],
+    "docs": "https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md"
+  },
+  {
+    "slug": "rga",
+    "name": "rga",
+    "binary": "rga",
+    "description": "ripgrep wrapper for PDFs, archives, e-books, Office documents, and more.",
+    "category": [
+      "search"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "execute_code"
+    ],
+    "aliases": [
+      "ripgrep-all"
+    ],
+    "use_when": [
+      "Search non-plain-text files and archives"
+    ],
+    "avoid_when": [
+      "Plain source code search with rg is enough"
+    ],
+    "guardrails": [
+      "Prefer rg for normal source search and rga for document/archive search."
+    ],
+    "docs": "https://github.com/phiresky/ripgrep-all#readme"
+  },
+  {
+    "slug": "rtk",
+    "name": "rtk",
+    "binary": "rtk",
+    "description": "Local shell wrapper used to run commands with workspace-specific behavior.",
+    "category": [
+      "shell"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Running shell commands in a workspace that explicitly requires rtk",
+      "Preserving local command execution conventions"
+    ],
+    "avoid_when": [
+      "The workspace does not mention rtk",
+      "A command must bypass wrapper behavior for debugging"
+    ],
+    "guardrails": [
+      "Prefix shell commands with rtk when AGENTS.md requires it.",
+      "Run PowerShell built-ins through rtk powershell -NoProfile -Command on Windows."
+    ],
+    "docs": "https://github.com"
+  },
+  {
+    "slug": "ruby",
+    "name": "ruby",
+    "binary": "ruby",
+    "description": "Ruby language runtime CLI.",
+    "category": [
+      "runtime"
+    ],
+    "lang": [
+      "ruby"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run Ruby scripts or inspect runtime version"
+    ],
+    "avoid_when": [
+      "Project commands should be invoked through Bundler"
+    ],
+    "guardrails": [
+      "Prefer bundle exec for project-local Ruby dependencies."
+    ],
+    "docs": "https://www.ruby-lang.org/en/documentation/"
+  },
+  {
+    "slug": "ruff",
+    "name": "ruff",
+    "binary": "ruff",
+    "description": "Fast Python linter and formatter.",
+    "category": [
+      "lint"
+    ],
+    "lang": [
+      "python"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Lint or format Python code"
+    ],
+    "avoid_when": [
+      "The project uses another Python lint or format tool exclusively"
+    ],
+    "guardrails": [
+      "Use ruff check before ruff check --fix when reviewing impact."
+    ],
+    "docs": "https://docs.astral.sh/ruff/"
+  },
+  {
+    "slug": "rustup",
+    "name": "rustup",
+    "binary": "rustup",
+    "description": "Rust toolchain installer and version manager.",
+    "category": [
+      "toolchain"
+    ],
+    "lang": [
+      "rust"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect or install Rust toolchains requested by a project"
+    ],
+    "avoid_when": [
+      "The task only needs cargo build or test"
+    ],
+    "guardrails": [
+      "Respect rust-toolchain files when selecting Rust versions."
+    ],
+    "docs": "https://rust-lang.github.io/rustup/"
+  },
+  {
+    "slug": "sccache",
+    "name": "sccache",
+    "binary": "sccache",
+    "description": "Compiler cache for Rust, C, C++, and other compilers.",
+    "category": [
+      "build"
+    ],
+    "lang": [
+      "rust",
+      "c",
+      "cpp"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files",
+      "network_access"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Speed up repeated compiler builds"
+    ],
+    "avoid_when": [
+      "Reproducibility debugging requires a clean compiler cache"
+    ],
+    "guardrails": [
+      "Disable or clear compiler caches when diagnosing suspicious build artifacts."
+    ],
+    "docs": "https://github.com/mozilla/sccache#readme"
+  },
+  {
+    "slug": "sd",
+    "name": "sd",
+    "binary": "sd",
+    "description": "Simple and fast find-and-replace CLI.",
+    "category": [
+      "text"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Replace text in files or streams with simpler syntax than sed",
+      "Do mechanical text substitutions in scripts"
+    ],
+    "avoid_when": [
+      "Structured code or config needs parser-aware edits"
+    ],
+    "guardrails": [
+      "Preview matches before recursive in-place replacements."
+    ],
+    "docs": "https://github.com/chmln/sd#readme"
+  },
+  {
+    "slug": "sed",
+    "name": "sed",
+    "binary": "sed",
+    "description": "Stream editor for text substitution and filtering.",
+    "category": [
+      "text"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Transform text streams or make simple scripted substitutions"
+    ],
+    "avoid_when": [
+      "Structured code or config needs parser-aware edits"
+    ],
+    "guardrails": [
+      "Preview substitutions before using in-place write flags."
+    ],
+    "docs": "https://www.gnu.org/software/sed/manual/"
+  },
+  {
+    "slug": "semgrep",
+    "name": "semgrep",
+    "binary": "semgrep",
+    "description": "Static analysis and code search tool using semantic rules.",
+    "category": [
+      "security"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "network_access"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run semantic code scanning or custom SAST rules"
+    ],
+    "avoid_when": [
+      "Rule source or scan target is unclear"
+    ],
+    "guardrails": [
+      "Review rule source before running broad scans."
+    ],
+    "docs": "https://semgrep.dev/docs/cli-reference/"
+  },
+  {
+    "slug": "shellcheck",
+    "name": "shellcheck",
+    "binary": "shellcheck",
+    "description": "Static analysis tool for shell scripts.",
+    "category": [
+      "lint"
+    ],
+    "lang": [
+      "shell"
+    ],
+    "platform": [
+      "local"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Lint shell scripts and CI snippets before committing changes"
+    ],
+    "avoid_when": [
+      "The file is not shell syntax"
+    ],
+    "guardrails": [
+      "Review warnings in context before applying broad shell rewrites."
+    ],
+    "docs": "https://www.shellcheck.net/wiki/Home"
+  },
+  {
+    "slug": "simctl",
+    "name": "simctl",
+    "binary": "simctl",
+    "description": "Apple simulator control CLI, usually invoked as `xcrun simctl`.",
+    "category": [
+      "mobile",
+      "simulator",
+      "device"
+    ],
+    "lang": [
+      "all"
+    ],
+    "platform": [
+      "ios",
+      "macos"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "List, boot, install to, or inspect iOS simulators"
+    ],
+    "avoid_when": [
+      "A real device is required"
+    ],
+    "guardrails": [
+      "Prefer `xcrun simctl list` before mutating simulator state."
+    ],
+    "docs": "https://developer.apple.com/documentation/xcode/simctl"
+  },
+  {
+    "slug": "sops",
+    "name": "sops",
+    "binary": "sops",
+    "description": "Editor and automation tool for encrypted secrets files.",
+    "category": [
+      "secrets"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "read_files",
+      "write_files",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Edit or decrypt SOPS-managed secret files"
+    ],
+    "avoid_when": [
+      "Key access or target environment is unclear"
+    ],
+    "guardrails": [
+      "Avoid printing decrypted secrets and never commit plaintext outputs."
+    ],
+    "docs": "https://getsops.io/docs/"
+  },
+  {
+    "slug": "sqlite3",
+    "name": "sqlite3",
+    "binary": "sqlite3",
+    "description": "SQLite command-line shell.",
+    "category": [
+      "database"
+    ],
+    "lang": [
+      "sql"
+    ],
+    "risk": "high",
+    "effects": [
+      "read_files",
+      "write_files",
+      "delete_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect local SQLite databases"
+    ],
+    "avoid_when": [
+      "Mutating production or user data without a backup"
+    ],
+    "guardrails": [
+      "Back up SQLite database files before mutation."
+    ],
+    "docs": "https://www.sqlite.org/cli.html"
+  },
+  {
+    "slug": "starship",
+    "name": "starship",
+    "binary": "starship",
+    "description": "Cross-shell prompt renderer.",
+    "category": [
+      "shell"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect or configure shell prompt behavior"
+    ],
+    "avoid_when": [
+      "The task is unrelated to interactive shell setup"
+    ],
+    "guardrails": [
+      "Keep prompt configuration changes scoped to the user or project config requested."
+    ],
+    "docs": "https://starship.rs/config/"
+  },
+  {
+    "slug": "stern",
+    "name": "stern",
+    "binary": "stern",
+    "description": "Multi-pod Kubernetes log tailing CLI.",
+    "category": [
+      "kubernetes"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Tail logs from multiple Kubernetes pods"
+    ],
+    "avoid_when": [
+      "Current Kubernetes context is unknown"
+    ],
+    "guardrails": [
+      "Confirm Kubernetes context and namespace before reading logs."
+    ],
+    "docs": "https://github.com/stern/stern#readme"
+  },
+  {
+    "slug": "stripe",
+    "name": "stripe",
+    "binary": "stripe",
+    "description": "Stripe CLI for local webhooks, API calls, and developer workflows.",
+    "category": [
+      "cloud"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Test Stripe webhooks or inspect Stripe API objects"
+    ],
+    "avoid_when": [
+      "Account, mode, or credentials are unknown"
+    ],
+    "guardrails": [
+      "Confirm test mode versus live mode before write operations."
+    ],
+    "docs": "https://docs.stripe.com/stripe-cli"
+  },
+  {
+    "slug": "supabase",
+    "name": "supabase",
+    "binary": "supabase",
+    "description": "Supabase local development and project management CLI.",
+    "category": [
+      "cloud"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "write_files",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run local Supabase services or manage Supabase projects"
+    ],
+    "avoid_when": [
+      "Project link or credentials are unknown"
+    ],
+    "guardrails": [
+      "Confirm linked project and local versus remote target before mutations."
+    ],
+    "docs": "https://supabase.com/docs/reference/cli/introduction"
+  },
+  {
+    "slug": "syft",
+    "name": "syft",
+    "binary": "syft",
+    "description": "SBOM generator for container images and filesystems.",
+    "category": [
+      "security"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Generate software bills of materials"
+    ],
+    "avoid_when": [
+      "The scan target is unclear or too broad"
+    ],
+    "guardrails": [
+      "Treat SBOMs as potentially sensitive dependency disclosure artifacts."
+    ],
+    "docs": "https://github.com/anchore/syft#readme"
+  },
+  {
+    "slug": "taplo",
+    "name": "taplo",
+    "binary": "taplo",
+    "description": "TOML formatter, linter, and language tooling.",
+    "category": [
+      "formatter"
+    ],
+    "lang": [
+      "toml"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Format or lint TOML files"
+    ],
+    "avoid_when": [
+      "The task only needs to read TOML without modifying it"
+    ],
+    "guardrails": [
+      "Use format checks before writing broad TOML changes."
+    ],
+    "docs": "https://taplo.tamasfe.dev/cli/usage/"
+  },
+  {
+    "slug": "tar",
+    "name": "tar",
+    "binary": "tar",
+    "description": "Create and extract tar archives.",
+    "category": [
+      "archive"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect, create, or extract tar archives"
+    ],
+    "avoid_when": [
+      "The archive format is zip or another container"
+    ],
+    "guardrails": [
+      "List archive contents before extracting untrusted archives."
+    ],
+    "docs": "https://www.gnu.org/software/tar/manual/"
+  },
+  {
+    "slug": "task",
+    "name": "task",
+    "binary": "task",
+    "description": "Task runner using Taskfile.yml or Taskfile.yaml.",
+    "category": [
+      "automation",
+      "build",
+      "test"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run project-defined Taskfile tasks"
+    ],
+    "avoid_when": [
+      "Task names are ambiguous or may deploy or delete resources"
+    ],
+    "guardrails": [
+      "Inspect Taskfile definitions before running ambiguous tasks."
+    ],
+    "docs": "https://taskfile.dev/"
+  },
+  {
+    "slug": "terraform",
+    "name": "terraform",
+    "binary": "terraform",
+    "description": "Infrastructure as code CLI.",
+    "category": [
+      "infra"
+    ],
+    "lang": [
+      "hcl"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "cloud_mutation",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect or plan Terraform infrastructure changes"
+    ],
+    "avoid_when": [
+      "The task does not explicitly involve infrastructure"
+    ],
+    "guardrails": [
+      "Do not run terraform apply or destroy without explicit confirmation."
+    ],
+    "docs": "https://developer.hashicorp.com/terraform/cli"
+  },
+  {
+    "slug": "terragrunt",
+    "name": "terragrunt",
+    "binary": "terragrunt",
+    "description": "Thin wrapper for Terraform that manages remote state and repeated configuration.",
+    "category": [
+      "infra"
+    ],
+    "lang": [
+      "hcl"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "cloud_mutation",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect or plan Terragrunt-managed infrastructure"
+    ],
+    "avoid_when": [
+      "The task does not explicitly involve infrastructure"
+    ],
+    "guardrails": [
+      "Do not apply or destroy infrastructure without explicit confirmation."
+    ],
+    "docs": "https://terragrunt.gruntwork.io/docs/"
+  },
+  {
+    "slug": "tesseract",
+    "name": "tesseract",
+    "binary": "tesseract",
+    "description": "OCR engine CLI for extracting text from images and scanned documents.",
+    "category": [
+      "docs",
+      "image",
+      "text"
+    ],
+    "lang": [
+      "all"
+    ],
+    "platform": [
+      "local"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Extract text from screenshots, scans, or image-only PDFs after rendering pages"
+    ],
+    "avoid_when": [
+      "The source already has selectable text"
+    ],
+    "guardrails": [
+      "Verify OCR output against the image when accuracy matters."
+    ],
+    "docs": "https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html"
+  },
+  {
+    "slug": "tldr",
+    "name": "tldr",
+    "binary": "tldr",
+    "description": "Community-maintained concise command examples.",
+    "category": [
+      "docs"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "network_access",
+      "read_files"
+    ],
+    "aliases": [
+      "tealdeer"
+    ],
+    "use_when": [
+      "Quickly learn common examples for a command"
+    ],
+    "avoid_when": [
+      "Exact behavior requires the official manual or project docs"
+    ],
+    "guardrails": [
+      "Treat examples as hints and verify risky flags against official docs."
+    ],
+    "docs": "https://tldr.sh/"
+  },
+  {
+    "slug": "tofu",
+    "name": "tofu",
+    "binary": "tofu",
+    "description": "OpenTofu infrastructure as code CLI.",
+    "category": [
+      "infra"
+    ],
+    "lang": [
+      "hcl"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_read",
+      "remote_write",
+      "cloud_mutation",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect or plan OpenTofu-compatible infrastructure changes"
+    ],
+    "avoid_when": [
+      "The task does not explicitly involve infrastructure"
+    ],
+    "guardrails": [
+      "Do not run tofu apply or destroy without explicit confirmation."
+    ],
+    "docs": "https://opentofu.org/docs/"
+  },
+  {
+    "slug": "tokei",
+    "name": "tokei",
+    "binary": "tokei",
+    "description": "Count code, comments, blanks, and files by language.",
+    "category": [
+      "metrics"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Summarize repository language and line-count composition"
+    ],
+    "avoid_when": [
+      "Exact build graph or dependency analysis is required"
+    ],
+    "guardrails": [
+      "Treat line counts as orientation, not engineering quality metrics."
+    ],
+    "docs": "https://github.com/XAMPPRocky/tokei#readme"
+  },
+  {
+    "slug": "tox",
+    "name": "tox",
+    "binary": "tox",
+    "description": "Python test automation across environments.",
+    "category": [
+      "test"
+    ],
+    "lang": [
+      "python"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run Python tests across configured environments"
+    ],
+    "avoid_when": [
+      "The project uses nox, uv, or direct pytest scripts instead"
+    ],
+    "guardrails": [
+      "Use configured tox environments rather than inventing new ones."
+    ],
+    "docs": "https://tox.wiki/"
+  },
+  {
+    "slug": "tree",
+    "name": "tree",
+    "binary": "tree",
+    "description": "Display directory structure as a tree.",
+    "category": [
+      "file-viewer"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Summarize repository or folder structure"
+    ],
+    "avoid_when": [
+      "The tree is too large without depth or ignore filters"
+    ],
+    "guardrails": [
+      "Limit depth in large repositories."
+    ],
+    "docs": "https://www.mankier.com/1/tree"
+  },
+  {
+    "slug": "trivy",
+    "name": "trivy",
+    "binary": "trivy",
+    "description": "Vulnerability, misconfiguration, secret, and SBOM scanner.",
+    "category": [
+      "security"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "network_access",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Scan containers, filesystems, repositories, or IaC for security issues"
+    ],
+    "avoid_when": [
+      "The scan target or output sensitivity is unclear"
+    ],
+    "guardrails": [
+      "Redact secrets and review vulnerability context before reporting results."
+    ],
+    "docs": "https://trivy.dev/latest/docs/references/configuration/cli/trivy/"
+  },
+  {
+    "slug": "trufflehog",
+    "name": "trufflehog",
+    "binary": "trufflehog",
+    "description": "Secret scanner for repositories, filesystems, and remote sources.",
+    "category": [
+      "security"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "read_files",
+      "network_access",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Scan git history or filesystems for secrets"
+    ],
+    "avoid_when": [
+      "Results would expose secret values in shared logs"
+    ],
+    "guardrails": [
+      "Redact detected secrets and avoid uploading sensitive scan output."
+    ],
+    "docs": "https://github.com/trufflesecurity/trufflehog#readme"
+  },
+  {
+    "slug": "trunk",
+    "name": "trunk",
+    "binary": "trunk",
+    "description": "Build, bundle, and serve Rust WebAssembly web applications.",
+    "category": [
+      "build"
+    ],
+    "lang": [
+      "rust"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build or serve Trunk-based Rust WASM apps"
+    ],
+    "avoid_when": [
+      "The project does not use Trunk"
+    ],
+    "guardrails": [
+      "Use the repository's Trunk.toml when present."
+    ],
+    "docs": "https://trunkrs.dev/"
+  },
+  {
+    "slug": "tsc",
+    "name": "tsc",
+    "binary": "tsc",
+    "description": "TypeScript compiler and type checker.",
+    "category": [
+      "type-checker"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run TypeScript type checks or compilation"
+    ],
+    "avoid_when": [
+      "The project delegates type checking to another build tool only"
+    ],
+    "guardrails": [
+      "Prefer noEmit type checks when verifying code without build output."
+    ],
+    "docs": "https://www.typescriptlang.org/docs/handbook/compiler-options.html"
+  },
+  {
+    "slug": "turbo",
+    "name": "turbo",
+    "binary": "turbo",
+    "description": "High-performance build system for JavaScript and TypeScript monorepos.",
+    "category": [
+      "build"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run Turborepo tasks in JS or TS monorepos"
+    ],
+    "avoid_when": [
+      "The project has no turbo.json or package scripts using turbo"
+    ],
+    "guardrails": [
+      "Prefer package manager scripts that wrap turbo commands."
+    ],
+    "docs": "https://turborepo.com/docs/reference/run"
+  },
+  {
+    "slug": "typos",
+    "name": "typos",
+    "binary": "typos",
+    "description": "Source code spell checker.",
+    "category": [
+      "lint"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Check spelling in source code, docs, and config"
+    ],
+    "avoid_when": [
+      "The project has many domain-specific words without configuration"
+    ],
+    "guardrails": [
+      "Review spell-check replacements in identifiers and domain terms."
+    ],
+    "docs": "https://github.com/crate-ci/typos#readme"
+  },
+  {
+    "slug": "unzip",
+    "name": "unzip",
+    "binary": "unzip",
+    "description": "Extract and inspect zip archives.",
+    "category": [
+      "archive"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Inspect or extract zip archives"
+    ],
+    "avoid_when": [
+      "The archive format is tar or another container"
+    ],
+    "guardrails": [
+      "List archive contents before extracting untrusted archives."
+    ],
+    "docs": "https://linux.die.net/man/1/unzip"
+  },
+  {
+    "slug": "uv",
+    "name": "uv",
+    "binary": "uv",
+    "description": "Fast Python package and environment manager.",
+    "category": [
+      "package-manager",
+      "runtime",
+      "test"
+    ],
+    "lang": [
+      "python"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Manage Python dependencies and environments in uv projects"
+    ],
+    "avoid_when": [
+      "The project clearly uses Poetry, Conda, or plain pip only"
+    ],
+    "guardrails": [
+      "If uv.lock exists, prefer uv for Python package and environment commands."
+    ],
+    "docs": "https://docs.astral.sh/uv/"
+  },
+  {
+    "slug": "vercel",
+    "name": "vercel",
+    "binary": "vercel",
+    "description": "Vercel project deployment CLI.",
+    "category": [
+      "deploy"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_write",
+      "cloud_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Deploy or inspect Vercel projects"
+    ],
+    "avoid_when": [
+      "The task does not explicitly involve deployment or Vercel"
+    ],
+    "guardrails": [
+      "Confirm deployment intent before creating remote deployments."
+    ],
+    "docs": "https://vercel.com/docs/cli"
+  },
+  {
+    "slug": "vite",
+    "name": "vite",
+    "binary": "vite",
+    "description": "Frontend development server and build tool.",
+    "category": [
+      "build"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run or build Vite frontend projects"
+    ],
+    "avoid_when": [
+      "The project uses another frontend framework build command"
+    ],
+    "guardrails": [
+      "Use project package scripts when they wrap Vite configuration."
+    ],
+    "docs": "https://vite.dev/guide/cli.html"
+  },
+  {
+    "slug": "vitest",
+    "name": "vitest",
+    "binary": "vitest",
+    "description": "Vite-native JavaScript and TypeScript test runner.",
+    "category": [
+      "test"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Run Vitest unit or component tests"
+    ],
+    "avoid_when": [
+      "The project uses Jest or another configured test runner"
+    ],
+    "guardrails": [
+      "Prefer focused test files while iterating."
+    ],
+    "docs": "https://vitest.dev/guide/cli"
+  },
+  {
+    "slug": "volta",
+    "name": "volta",
+    "binary": "volta",
+    "description": "JavaScript toolchain manager for pinning Node, npm, pnpm, and yarn.",
+    "category": [
+      "environment"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "network_access",
+      "environment_mutation",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Use a project-pinned JavaScript toolchain"
+    ],
+    "avoid_when": [
+      "The repo uses another Node version manager and no Volta config"
+    ],
+    "guardrails": [
+      "Only treat Volta as local requirement when package.json declares a volta section."
+    ],
+    "docs": "https://docs.volta.sh/"
+  },
+  {
+    "slug": "wasm-pack",
+    "name": "wasm-pack",
+    "binary": "wasm-pack",
+    "description": "Build and package Rust-generated WebAssembly.",
+    "category": [
+      "build"
+    ],
+    "lang": [
+      "rust"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build Rust crates targeting WebAssembly packages"
+    ],
+    "avoid_when": [
+      "The Rust project does not target wasm"
+    ],
+    "guardrails": [
+      "Confirm wasm target and package output before publishing."
+    ],
+    "docs": "https://rustwasm.github.io/wasm-pack/"
+  },
+  {
+    "slug": "watchexec",
+    "name": "watchexec",
+    "binary": "watchexec",
+    "description": "Run commands when watched files change.",
+    "category": [
+      "automation"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Re-run arbitrary commands on file changes"
+    ],
+    "avoid_when": [
+      "CI needs a single deterministic command"
+    ],
+    "guardrails": [
+      "Keep watched commands idempotent and stop watchers after use."
+    ],
+    "docs": "https://watchexec.github.io/"
+  },
+  {
+    "slug": "websocat",
+    "name": "websocat",
+    "binary": "websocat",
+    "description": "Command-line client and relay for WebSocket connections.",
+    "category": [
+      "network",
+      "api"
+    ],
+    "lang": [
+      "all"
+    ],
+    "platform": [
+      "local",
+      "network"
+    ],
+    "risk": "medium",
+    "effects": [
+      "network_access",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Test WebSocket endpoints or pipe WebSocket messages in scripts"
+    ],
+    "avoid_when": [
+      "The endpoint requires credentials that should not be exposed in logs"
+    ],
+    "guardrails": [
+      "Redact tokens and confirm before sending mutating WebSocket messages."
+    ],
+    "docs": "https://github.com/vi/websocat#readme"
+  },
+  {
+    "slug": "wrangler",
+    "name": "wrangler",
+    "binary": "wrangler",
+    "description": "Cloudflare Workers and Pages CLI.",
+    "category": [
+      "cloud"
+    ],
+    "lang": [
+      "javascript",
+      "typescript",
+      "rust"
+    ],
+    "risk": "high",
+    "effects": [
+      "network_access",
+      "requires_auth",
+      "remote_write",
+      "cloud_mutation",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Develop and deploy Cloudflare Workers or Pages projects"
+    ],
+    "avoid_when": [
+      "The task does not explicitly involve Cloudflare"
+    ],
+    "guardrails": [
+      "Treat deployment and secret operations as remote writes."
+    ],
+    "docs": "https://developers.cloudflare.com/workers/wrangler/"
+  },
+  {
+    "slug": "xcodebuild",
+    "name": "xcodebuild",
+    "binary": "xcodebuild",
+    "description": "Xcode command-line build and test tool for Apple platforms.",
+    "category": [
+      "build",
+      "test",
+      "mobile"
+    ],
+    "lang": [
+      "swift",
+      "objective-c"
+    ],
+    "platform": [
+      "ios",
+      "macos",
+      "watchos",
+      "tvos"
+    ],
+    "risk": "high",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Build or test iOS, macOS, watchOS, or tvOS projects from the command line"
+    ],
+    "avoid_when": [
+      "Xcode command line tools are not installed or signing settings are unknown"
+    ],
+    "guardrails": [
+      "Prefer read-only build and test actions before changing signing or provisioning settings."
+    ],
+    "docs": "https://developer.apple.com/library/archive/technotes/tn2339/_index.html"
+  },
+  {
+    "slug": "xh",
+    "name": "xh",
+    "binary": "xh",
+    "description": "Fast and friendly HTTP client inspired by HTTPie.",
+    "category": [
+      "network"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "network_access",
+      "remote_read",
+      "remote_write",
+      "secret_exposure"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Send HTTP requests with readable syntax and output"
+    ],
+    "avoid_when": [
+      "curl compatibility or exact curl flags are required"
+    ],
+    "guardrails": [
+      "Confirm method, URL, and auth headers before mutating requests."
+    ],
+    "docs": "https://github.com/ducaale/xh#readme"
+  },
+  {
+    "slug": "yarn",
+    "name": "yarn",
+    "binary": "yarn",
+    "description": "JavaScript package manager.",
+    "category": [
+      "package-manager",
+      "build",
+      "test"
+    ],
+    "lang": [
+      "javascript",
+      "typescript"
+    ],
+    "risk": "medium",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Install and run scripts in Yarn-managed projects"
+    ],
+    "avoid_when": [
+      "The repo declares npm, pnpm, or bun instead"
+    ],
+    "guardrails": [
+      "Do not mix package managers in one repository."
+    ],
+    "docs": "https://yarnpkg.com/cli"
+  },
+  {
+    "slug": "yazi",
+    "name": "yazi",
+    "binary": "yazi",
+    "description": "Fast terminal file manager with async I/O.",
+    "category": [
+      "file-viewer"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Explore and manage files interactively in the terminal"
+    ],
+    "avoid_when": [
+      "Automated workflows require auditable file operations"
+    ],
+    "guardrails": [
+      "Use explicit shell commands for scripted file mutations."
+    ],
+    "docs": "https://yazi-rs.github.io/"
+  },
+  {
+    "slug": "yq",
+    "name": "yq",
+    "binary": "yq",
+    "description": "Command-line YAML, JSON, XML, CSV, and properties processor.",
+    "category": [
+      "data"
+    ],
+    "lang": [
+      "yaml",
+      "json"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Query or transform YAML files",
+      "Inspect structured configuration from the shell"
+    ],
+    "avoid_when": [
+      "Editing configuration without preserving comments or formatting matters"
+    ],
+    "guardrails": [
+      "Validate yq output before overwriting existing files."
+    ],
+    "docs": "https://mikefarah.gitbook.io/yq/"
+  },
+  {
+    "slug": "zellij",
+    "name": "zellij",
+    "binary": "zellij",
+    "description": "Terminal workspace and multiplexer.",
+    "category": [
+      "shell"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "execute_code",
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Manage terminal sessions and panes interactively"
+    ],
+    "avoid_when": [
+      "Non-interactive command execution is required"
+    ],
+    "guardrails": [
+      "Keep automated task execution outside interactive multiplexers."
+    ],
+    "docs": "https://zellij.dev/documentation/"
+  },
+  {
+    "slug": "zip",
+    "name": "zip",
+    "binary": "zip",
+    "description": "Create and update zip archives.",
+    "category": [
+      "archive"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "medium",
+    "effects": [
+      "read_files",
+      "write_files"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Package files into zip archives"
+    ],
+    "avoid_when": [
+      "The target format should preserve Unix ownership or permissions"
+    ],
+    "guardrails": [
+      "Confirm include and exclude patterns before creating release archives."
+    ],
+    "docs": "https://linux.die.net/man/1/zip"
+  },
+  {
+    "slug": "zoxide",
+    "name": "zoxide",
+    "binary": "zoxide",
+    "description": "Smarter cd command based on frecency.",
+    "category": [
+      "shell"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "low",
+    "effects": [
+      "read_files",
+      "environment_mutation"
+    ],
+    "aliases": [
+      "z"
+    ],
+    "use_when": [
+      "Navigate frequently used directories in interactive shells"
+    ],
+    "avoid_when": [
+      "Scripts need explicit deterministic paths"
+    ],
+    "guardrails": [
+      "Use explicit paths in scripts and reproducible instructions."
+    ],
+    "docs": "https://github.com/ajeetdsouza/zoxide#readme"
+  }
+]

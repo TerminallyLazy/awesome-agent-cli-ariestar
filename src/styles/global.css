@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-surface-light-base text-text-light-primary transition-colors duration-200;
+  }
+  .dark body {
+    @apply bg-surface-dark-base text-text-dark-primary;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 border border-surface-light-border rounded-xl backdrop-blur-sm
+           transition-all duration-200 ease-out;
+  }
+  .dark .glass-card {
+    @apply bg-white/[0.03] border-surface-dark-border backdrop-blur-md;
+  }
+  .glass-card:hover {
+    @apply border-surface-light-border-hover shadow-lg -translate-y-0.5;
+  }
+  .dark .glass-card:hover {
+    @apply border-surface-dark-border-hover shadow-[0_0_24px_rgba(56,189,248,0.08)];
+  }
+
+  .chip {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium
+           border transition-colors duration-150;
+  }
+  .chip-default {
+    @apply bg-gray-100 text-gray-600 border-gray-200;
+  }
+  .dark .chip-default {
+    @apply bg-white/5 text-text-dark-secondary border-white/10;
+  }
+
+  .chip-risk-low {
+    @apply bg-emerald-50 text-emerald-700 border-emerald-200;
+  }
+  .dark .chip-risk-low {
+    @apply bg-emerald-500/10 text-emerald-400 border-emerald-500/20;
+  }
+  .chip-risk-medium {
+    @apply bg-amber-50 text-amber-700 border-amber-200;
+  }
+  .dark .chip-risk-medium {
+    @apply bg-amber-500/10 text-amber-400 border-amber-500/20;
+  }
+  .chip-risk-high {
+    @apply bg-orange-50 text-orange-700 border-orange-200;
+  }
+  .dark .chip-risk-high {
+    @apply bg-orange-500/10 text-orange-400 border-orange-500/20;
+  }
+  .chip-risk-critical {
+    @apply bg-red-50 text-red-700 border-red-200;
+  }
+  .dark .chip-risk-critical {
+    @apply bg-red-500/10 text-red-400 border-red-500/20;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center px-4 py-2 rounded-lg font-medium text-sm text-white
+           bg-gradient-accent transition-all duration-200
+           hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:-translate-y-0.5;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-accent-green bg-clip-text text-transparent;
+  }
+}

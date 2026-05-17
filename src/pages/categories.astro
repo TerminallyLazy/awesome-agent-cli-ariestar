@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import { loadTools, getCategories } from '../lib/tools';
+
+const tools = loadTools();
+const categories = getCategories(tools);
+
+const categoryData = categories.map((cat) => {
+  const catTools = tools.filter((t) => t.category.includes(cat));
+  return {
+    name: cat,
+    count: catTools.length,
+    tools: catTools.slice(0, 6),
+  };
+});
+---
+
+<Layout title="Categories — Awesome Agent CLI">
+  <Header />
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-100">Categories</h1>
+    <p class="text-text-light-secondary dark:text-text-dark-secondary mb-8">
+      Browse tools by what they do.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {categoryData.map((cat) => (
+        <a href={`/?category=${cat.name}`} class="glass-card p-5 block group">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
+              {cat.name}
+            </h2>
+            <span class="text-xs text-text-light-muted dark:text-text-dark-muted">
+              {cat.count} tools
+            </span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            {cat.tools.map((tool) => (
+              <span class="chip chip-default text-[11px] font-mono">{tool.binary}</span>
+            ))}
+            {cat.count > 6 && (
+              <span class="chip chip-default text-[11px]">+{cat.count - 6}</span>
+            )}
+          </div>
+        </a>
+      ))}
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout title="Contribute — Awesome Agent CLI">
+  <Header />
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-100">Contribute a Tool</h1>
+    <p class="text-text-light-secondary dark:text-text-dark-secondary mb-8">
+      Help grow the registry. Add CLI tools that AI coding agents can use.
+    </p>
+
+    <!-- What to contribute -->
+    <div class="glass-card p-6 mb-6">
+      <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">What belongs here?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-sm font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide mb-2">✓ Good fit</h3>
+          <ul class="space-y-1.5 text-sm text-gray-700 dark:text-gray-300">
+            <li>• Agent can execute it directly as a CLI command</li>
+            <li>• Helps search, read, edit, test, debug, or deploy software</li>
+            <li>• Has clear risk and guardrail semantics</li>
+            <li>• Useful for AI coding workflows</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold text-orange-600 dark:text-orange-400 uppercase tracking-wide mb-2">✗ Not a fit</h3>
+          <ul class="space-y-1.5 text-sm text-gray-700 dark:text-gray-300">
+            <li>• Libraries or frameworks with no CLI surface</li>
+            <li>• GUI-only applications</li>
+            <li>• General technology encyclopedias</li>
+            <li>• Tools with no clear agent use case</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to contribute -->
+    <div class="glass-card p-6 mb-6">
+      <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">How to add a tool</h2>
+      <ol class="space-y-3 text-sm text-gray-700 dark:text-gray-300">
+        <li class="flex gap-3">
+          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center text-xs font-bold">1</span>
+          <span>Fork the repository on GitHub</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center text-xs font-bold">2</span>
+          <span>Create a YAML file in <code class="font-mono text-xs bg-gray-100 dark:bg-white/5 px-1.5 py-0.5 rounded">data/tools/your-tool.yaml</code></span>
+        </li>
+        <li class="flex gap-3">
+          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center text-xs font-bold">3</span>
+          <span>Fill in the required fields (see template below)</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center text-xs font-bold">4</span>
+          <span>Open a Pull Request</span>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Template -->
+    <div class="glass-card p-6 mb-6">
+      <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">YAML Template</h2>
+      <pre class="text-sm font-mono bg-gray-50 dark:bg-black/30 rounded-lg p-4 overflow-x-auto text-gray-800 dark:text-gray-200"><code>{`name: my-tool
+binary: my-tool
+aliases: []
+category:
+  - search
+lang:
+  - all
+summary: "One-line description of what it does."
+homepage: "https://github.com/..."
+docs: "https://..."
+detect:
+  version_args: ["--version"]
+use_when:
+  - "Scenario where an agent should pick this tool"
+avoid_when:
+  - "Scenario where another tool is better"
+guardrails:
+  - "Safety advice for agents using this tool"
+risk:
+  level: medium
+  effects:
+    - read_files
+    - write_files
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+    - "Dangerous operations that need human approval"`}</code></pre>
+    </div>
+
+    <!-- Field reference -->
+    <div class="glass-card p-6">
+      <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Field Reference</h2>
+      <dl class="space-y-3 text-sm">
+        <div>
+          <dt class="font-mono font-medium text-gray-900 dark:text-gray-100">category</dt>
+          <dd class="text-gray-600 dark:text-gray-400 mt-0.5">What the tool does: search, edit, build, test, lint, format, deploy, security, container, database, etc.</dd>
+        </div>
+        <div>
+          <dt class="font-mono font-medium text-gray-900 dark:text-gray-100">lang</dt>
+          <dd class="text-gray-600 dark:text-gray-400 mt-0.5">Programming language ecosystem: rust, python, javascript, typescript, go, java, all, etc.</dd>
+        </div>
+        <div>
+          <dt class="font-mono font-medium text-gray-900 dark:text-gray-100">risk.level</dt>
+          <dd class="text-gray-600 dark:text-gray-400 mt-0.5">low (read-only), medium (writes files), high (network/auth/destructive), critical (irreversible production impact).</dd>
+        </div>
+        <div>
+          <dt class="font-mono font-medium text-gray-900 dark:text-gray-100">risk.effects</dt>
+          <dd class="text-gray-600 dark:text-gray-400 mt-0.5">What the tool can do: read_files, write_files, execute_code, network_access, install_packages, secret_exposure, etc.</dd>
+        </div>
+        <div>
+          <dt class="font-mono font-medium text-gray-900 dark:text-gray-100">use_when / avoid_when</dt>
+          <dd class="text-gray-600 dark:text-gray-400 mt-0.5">Agent decision guidance. When should an agent pick this tool vs alternatives?</dd>
+        </div>
+        <div>
+          <dt class="font-mono font-medium text-gray-900 dark:text-gray-100">guardrails</dt>
+          <dd class="text-gray-600 dark:text-gray-400 mt-0.5">Safety rules agents should follow when using this tool.</dd>
+        </div>
+      </dl>
+    </div>
+  </main>
+</Layout>
