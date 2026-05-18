@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { Tool } from '../lib/tools';
 
 interface Props {
@@ -7,11 +7,24 @@ interface Props {
   languages: string[];
 }
 
+function initialParam(name: string) {
+  if (typeof window === 'undefined') return null;
+  return new URLSearchParams(window.location.search).get(name);
+}
+
+function initialPositiveInt(name: string, fallback: number) {
+  const value = Number(initialParam(name));
+  return Number.isInteger(value) && value > 0 ? value : fallback;
+}
+
 export default function ToolSearch({ tools, categories, languages }: Props) {
-  const [query, setQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [selectedLang, setSelectedLang] = useState<string | null>(null);
-  const [selectedRisk, setSelectedRisk] = useState<string | null>(null);
+  const [query, setQuery] = useState(() => initialParam('search') ?? '');
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(() => initialParam('category'));
+  const [selectedLang, setSelectedLang] = useState<string | null>(() => initialParam('lang'));
+  const [selectedRisk, setSelectedRisk] = useState<string | null>(() => initialParam('risk'));
+  const [currentPage, setCurrentPage] = useState(() => initialPositiveInt('page', 1));
+
+  const pageSize = 24;
 
   const risks = ['low', 'medium', 'high', 'critical'];
 
@@ -34,71 +47,227 @@ export default function ToolSearch({ tools, categories, languages }: Props) {
     });
   }, [tools, query, selectedCategory, selectedLang, selectedRisk]);
 
+  const activeFilters = [selectedCategory, selectedLang, selectedRisk].filter(Boolean).length;
+  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+  const safePage = Math.min(currentPage, totalPages);
+  const startIndex = (safePage - 1) * pageSize;
+  const visibleTools = filtered.slice(startIndex, startIndex + pageSize);
+
+  useEffect(() => {
+    if (currentPage !== safePage) {
+      setCurrentPage(safePage);
+    }
+  }, [currentPage, safePage]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const params = new URLSearchParams();
+    if (query) params.set('search', query);
+    if (selectedCategory) params.set('category', selectedCategory);
+    if (selectedLang) params.set('lang', selectedLang);
+    if (selectedRisk) params.set('risk', selectedRisk);
+    if (safePage > 1) params.set('page', String(safePage));
+
+    const nextUrl = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ''}${window.location.hash}`;
+    window.history.replaceState({}, '', nextUrl);
+  }, [query, selectedCategory, selectedLang, selectedRisk, safePage]);
+
   return (
-    <div>
-      {/* Search */}
-      <div className="relative mb-6">
-        <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-        <input
-          type="text"
-          placeholder="Search tools, categories, commands..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="w-full pl-10 pr-4 py-3 rounded-xl border bg-white/80 dark:bg-white/[0.03] border-gray-200 dark:border-white/10 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/40 backdrop-blur-sm transition-all"
-        />
+    <div className="space-y-6">
+      <div className="panel">
+        <div className="panel-header">
+          <span>[QUERY_INTERFACE]</span>
+          <span>{String(filtered.length).padStart(3, '0')}_ENTRIES</span>
+        </div>
+
+        <div className="space-y-4 p-4 sm:p-6">
+          <div className="relative">
+            <svg className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-acid" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              type="text"
+              placeholder="SEARCH_RUNBOOK / CATEGORY / COMMAND..."
+              value={query}
+              onChange={(event) => {
+                setQuery(event.target.value);
+                setCurrentPage(1);
+              }}
+              className="terminal-input"
+            />
+            <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-code text-muted">⌘K</span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            <FilterGroup
+              label="Category"
+              options={categories}
+              selected={selectedCategory}
+              onSelect={(value) => {
+                setSelectedCategory(value);
+                setCurrentPage(1);
+              }}
+            />
+            <FilterGroup
+              label="Language"
+              options={languages}
+              selected={selectedLang}
+              onSelect={(value) => {
+                setSelectedLang(value);
+                setCurrentPage(1);
+              }}
+            />
+            <FilterGroup
+              label="Risk"
+              options={risks}
+              selected={selectedRisk}
+              onSelect={(value) => {
+                setSelectedRisk(value);
+                setCurrentPage(1);
+              }}
+            />
+            {(query || activeFilters > 0) && (
+              <button
+                onClick={() => {
+                  setQuery('');
+                  setSelectedCategory(null);
+                  setSelectedLang(null);
+                  setSelectedRisk(null);
+                  setCurrentPage(1);
+                }}
+                className="border border-danger/50 bg-danger/10 px-3 py-2 text-code font-bold uppercase tracking-[0.12em] text-danger transition-colors hover:bg-danger hover:text-black"
+              >
+                [CLEAR]
+              </button>
+            )}
+          </div>
+        </div>
       </div>
 
-      {/* Filters */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        <FilterGroup
-          label="Category"
-          options={categories}
-          selected={selectedCategory}
-          onSelect={setSelectedCategory}
-        />
-        <FilterGroup
-          label="Language"
-          options={languages}
-          selected={selectedLang}
-          onSelect={setSelectedLang}
-        />
-        <FilterGroup
-          label="Risk"
-          options={risks}
-          selected={selectedRisk}
-          onSelect={setSelectedRisk}
-          colorMap={{
-            low: 'text-emerald-600 dark:text-emerald-400',
-            medium: 'text-amber-600 dark:text-amber-400',
-            high: 'text-orange-600 dark:text-orange-400',
-            critical: 'text-red-600 dark:text-red-400',
-          }}
-        />
+      <div className="flex items-center justify-between gap-4">
+        <p className="text-code uppercase text-muted-variant">
+          <span className="text-acid">{filtered.length}</span> entr{filtered.length !== 1 ? 'ies' : 'y'}
+          {query || activeFilters ? ' matched' : ' indexed'}
+          {filtered.length > 0 && (
+            <span className="text-muted"> · showing {startIndex + 1}-{Math.min(startIndex + pageSize, filtered.length)}</span>
+          )}
+        </p>
+        <div className="hidden h-px flex-1 bg-outline-variant sm:block"></div>
+        <p className="hidden text-code uppercase text-muted sm:block">[LIVE_DIRECTORY_FEED]</p>
       </div>
 
-      {/* Results count */}
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-        {filtered.length} tool{filtered.length !== 1 ? 's' : ''}
-        {query || selectedCategory || selectedLang || selectedRisk ? ' matched' : ' total'}
-      </p>
+      {filtered.length > pageSize && (
+        <Pagination currentPage={safePage} totalPages={totalPages} onPageChange={setCurrentPage} />
+      )}
 
-      {/* Tool grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filtered.map((tool) => (
+      <div className="grid grid-cols-1 gap-[1px] border border-outline-variant bg-outline-variant shadow-hard md:grid-cols-2 xl:grid-cols-3">
+        {visibleTools.map((tool) => (
           <ToolCard key={tool.slug} tool={tool} />
         ))}
       </div>
 
+      {filtered.length > pageSize && (
+        <Pagination currentPage={safePage} totalPages={totalPages} onPageChange={setCurrentPage} />
+      )}
+
       {filtered.length === 0 && (
-        <div className="text-center py-16 text-gray-400 dark:text-gray-500">
-          <p className="text-lg">No tools found</p>
-          <p className="text-sm mt-1">Try adjusting your filters</p>
+        <div className="panel py-16 text-center">
+          <p className="text-headline font-bold text-primary">NO SIGNAL</p>
+          <p className="mt-2 text-body text-muted-variant">Adjust the query vector or clear filters.</p>
         </div>
       )}
     </div>
   );
+}
+
+function Pagination({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}) {
+  const pages = pageWindow(currentPage, totalPages);
+
+  return (
+    <nav className="panel flex flex-col gap-3 p-3 sm:flex-row sm:items-center sm:justify-between" aria-label="Registry pagination">
+      <div className="text-code uppercase text-muted-variant">
+        [PAGE <span className="text-acid">{String(currentPage).padStart(2, '0')}</span> / {String(totalPages).padStart(2, '0')}]
+      </div>
+
+      <div className="flex flex-wrap items-center gap-2">
+        <PageButton disabled={currentPage === 1} onClick={() => onPageChange(1)}>
+          [FIRST]
+        </PageButton>
+        <PageButton disabled={currentPage === 1} onClick={() => onPageChange(currentPage - 1)}>
+          ← PREV
+        </PageButton>
+
+        <div className="flex flex-wrap gap-1">
+          {pages.map((page, index) =>
+            page === 'gap' ? (
+              <span key={`gap-${index}`} className="border border-outline-variant bg-background px-3 py-2 text-code text-muted">
+                …
+              </span>
+            ) : (
+              <button
+                key={page}
+                type="button"
+                aria-current={page === currentPage ? 'page' : undefined}
+                onClick={() => onPageChange(page)}
+                className={`border px-3 py-2 text-code font-bold transition-colors ${
+                  page === currentPage
+                    ? 'border-acid bg-acid text-black shadow-hard-acid'
+                    : 'border-outline-variant bg-surface-dim text-muted-variant hover:border-acid hover:text-acid'
+                }`}
+              >
+                {String(page).padStart(2, '0')}
+              </button>
+            ),
+          )}
+        </div>
+
+        <PageButton disabled={currentPage === totalPages} onClick={() => onPageChange(currentPage + 1)}>
+          NEXT →
+        </PageButton>
+        <PageButton disabled={currentPage === totalPages} onClick={() => onPageChange(totalPages)}>
+          [LAST]
+        </PageButton>
+      </div>
+    </nav>
+  );
+}
+
+function PageButton({ children, disabled, onClick }: { children: React.ReactNode; disabled: boolean; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      disabled={disabled}
+      onClick={onClick}
+      className="border border-outline-variant bg-surface-dim px-3 py-2 text-code font-bold uppercase tracking-[0.08em] text-muted-variant transition-colors hover:border-acid hover:text-acid disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-outline-variant disabled:hover:text-muted-variant"
+    >
+      {children}
+    </button>
+  );
+}
+
+function pageWindow(currentPage: number, totalPages: number): Array<number | 'gap'> {
+  const pages = new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
+  const normalized = [...pages].filter((page) => page >= 1 && page <= totalPages).sort((a, b) => a - b);
+  const result: Array<number | 'gap'> = [];
+
+  normalized.forEach((page) => {
+    const previous = result[result.length - 1];
+    if (typeof previous === 'number' && page - previous > 1) {
+      result.push('gap');
+    }
+    result.push(page);
+  });
+
+  return result;
 }
 
 function FilterGroup({
@@ -106,13 +275,11 @@ function FilterGroup({
   options,
   selected,
   onSelect,
-  colorMap,
 }: {
   label: string;
   options: string[];
   selected: string | null;
   onSelect: (value: string | null) => void;
-  colorMap?: Record<string, string>;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -120,38 +287,44 @@ function FilterGroup({
     <div className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm border transition-all ${
+        className={`inline-flex items-center gap-2 border px-3 py-2 text-code font-bold uppercase tracking-[0.12em] transition-colors ${
           selected
-            ? 'border-blue-500/40 bg-blue-500/10 text-blue-600 dark:text-blue-400'
-            : 'border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:border-gray-300 dark:hover:border-white/20'
+            ? 'border-acid bg-acid/10 text-acid shadow-[0_0_12px_rgba(195,244,0,0.12)]'
+            : 'border-outline-variant bg-surface-dim text-muted-variant hover:border-acid hover:text-acid'
         }`}
       >
-        {label}
-        {selected && <span className="font-medium">: {selected}</span>}
-        <svg className={`w-3.5 h-3.5 transition-transform ${open ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        [{label}]
+        {selected && <span className="max-w-[180px] truncate text-primary">{selected}</span>}
+        <svg className={`h-3.5 w-3.5 transition-transform ${open ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
 
       {open && (
         <>
           <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
-          <div className="absolute top-full left-0 mt-1 z-20 min-w-[160px] py-1 rounded-lg border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-900 shadow-xl backdrop-blur-xl">
+          <div className="absolute left-0 top-full z-20 mt-1 max-h-80 min-w-[220px] overflow-y-auto border border-outline bg-surface-dim shadow-hard">
             {selected && (
               <button
-                onClick={() => { onSelect(null); setOpen(false); }}
-                className="w-full text-left px-3 py-1.5 text-sm text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5"
+                onClick={() => {
+                  onSelect(null);
+                  setOpen(false);
+                }}
+                className="w-full border-b border-outline-variant px-3 py-2 text-left text-code uppercase text-danger hover:bg-danger hover:text-black"
               >
-                Clear
+                [CLEAR_{label.toUpperCase()}]
               </button>
             )}
             {options.map((opt) => (
               <button
                 key={opt}
-                onClick={() => { onSelect(opt); setOpen(false); }}
-                className={`w-full text-left px-3 py-1.5 text-sm hover:bg-gray-50 dark:hover:bg-white/5 ${
-                  colorMap?.[opt] ?? 'text-gray-700 dark:text-gray-300'
-                } ${selected === opt ? 'font-medium' : ''}`}
+                onClick={() => {
+                  onSelect(opt);
+                  setOpen(false);
+                }}
+                className={`block w-full px-3 py-2 text-left text-code uppercase transition-colors hover:bg-acid hover:text-black ${
+                  selected === opt ? 'bg-acid/10 text-acid' : 'text-muted-variant'
+                }`}
               >
                 {opt}
               </button>
@@ -172,34 +345,45 @@ function ToolCard({ tool }: { tool: Tool }) {
   };
 
   return (
-    <a
-      href={`/tools/${tool.slug}`}
-      className="glass-card p-4 block group cursor-pointer"
-    >
-      <div className="flex items-start justify-between gap-2 mb-2">
-        <h3 className="font-mono font-semibold text-base text-gray-900 dark:text-gray-100 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
-          {tool.binary}
-        </h3>
-        <span className={`chip ${riskClass[tool.risk] ?? 'chip-default'}`}>
-          {tool.risk}
-        </span>
+    <a href={`/tools/${tool.slug}`} className="terminal-card group flex min-h-[260px] flex-col p-5">
+      <div className="mb-5 flex items-start justify-between gap-4 border-b border-outline-variant pb-4">
+        <div className="min-w-0 text-code text-muted-variant">
+          ID: <span className="font-bold text-primary">0x{hashTool(tool.slug)}</span>
+          <span className="cursor-blink-sm"></span>
+        </div>
+        <span className={`chip ${riskClass[tool.risk] ?? 'chip-default'}`}>{tool.risk}</span>
       </div>
 
-      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">
-        {tool.description}
-      </p>
+      <h3 className="mb-3 truncate text-title font-bold text-primary transition-colors group-hover:text-acid">{tool.binary}</h3>
+      <p className="mb-6 line-clamp-3 min-h-[64px] text-body text-muted-variant">{tool.description}</p>
 
-      <div className="flex flex-wrap gap-1.5">
-        {tool.category.slice(0, 3).map((cat) => (
-          <span key={cat} className="chip chip-default text-[11px]">{cat}</span>
+      <div className="mt-auto grid grid-cols-2 gap-3 border border-outline-variant bg-background p-3 text-code">
+        <div>
+          <div className="mb-1 text-[10px] uppercase tracking-[0.14em] text-muted">[CATEGORY]</div>
+          <div className="truncate font-bold text-primary">{tool.category[0] ?? 'uncategorized'}</div>
+        </div>
+        <div>
+          <div className="mb-1 text-[10px] uppercase tracking-[0.14em] text-muted">[LANG]</div>
+          <div className="truncate font-bold text-primary">{tool.lang.includes('all') ? 'all' : tool.lang.slice(0, 2).join('/')}</div>
+        </div>
+      </div>
+
+      <div className="mt-4 flex flex-wrap gap-1.5">
+        {tool.category.slice(0, 2).map((cat) => (
+          <span key={cat} className="chip chip-default">{cat}</span>
         ))}
-        {!tool.lang.includes('all') && tool.lang.slice(0, 2).map((l) => (
-          <span key={l} className="chip chip-default text-[11px]">{l}</span>
-        ))}
-        {tool.effects?.slice(0, 2).map((eff) => (
-          <span key={eff} className="chip chip-default text-[11px]">{eff}</span>
+        {tool.effects?.slice(0, 2).map((effect) => (
+          <span key={effect} className="chip chip-default">{effect}</span>
         ))}
       </div>
     </a>
   );
+}
+
+function hashTool(value: string) {
+  let hash = 0;
+  for (let index = 0; index < value.length; index += 1) {
+    hash = (hash * 31 + value.charCodeAt(index)) >>> 0;
+  }
+  return hash.toString(16).toUpperCase().slice(0, 5).padStart(5, '0');
 }

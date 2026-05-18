@@ -1,38 +1,42 @@
-# Awesome Agent CLI
+# Runbook
 
-CLI tools that make AI coding agents more capable, safer, and faster.
+The operating contract layer for AI coding agents.
 
-Not just links — action metadata with risk, guardrails, and effects.
+Runbook helps agents choose shell commands deliberately instead of guessing. It combines local project discovery, durable repository preferences, and a structured CLI registry with risk, effects, and guardrails.
 
-## What is this?
+## What is this site?
 
-A curated registry of CLI/action tools that AI coding agents can actually use. Each tool entry includes:
+This is the Runbook web registry: a curated, machine-readable catalog of CLI/action tools that AI coding agents can safely reason about. Each tool entry includes:
 
 - **use_when** — when an agent should pick this tool
 - **avoid_when** — when another tool is better
 - **guardrails** — safety rules for agents
 - **risk** — low / medium / high / critical
 - **effects** — read_files, write_files, execute_code, network_access, etc.
-
-## Browse
-
-Visit the website or use the JSON API:
-
-```
-public/data/tools.json
-```
+- **category / lang / platform** — metadata for task-local tool selection
 
 ## Use with Runbook CLI
 
 ```bash
 runbook scan
+runbook prefer
 runbook category search --lang rust
-runbook category test --lang python
+runbook category test lint --lang typescript
+```
+
+The registry becomes useful when paired with local evidence from `runbook scan`: what is installed, what the project requires, and which tools are risky or unavailable.
+
+## Browse
+
+Visit the website or use the JSON API:
+
+```text
+public/data/tools.json
 ```
 
 ## Contribute
 
-Add a YAML file to `data/tools/your-tool.yaml`. See [/contribute](/contribute) for the template and field reference.
+Add a YAML file to `data/tools/your-tool.yaml`. See `/contribute` for the template and field reference.
 
 ## Development
 

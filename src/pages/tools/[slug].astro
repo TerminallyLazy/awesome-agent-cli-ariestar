@@ -21,133 +21,94 @@ const riskColors: Record<string, string> = {
 };
 ---
 
-<Layout title={`${tool.binary} — Awesome Agent CLI`} description={tool.description}>
+<Layout title={`${tool.binary} — Runbook`} description={tool.description}>
   <Header />
 
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <!-- Back -->
-    <a href="/" class="inline-flex items-center gap-1 text-sm text-text-light-secondary dark:text-text-dark-secondary hover:text-text-light-primary dark:hover:text-text-dark-primary mb-6 transition-colors">
-      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-      Back to tools
+  <main class="terminal-shell z-10 px-4 py-12 sm:px-6">
+    <a href="/tools" class="mb-8 inline-flex items-center gap-2 border border-outline-variant bg-surface-dim px-3 py-2 text-code uppercase text-muted-variant shadow-hard transition-colors hover:border-acid hover:text-acid">
+      ← [BACK_TO_DIRECTORY]
     </a>
 
-    <!-- Header -->
-    <div class="glass-card p-6 sm:p-8 mb-6">
-      <div class="flex items-start justify-between gap-4 mb-4">
+    <section class="mb-6 border border-outline-variant bg-surface-dim p-6 shadow-hard sm:p-8">
+      <div class="mb-6 flex flex-col gap-4 border-b border-outline-variant pb-6 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h1 class="font-mono text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">
-            {tool.binary}
-          </h1>
-          {tool.name !== tool.binary && (
-            <p class="text-sm text-text-light-muted dark:text-text-dark-muted">{tool.name}</p>
-          )}
+          <div class="label-caps mb-3">[TOOL_PROFILE]</div>
+          <h1 class="mb-2 text-[40px] font-extrabold tracking-[-0.05em] text-primary sm:text-5xl">{tool.binary}</h1>
+          {tool.name !== tool.binary && <p class="text-body text-muted-variant">{tool.name}</p>}
         </div>
-        <span class={`chip text-sm ${riskColors[tool.risk] ?? 'chip-default'}`}>
-          {tool.risk} risk
-        </span>
+        <span class={`chip text-sm ${riskColors[tool.risk] ?? 'chip-default'}`}>{tool.risk} risk</span>
       </div>
 
-      <p class="text-gray-600 dark:text-gray-400 text-lg mb-4">
-        {tool.description}
-      </p>
+      <p class="mb-6 max-w-3xl border-l-2 border-acid pl-4 text-base leading-7 text-muted-variant">{tool.description}</p>
 
       <div class="flex flex-wrap gap-2">
-        {tool.category.map((cat: string) => (
-          <span class="chip chip-default">{cat}</span>
-        ))}
+        {tool.category.map((cat: string) => <span class="chip chip-default">{cat}</span>)}
         <span class="chip chip-default">lang: {tool.lang.join(', ')}</span>
-        {tool.platform?.map((p: string) => (
-          <span class="chip chip-default">platform: {p}</span>
-        ))}
+        {tool.platform?.map((platform: string) => <span class="chip chip-default">platform: {platform}</span>)}
       </div>
-    </div>
+    </section>
 
-    <!-- Agent guidance -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+    <div class="mb-6 grid grid-cols-1 gap-[1px] border border-outline-variant bg-outline-variant shadow-hard md:grid-cols-2">
       {tool.use_when && tool.use_when.length > 0 && (
-        <div class="glass-card p-5">
-          <h2 class="text-sm font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide mb-3">
-            ✓ Use when
-          </h2>
-          <ul class="space-y-2">
+        <section class="bg-surface-dim p-6">
+          <div class="panel-header -mx-6 -mt-6 mb-6"><span>[USE_WHEN]</span><span>ALLOW</span></div>
+          <ul class="space-y-3">
             {tool.use_when.map((item: string) => (
-              <li class="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span class="text-emerald-500 mt-0.5">•</span>
-                {item}
-              </li>
+              <li class="border border-acid/30 bg-acid/5 p-3 text-body text-muted-variant"><span class="text-acid">✓</span> {item}</li>
             ))}
           </ul>
-        </div>
+        </section>
       )}
 
       {tool.avoid_when && tool.avoid_when.length > 0 && (
-        <div class="glass-card p-5">
-          <h2 class="text-sm font-semibold text-orange-600 dark:text-orange-400 uppercase tracking-wide mb-3">
-            ✗ Avoid when
-          </h2>
-          <ul class="space-y-2">
+        <section class="bg-surface-dim p-6">
+          <div class="panel-header -mx-6 -mt-6 mb-6"><span>[AVOID_WHEN]</span><span>BLOCK</span></div>
+          <ul class="space-y-3">
             {tool.avoid_when.map((item: string) => (
-              <li class="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                <span class="text-orange-500 mt-0.5">•</span>
-                {item}
-              </li>
+              <li class="border border-danger/40 bg-danger/5 p-3 text-body text-muted-variant"><span class="text-danger">✕</span> {item}</li>
             ))}
           </ul>
-        </div>
+        </section>
       )}
     </div>
 
     {tool.guardrails && tool.guardrails.length > 0 && (
-      <div class="glass-card p-5 mb-6">
-        <h2 class="text-sm font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wide mb-3">
-          ⚠ Guardrails
-        </h2>
-        <ul class="space-y-2">
+      <section class="mb-6 border border-outline-variant bg-surface-dim p-6 shadow-hard">
+        <div class="panel-header -mx-6 -mt-6 mb-6"><span>[GUARDRAILS]</span><span>MANDATORY</span></div>
+        <ul class="grid gap-3 md:grid-cols-2">
           {tool.guardrails.map((item: string) => (
-            <li class="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-              <span class="text-amber-500 mt-0.5">•</span>
-              {item}
-            </li>
+            <li class="border border-warning/30 bg-warning/5 p-3 text-body text-muted-variant"><span class="text-warning">⚠</span> {item}</li>
           ))}
         </ul>
-      </div>
+      </section>
     )}
 
-    <!-- Meta -->
-    <div class="glass-card p-5">
-      <h2 class="text-sm font-semibold text-text-light-secondary dark:text-text-dark-secondary uppercase tracking-wide mb-3">
-        Details
-      </h2>
-      <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
-        <div>
-          <dt class="text-text-light-muted dark:text-text-dark-muted">Binary</dt>
-          <dd class="font-mono text-gray-900 dark:text-gray-100">{tool.binary}</dd>
+    <section class="border border-outline-variant bg-surface-dim p-6 shadow-hard">
+      <div class="panel-header -mx-6 -mt-6 mb-6"><span>[DETAILS]</span><span>RAW_META</span></div>
+      <dl class="grid grid-cols-1 gap-[1px] bg-outline-variant text-body sm:grid-cols-2">
+        <div class="bg-background p-4">
+          <dt class="label-caps mb-2">Binary</dt>
+          <dd class="font-bold text-primary">{tool.binary}</dd>
         </div>
         {tool.aliases && tool.aliases.length > 0 && (
-          <div>
-            <dt class="text-text-light-muted dark:text-text-dark-muted">Aliases</dt>
-            <dd class="font-mono text-gray-900 dark:text-gray-100">{tool.aliases.join(', ')}</dd>
+          <div class="bg-background p-4">
+            <dt class="label-caps mb-2">Aliases</dt>
+            <dd class="text-primary">{tool.aliases.join(', ')}</dd>
           </div>
         )}
         {tool.effects && tool.effects.length > 0 && (
-          <div>
-            <dt class="text-text-light-muted dark:text-text-dark-muted">Effects</dt>
-            <dd class="text-gray-900 dark:text-gray-100">{tool.effects.join(', ')}</dd>
+          <div class="bg-background p-4">
+            <dt class="label-caps mb-2">Effects</dt>
+            <dd class="text-primary">{tool.effects.join(', ')}</dd>
           </div>
         )}
         {tool.docs && (
-          <div>
-            <dt class="text-text-light-muted dark:text-text-dark-muted">Documentation</dt>
-            <dd>
-              <a href={tool.docs} target="_blank" rel="noopener" class="text-blue-500 hover:underline break-all">
-                {tool.docs}
-              </a>
-            </dd>
+          <div class="bg-background p-4">
+            <dt class="label-caps mb-2">Documentation</dt>
+            <dd><a href={tool.docs} target="_blank" rel="noopener" class="break-all text-acid hover:text-primary">{tool.docs}</a></dd>
           </div>
         )}
       </dl>
-    </div>
+    </section>
   </main>
 </Layout>

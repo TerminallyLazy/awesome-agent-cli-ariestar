@@ -3,67 +3,58 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 ---
 
-<Layout title="Contribute — Awesome Agent CLI">
+<Layout title="Contribute — Runbook">
   <Header />
 
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <h1 class="text-3xl font-bold mb-2 text-gray-900 dark:text-gray-100">Contribute a Tool</h1>
-    <p class="text-text-light-secondary dark:text-text-dark-secondary mb-8">
-      Help grow the registry. Add CLI tools that AI coding agents can use.
-    </p>
+  <main class="terminal-shell z-10 px-4 py-12 sm:px-6">
+    <section class="mb-10 border-b border-outline-variant pb-8">
+      <div class="label-caps mb-4">[RUNBOOK_WRITE_PROTOCOL]</div>
+      <h1 class="mb-3 text-[40px] font-extrabold tracking-[-0.05em] text-primary sm:text-5xl">CONTRIBUTE_A_RUNBOOK_ENTRY</h1>
+      <p class="max-w-2xl border-l-2 border-acid pl-4 text-body text-muted-variant">
+        Add executable CLI metadata that agents can trust: decision guidance, guardrails, effects, and risk semantics.
+      </p>
+    </section>
 
-    <!-- What to contribute -->
-    <div class="glass-card p-6 mb-6">
-      <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">What belongs here?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <h3 class="text-sm font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide mb-2">✓ Good fit</h3>
-          <ul class="space-y-1.5 text-sm text-gray-700 dark:text-gray-300">
-            <li>• Agent can execute it directly as a CLI command</li>
-            <li>• Helps search, read, edit, test, debug, or deploy software</li>
-            <li>• Has clear risk and guardrail semantics</li>
-            <li>• Useful for AI coding workflows</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold text-orange-600 dark:text-orange-400 uppercase tracking-wide mb-2">✗ Not a fit</h3>
-          <ul class="space-y-1.5 text-sm text-gray-700 dark:text-gray-300">
-            <li>• Libraries or frameworks with no CLI surface</li>
-            <li>• GUI-only applications</li>
-            <li>• General technology encyclopedias</li>
-            <li>• Tools with no clear agent use case</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <div class="grid grid-cols-1 gap-[1px] border border-outline-variant bg-outline-variant shadow-hard lg:grid-cols-2">
+      <section class="bg-surface-dim p-6">
+        <div class="panel-header -mx-6 -mt-6 mb-6"><span>[ACCEPTANCE_CRITERIA]</span><span>GOOD_FIT</span></div>
+        <ul class="space-y-3 text-body text-muted-variant">
+          {[
+            'Agent can execute it directly as a CLI command',
+            'Helps search, read, edit, test, debug, or deploy software',
+            'Has clear risk and guardrail semantics',
+            'Useful for AI coding workflows',
+          ].map((item) => <li class="border border-acid/30 bg-acid/5 p-3"><span class="text-acid">✓</span> {item}</li>)}
+        </ul>
+      </section>
 
-    <!-- How to contribute -->
-    <div class="glass-card p-6 mb-6">
-      <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">How to add a tool</h2>
-      <ol class="space-y-3 text-sm text-gray-700 dark:text-gray-300">
-        <li class="flex gap-3">
-          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center text-xs font-bold">1</span>
-          <span>Fork the repository on GitHub</span>
-        </li>
-        <li class="flex gap-3">
-          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center text-xs font-bold">2</span>
-          <span>Create a YAML file in <code class="font-mono text-xs bg-gray-100 dark:bg-white/5 px-1.5 py-0.5 rounded">data/tools/your-tool.yaml</code></span>
-        </li>
-        <li class="flex gap-3">
-          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center text-xs font-bold">3</span>
-          <span>Fill in the required fields (see template below)</span>
-        </li>
-        <li class="flex gap-3">
-          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center text-xs font-bold">4</span>
-          <span>Open a Pull Request</span>
-        </li>
-      </ol>
-    </div>
+      <section class="bg-surface-dim p-6">
+        <div class="panel-header -mx-6 -mt-6 mb-6"><span>[REJECTION_CRITERIA]</span><span>NOT_A_FIT</span></div>
+        <ul class="space-y-3 text-body text-muted-variant">
+          {[
+            'Libraries or frameworks with no CLI surface',
+            'GUI-only applications',
+            'General technology encyclopedias',
+            'Tools with no clear agent use case',
+          ].map((item) => <li class="border border-danger/40 bg-danger/5 p-3"><span class="text-danger">✕</span> {item}</li>)}
+        </ul>
+      </section>
 
-    <!-- Template -->
-    <div class="glass-card p-6 mb-6">
-      <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">YAML Template</h2>
-      <pre class="text-sm font-mono bg-gray-50 dark:bg-black/30 rounded-lg p-4 overflow-x-auto text-gray-800 dark:text-gray-200"><code>{`name: my-tool
+      <section class="bg-surface-dim p-6 lg:col-span-2">
+        <div class="panel-header -mx-6 -mt-6 mb-6"><span>[SUBMISSION_SEQUENCE]</span><span>04_STEPS</span></div>
+        <ol class="grid gap-3 md:grid-cols-4">
+          {['Fork the repository on GitHub', 'Create data/tools/your-tool.yaml', 'Fill required metadata fields', 'Open a pull request'].map((item, index) => (
+            <li class="border border-outline-variant bg-background p-4">
+              <div class="mb-4 text-headline font-extrabold text-acid">{String(index + 1).padStart(2, '0')}</div>
+              <p class="text-body text-primary">{item}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="bg-surface-dim p-6 lg:col-span-2">
+        <div class="panel-header -mx-6 -mt-6 mb-6"><span>[YAML_TEMPLATE]</span><span>SPEC</span></div>
+        <pre class="overflow-x-auto border border-outline-variant bg-background p-4 text-code text-primary"><code>{`name: my-tool
 binary: my-tool
 aliases: []
 category:
@@ -87,40 +78,8 @@ risk:
     - read_files
     - write_files
   requires_auth: false
-  destructive: false
-  confirmation_required_for:
-    - "Dangerous operations that need human approval"`}</code></pre>
-    </div>
-
-    <!-- Field reference -->
-    <div class="glass-card p-6">
-      <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Field Reference</h2>
-      <dl class="space-y-3 text-sm">
-        <div>
-          <dt class="font-mono font-medium text-gray-900 dark:text-gray-100">category</dt>
-          <dd class="text-gray-600 dark:text-gray-400 mt-0.5">What the tool does: search, edit, build, test, lint, format, deploy, security, container, database, etc.</dd>
-        </div>
-        <div>
-          <dt class="font-mono font-medium text-gray-900 dark:text-gray-100">lang</dt>
-          <dd class="text-gray-600 dark:text-gray-400 mt-0.5">Programming language ecosystem: rust, python, javascript, typescript, go, java, all, etc.</dd>
-        </div>
-        <div>
-          <dt class="font-mono font-medium text-gray-900 dark:text-gray-100">risk.level</dt>
-          <dd class="text-gray-600 dark:text-gray-400 mt-0.5">low (read-only), medium (writes files), high (network/auth/destructive), critical (irreversible production impact).</dd>
-        </div>
-        <div>
-          <dt class="font-mono font-medium text-gray-900 dark:text-gray-100">risk.effects</dt>
-          <dd class="text-gray-600 dark:text-gray-400 mt-0.5">What the tool can do: read_files, write_files, execute_code, network_access, install_packages, secret_exposure, etc.</dd>
-        </div>
-        <div>
-          <dt class="font-mono font-medium text-gray-900 dark:text-gray-100">use_when / avoid_when</dt>
-          <dd class="text-gray-600 dark:text-gray-400 mt-0.5">Agent decision guidance. When should an agent pick this tool vs alternatives?</dd>
-        </div>
-        <div>
-          <dt class="font-mono font-medium text-gray-900 dark:text-gray-100">guardrails</dt>
-          <dd class="text-gray-600 dark:text-gray-400 mt-0.5">Safety rules agents should follow when using this tool.</dd>
-        </div>
-      </dl>
+  destructive: false`}</code></pre>
+      </section>
     </div>
   </main>
 </Layout>
