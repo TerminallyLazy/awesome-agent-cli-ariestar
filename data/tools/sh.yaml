@@ -1,0 +1,38 @@
+name: sh
+binary: sh
+aliases: []
+category:
+- shell
+lang:
+- all
+summary: POSIX-style shell for portable command execution and scripts.
+homepage: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/sh.html
+docs: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/sh.html
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - .profile
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Run scripts that declare /bin/sh or need POSIX shell portability
+- Test that shell snippets avoid bash-specific extensions
+avoid_when:
+- The command requires bash arrays, zsh glob qualifiers, fish syntax, or PowerShell cmdlets
+risk:
+  level: medium
+  effects:
+  - execute_code
+  - read_files
+  - write_files
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - recursive delete or move operations
+  - running unreviewed shell scripts
+guardrails:
+- Keep sh scripts portable; do not silently introduce bash-only syntax.
+- Inspect untrusted shell scripts before executing them.

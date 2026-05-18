@@ -1,0 +1,44 @@
+name: pwsh
+binary: pwsh
+aliases: []
+category:
+- shell
+lang:
+- all
+platform:
+- windows
+- linux
+- macos
+summary: PowerShell 7+ cross-platform shell and automation runtime.
+homepage: https://github.com/PowerShell/PowerShell
+docs: https://learn.microsoft.com/powershell/
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - Microsoft.PowerShell_profile.ps1
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Run PowerShell scripts or cmdlets in cross-platform automation
+- Use Windows APIs or object pipelines that are not available in POSIX shells
+avoid_when:
+- The repository explicitly prefers a Unix-style shell for the command
+- A script targets Windows PowerShell 5.1-only modules
+risk:
+  level: medium
+  effects:
+  - execute_code
+  - read_files
+  - write_files
+  - environment_mutation
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - changing execution policy
+  - running unreviewed downloaded scripts
+guardrails:
+- Do not mix PowerShell syntax with bash syntax in the same command.
+- Prefer pwsh for cross-platform PowerShell; use Windows PowerShell only when required by modules or host behavior.

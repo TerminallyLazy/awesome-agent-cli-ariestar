@@ -1,0 +1,42 @@
+name: gh-copilot
+binary: gh-copilot
+aliases: []
+category:
+- agent
+- shell
+lang:
+- all
+summary: GitHub CLI Copilot extension for shell assistance and command explanation.
+homepage: https://github.com/github/gh-copilot
+docs: https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/use-copilot-cli
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - .github/copilot-instructions.md
+    dirs:
+    - .github
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Ask GitHub Copilot CLI to suggest or explain shell commands
+- Use gh extension workflows in GitHub-centered repositories
+avoid_when:
+- The generated command would be executed without review
+- The task should not use a separate networked AI assistant
+risk:
+  level: high
+  effects:
+  - execute_code
+  - network_access
+  - requires_auth
+  - secret_exposure
+  requires_auth: true
+  destructive: false
+  confirmation_required_for:
+  - executing suggested commands
+  - sharing private repository context
+guardrails:
+- Treat suggested shell commands as untrusted until reviewed.
+- Verify gh authentication and repository context before networked operations.

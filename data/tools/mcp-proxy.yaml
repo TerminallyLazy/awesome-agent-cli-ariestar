@@ -1,0 +1,46 @@
+name: mcp-proxy
+binary: mcp-proxy
+aliases: []
+category:
+- mcp
+- agent
+- network
+lang:
+- all
+platform:
+- local
+summary: Proxy and bridge for Model Context Protocol servers and transports.
+homepage: https://github.com/sparfenyuk/mcp-proxy
+docs: https://github.com/sparfenyuk/mcp-proxy#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - mcp.json
+    - .mcp.json
+    dirs:
+    - .mcp
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Bridge MCP clients and servers across stdio, SSE, or HTTP-style transports
+- Expose a local MCP server through a transport expected by another agent tool
+avoid_when:
+- Server authentication, exposed network interface, or allowed tools are unclear
+risk:
+  level: high
+  effects:
+  - execute_code
+  - network_access
+  - read_files
+  - write_files
+  - secret_exposure
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - exposing MCP servers beyond localhost
+  - proxying tools that mutate files or remote systems
+guardrails:
+- Bind to localhost unless the user explicitly approves broader network exposure.
+- Review upstream MCP server capabilities before proxying them into another agent.

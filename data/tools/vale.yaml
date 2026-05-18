@@ -1,0 +1,41 @@
+name: vale
+binary: vale
+aliases: []
+category:
+- docs
+- lint
+lang:
+- markdown
+- text
+platform:
+- local
+summary: Prose linter for documentation, technical writing, and style guides.
+homepage: https://vale.sh/
+docs: https://vale.sh/docs/
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - .vale.ini
+    - vale.ini
+    - .vale.yml
+    - .vale.yaml
+    dirs:
+    - styles
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Check documentation or prose against configured style rules
+- Enforce terminology and wording conventions in docs
+avoid_when:
+- No style configuration exists and generic prose advice would be noisy
+risk:
+  level: low
+  effects:
+  - read_files
+  requires_auth: false
+  destructive: false
+  confirmation_required_for: []
+guardrails:
+- Treat prose lint findings as editorial suggestions unless the repository documents them as required.

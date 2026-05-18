@@ -1,0 +1,46 @@
+name: supergateway
+binary: supergateway
+aliases: []
+category:
+- mcp
+- agent
+- network
+lang:
+- all
+platform:
+- local
+summary: Gateway for exposing MCP stdio servers over SSE or HTTP-compatible transports.
+homepage: https://github.com/supercorp-ai/supergateway
+docs: https://github.com/supercorp-ai/supergateway#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - mcp.json
+    - .mcp.json
+    dirs:
+    - .mcp
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Connect stdio MCP servers to clients that require a network transport
+- Test MCP transport bridging in local agent development
+avoid_when:
+- Exposing the MCP server could leak local files, tokens, or command execution tools
+risk:
+  level: high
+  effects:
+  - execute_code
+  - network_access
+  - read_files
+  - write_files
+  - secret_exposure
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - exposing MCP servers on non-localhost interfaces
+  - bridging unreviewed servers with write or command tools
+guardrails:
+- Keep gateways local by default and review firewall, host, and port settings.
+- Inspect MCP server capabilities before bridging them to remote or browser clients.

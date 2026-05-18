@@ -1,0 +1,45 @@
+name: powershell
+binary: powershell
+aliases:
+- powershell.exe
+category:
+- shell
+lang:
+- all
+platform:
+- windows
+summary: Windows PowerShell 5.1 shell and automation runtime.
+homepage: https://learn.microsoft.com/powershell/
+docs: https://learn.microsoft.com/powershell/scripting/windows-powershell/starting-windows-powershell
+detect:
+  version_args:
+  - -NoProfile
+  - -Command
+  - $PSVersionTable.PSVersion.ToString()
+  local:
+    files:
+    - Microsoft.PowerShell_profile.ps1
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Run Windows PowerShell-specific modules, scripts, or cmdlets
+- Reproduce Windows setup instructions that explicitly call powershell.exe
+avoid_when:
+- Cross-platform PowerShell 7 behavior is required
+- The repository shell preference calls for Unix-style command execution
+risk:
+  level: medium
+  effects:
+  - execute_code
+  - read_files
+  - write_files
+  - environment_mutation
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - changing execution policy
+  - running unreviewed downloaded scripts
+guardrails:
+- Distinguish Windows PowerShell from pwsh because module availability and language behavior can differ.
+- Do not use PowerShell aliases in scripts where exact executable behavior matters.

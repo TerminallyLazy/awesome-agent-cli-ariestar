@@ -1,0 +1,47 @@
+name: mcp-inspector
+binary: mcp-inspector
+aliases:
+- modelcontextprotocol-inspector
+category:
+- mcp
+- agent
+- debug
+lang:
+- all
+platform:
+- local
+summary: Interactive developer tool for inspecting and debugging Model Context Protocol servers.
+homepage: https://github.com/modelcontextprotocol/inspector
+docs: https://github.com/modelcontextprotocol/inspector#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - mcp.json
+    - .mcp.json
+    dirs:
+    - .mcp
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Debug MCP server tools, resources, prompts, and transport behavior
+- Inspect what capabilities an MCP server exposes before connecting it to an agent
+avoid_when:
+- The MCP server may expose secrets or perform writes and has not been reviewed
+risk:
+  level: high
+  effects:
+  - execute_code
+  - network_access
+  - read_files
+  - write_files
+  - secret_exposure
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - invoking MCP tools that write files, call networks, or mutate remote systems
+  - exposing private server data in shared logs
+guardrails:
+- Treat MCP tools as executable capabilities; inspect schemas and side effects before invoking them.
+- Keep tokens, local files, and server responses out of public logs unless reviewed.

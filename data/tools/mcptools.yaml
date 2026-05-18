@@ -1,0 +1,47 @@
+name: mcptools
+binary: mcptools
+aliases:
+- mcp
+category:
+- mcp
+- agent
+- debug
+lang:
+- all
+platform:
+- local
+summary: Command-line utilities for interacting with and debugging MCP servers.
+homepage: https://github.com/f/mcptools
+docs: https://github.com/f/mcptools#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - mcp.json
+    - .mcp.json
+    dirs:
+    - .mcp
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- List, call, or debug MCP server tools from the terminal
+- Smoke-test MCP servers before wiring them into an agent client
+avoid_when:
+- Tool calls may mutate local files or remote systems and have not been reviewed
+risk:
+  level: high
+  effects:
+  - execute_code
+  - network_access
+  - read_files
+  - write_files
+  - secret_exposure
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - invoking write-capable MCP tools
+  - saving or sharing MCP server responses
+guardrails:
+- Inspect tool schemas and side effects before calling MCP tools.
+- Redact credentials and private data from MCP responses before sharing logs.

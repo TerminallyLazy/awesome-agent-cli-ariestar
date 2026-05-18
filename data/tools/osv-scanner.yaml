@@ -1,0 +1,45 @@
+name: osv-scanner
+binary: osv-scanner
+aliases: []
+category:
+- security
+lang:
+- all
+platform:
+- local
+summary: Vulnerability scanner for dependencies using the OSV database.
+homepage: https://github.com/google/osv-scanner
+docs: https://google.github.io/osv-scanner/
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - osv-scanner.toml
+    - Cargo.lock
+    - package-lock.json
+    - pnpm-lock.yaml
+    - yarn.lock
+    - uv.lock
+    - poetry.lock
+    - requirements.txt
+    - go.mod
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Scan dependency lockfiles or SBOMs for known vulnerabilities
+- Triage dependency risk across multi-language repositories
+avoid_when:
+- The scan target is unclear or results would disclose private dependency information
+risk:
+  level: medium
+  effects:
+  - read_files
+  - network_access
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - sharing vulnerability results from private repositories
+guardrails:
+- Treat findings as triage inputs; verify affected versions and reachability before proposing upgrades.

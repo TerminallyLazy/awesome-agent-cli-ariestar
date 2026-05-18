@@ -1,0 +1,41 @@
+name: bash
+binary: bash
+aliases: []
+category:
+- shell
+lang:
+- all
+summary: GNU Bourne Again Shell for Unix-style command execution and scripting.
+homepage: https://www.gnu.org/software/bash/
+docs: https://www.gnu.org/software/bash/manual/
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - .bashrc
+    - .bash_profile
+    - .bash_aliases
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Run bash scripts or Unix-style commands that rely on bash-specific syntax
+- Reproduce CI or setup instructions that explicitly invoke bash
+avoid_when:
+- The script declares sh, zsh, fish, PowerShell, or another shell
+- Windows-native commands or PowerShell cmdlets are the intended interface
+risk:
+  level: medium
+  effects:
+  - execute_code
+  - read_files
+  - write_files
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - recursive delete or move operations
+  - piping shell output into destructive commands
+guardrails:
+- Do not assume bash syntax works in sh, fish, PowerShell, or cmd.
+- On Windows, prefer the repository shell preference when one is configured.

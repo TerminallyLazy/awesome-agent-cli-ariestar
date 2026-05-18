@@ -1,0 +1,40 @@
+name: zizmor
+binary: zizmor
+aliases: []
+category:
+- ci
+- security
+lang:
+- yaml
+platform:
+- local
+summary: Static security analyzer for GitHub Actions workflows.
+homepage: https://github.com/zizmorcore/zizmor
+docs: https://docs.zizmor.sh/
+detect:
+  version_args:
+  - --version
+  local:
+    files: []
+    dirs:
+    - .github/workflows
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Scan GitHub Actions workflows for security risks and hardening opportunities
+- Review CI changes that affect tokens, permissions, or third-party actions
+avoid_when:
+- The repository does not use GitHub Actions
+- Findings would expose sensitive workflow details in shared logs
+risk:
+  level: medium
+  effects:
+  - read_files
+  - secret_exposure
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - sharing full security scan output from private repositories
+guardrails:
+- Redact repository-specific secrets and internal URLs from shared findings.
+- Review workflow permissions and third-party actions before applying suggested fixes.

@@ -1,0 +1,42 @@
+name: shell-gpt
+binary: sgpt
+aliases:
+- shell-gpt
+category:
+- agent
+- shell
+lang:
+- all
+summary: Command-line AI assistant for shell command generation and explanations.
+homepage: https://github.com/TheR1D/shell_gpt
+docs: https://github.com/TheR1D/shell_gpt#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - .sgptrc
+    dirs:
+    - .config/shell_gpt
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Generate or explain shell commands from natural language
+- Draft command-line snippets for review before manual execution
+avoid_when:
+- The generated command would be executed without human or agent review
+- The prompt or command output includes unredacted secrets
+risk:
+  level: high
+  effects:
+  - execute_code
+  - network_access
+  - secret_exposure
+  requires_auth: true
+  destructive: false
+  confirmation_required_for:
+  - executing generated commands
+  - enabling shell integration that runs commands directly
+guardrails:
+- Never auto-execute generated commands without reviewing flags, paths, and destructive effects.
+- Redact secrets from prompts and command output sent to model providers.

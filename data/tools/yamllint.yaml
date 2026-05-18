@@ -1,0 +1,38 @@
+name: yamllint
+binary: yamllint
+aliases: []
+category:
+- lint
+- formatter
+lang:
+- yaml
+platform:
+- local
+summary: Linter for YAML files and style conventions.
+homepage: https://github.com/adrienverge/yamllint
+docs: https://yamllint.readthedocs.io/
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - .yamllint
+    - .yamllint.yaml
+    - .yamllint.yml
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Validate YAML syntax and style in configuration files
+- Check YAML changes before CI or deployment
+avoid_when:
+- The file is not YAML or requires a domain-specific validator instead
+risk:
+  level: low
+  effects:
+  - read_files
+  requires_auth: false
+  destructive: false
+  confirmation_required_for: []
+guardrails:
+- Prefer domain-specific validators for Kubernetes, GitHub Actions, or Compose semantics after YAML syntax passes.

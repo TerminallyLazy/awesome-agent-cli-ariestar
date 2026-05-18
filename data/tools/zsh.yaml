@@ -1,0 +1,41 @@
+name: zsh
+binary: zsh
+aliases: []
+category:
+- shell
+lang:
+- all
+summary: Z shell for interactive Unix shells and zsh-specific scripts.
+homepage: https://www.zsh.org/
+docs: https://zsh.sourceforge.io/Doc/
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - .zshrc
+    - .zprofile
+    - .zshenv
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Work with zsh startup files, completions, or scripts that explicitly invoke zsh
+- Reproduce macOS shell setup instructions that use zsh
+avoid_when:
+- The target script must run under POSIX sh or bash
+risk:
+  level: medium
+  effects:
+  - execute_code
+  - read_files
+  - write_files
+  - environment_mutation
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - modifying shell startup files
+  - running unreviewed plugin install commands
+guardrails:
+- Do not assume zsh globbing, arrays, or startup-file behavior applies to bash or sh.
+- Review shell startup file changes because they affect future interactive sessions.

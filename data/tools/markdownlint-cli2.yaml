@@ -1,0 +1,42 @@
+name: markdownlint-cli2
+binary: markdownlint-cli2
+aliases:
+- markdownlint
+category:
+- docs
+- lint
+lang:
+- markdown
+platform:
+- local
+summary: Fast Markdown/CommonMark style linter for documentation files.
+homepage: https://github.com/DavidAnson/markdownlint-cli2
+docs: https://github.com/DavidAnson/markdownlint-cli2#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - .markdownlint-cli2.jsonc
+    - .markdownlint-cli2.yaml
+    - .markdownlint-cli2.yml
+    - .markdownlint.json
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Lint Markdown documentation for style and common formatting mistakes
+- Verify README or docs edits before committing
+avoid_when:
+- The project intentionally uses nonstandard Markdown that lacks matching configuration
+risk:
+  level: low
+  effects:
+  - read_files
+  - write_files
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - applying automatic fixes across many docs
+guardrails:
+- Review automatic fixes because Markdown lint rules can change intentional formatting.

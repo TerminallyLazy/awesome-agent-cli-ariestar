@@ -1,0 +1,42 @@
+name: lychee
+binary: lychee
+aliases: []
+category:
+- docs
+- network
+- lint
+lang:
+- all
+platform:
+- local
+summary: Fast link checker for Markdown, HTML, and other text files.
+homepage: https://github.com/lycheeverse/lychee
+docs: https://lychee.cli.rs/
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - lychee.toml
+    - .lycheeignore
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Check documentation and website links for broken URLs
+- Validate external references before releases or docs changes
+avoid_when:
+- Network access is unavailable or link checking would hit private/internal URLs without approval
+risk:
+  level: medium
+  effects:
+  - read_files
+  - network_access
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - checking private or internal URLs
+  - running large external link scans
+guardrails:
+- Respect rate limits and avoid sharing private URLs from scan output.
+- Use configured excludes for known flaky or authenticated links.

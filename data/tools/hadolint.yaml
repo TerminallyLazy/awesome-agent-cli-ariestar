@@ -1,0 +1,38 @@
+name: hadolint
+binary: hadolint
+aliases: []
+category:
+- container
+- lint
+lang:
+- dockerfile
+platform:
+- local
+summary: Dockerfile linter that checks common mistakes and shell best practices.
+homepage: https://github.com/hadolint/hadolint
+docs: https://github.com/hadolint/hadolint#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - Dockerfile
+    - .hadolint.yaml
+    - .hadolint.yml
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Lint Dockerfiles after editing build steps, package installs, or shell commands
+- Check container image definitions before build or CI runs
+avoid_when:
+- The project has no Dockerfile or configured container build
+risk:
+  level: low
+  effects:
+  - read_files
+  requires_auth: false
+  destructive: false
+  confirmation_required_for: []
+guardrails:
+- Review rule suppressions carefully because Dockerfile lint issues can affect image security and reproducibility.

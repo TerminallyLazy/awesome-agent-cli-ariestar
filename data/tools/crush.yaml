@@ -1,0 +1,44 @@
+name: crush
+binary: crush
+aliases: []
+category:
+- agent
+lang:
+- all
+platform:
+- local
+summary: Terminal-native AI coding agent from Charm.
+homepage: https://github.com/charmbracelet/crush
+docs: https://github.com/charmbracelet/crush#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - CRUSH.md
+    dirs:
+    - .crush
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Use a terminal coding agent that can inspect and modify a repository
+- Run Charm Crush workflows when the project or user explicitly requests them
+avoid_when:
+- The task should stay inside the current agent session
+- The user has not approved delegating code changes to another agent
+risk:
+  level: high
+  effects:
+  - execute_code
+  - network_access
+  - read_files
+  - write_files
+  - secret_exposure
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - granting broad filesystem or command execution permissions
+  - accepting generated edits
+guardrails:
+- Review permissions, project instructions, and generated diffs before accepting changes.
+- Avoid sending secrets or private repository content to external models without approval.

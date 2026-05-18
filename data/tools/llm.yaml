@@ -1,0 +1,42 @@
+name: llm
+binary: llm
+aliases: []
+category:
+- agent
+- shell
+lang:
+- all
+summary: Command-line utility and Python library for running prompts against large language models.
+homepage: https://llm.datasette.io/
+docs: https://llm.datasette.io/en/stable/
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - llm.yaml
+    dirs:
+    - .llm
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Run scripted LLM prompts from the terminal
+- Prototype model calls over reviewed input files or command output
+avoid_when:
+- The prompt includes secrets, credentials, or private repository content without approval
+- Deterministic local tooling can solve the task without model calls
+risk:
+  level: high
+  effects:
+  - network_access
+  - read_files
+  - write_files
+  - secret_exposure
+  requires_auth: true
+  destructive: false
+  confirmation_required_for:
+  - sending private code or documents to a hosted model
+  - storing API keys or changing model configuration
+guardrails:
+- Review piped input before sending it to a model provider.
+- Keep API keys out of shell history, logs, and committed configuration.

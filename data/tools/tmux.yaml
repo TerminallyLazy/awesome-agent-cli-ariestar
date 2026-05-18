@@ -1,0 +1,42 @@
+name: tmux
+binary: tmux
+aliases: []
+category:
+- shell
+- terminal
+lang:
+- all
+platform:
+- local
+summary: Terminal multiplexer for persistent Unix terminal sessions.
+homepage: https://github.com/tmux/tmux
+docs: https://github.com/tmux/tmux/wiki
+detect:
+  version_args:
+  - -V
+  local:
+    files:
+    - .tmux.conf
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Manage long-lived terminal sessions on Unix-like systems
+- Attach to or inspect existing tmux sessions during remote development
+avoid_when:
+- A non-interactive, auditable command is sufficient
+- The task should run under a managed agent scheduler or CI job
+risk:
+  level: medium
+  effects:
+  - execute_code
+  - read_files
+  - write_files
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - killing sessions or windows
+  - starting long-lived commands
+guardrails:
+- Prefer explicit shell commands for automated workflows; use tmux for interactive session management.
+- Do not kill existing sessions without confirming ownership and purpose.

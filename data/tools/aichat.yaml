@@ -1,0 +1,44 @@
+name: aichat
+binary: aichat
+aliases: []
+category:
+- agent
+- shell
+lang:
+- all
+summary: All-in-one command-line LLM chat, shell assistant, and RAG tool.
+homepage: https://github.com/sigoden/aichat
+docs: https://github.com/sigoden/aichat#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - aichat.yaml
+    - .aichat.yaml
+    dirs:
+    - .aichat
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Use a terminal LLM assistant with roles, shell help, or local RAG workflows
+- Run repeatable prompt workflows over reviewed local context
+avoid_when:
+- Prompt inputs include unredacted secrets or private data
+- Generated shell commands would be executed without inspection
+risk:
+  level: high
+  effects:
+  - execute_code
+  - network_access
+  - read_files
+  - write_files
+  - secret_exposure
+  requires_auth: true
+  destructive: false
+  confirmation_required_for:
+  - executing generated shell commands
+  - indexing or sending private repository content
+guardrails:
+- Review shell suggestions and file changes before execution.
+- Verify configured models, API keys, and RAG paths before sharing data externally.

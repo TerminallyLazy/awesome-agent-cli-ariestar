@@ -1,0 +1,42 @@
+name: mods
+binary: mods
+aliases: []
+category:
+- agent
+- shell
+lang:
+- all
+summary: Pipe-friendly AI assistant for the command line from Charm.
+homepage: https://github.com/charmbracelet/mods
+docs: https://github.com/charmbracelet/mods#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - .mods.yml
+    - .mods.yaml
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Pipe reviewed command output or file excerpts into an AI assistant
+- Generate drafts, explanations, or shell suggestions from terminal context
+avoid_when:
+- The input stream may contain secrets or private data
+- The response would be executed or committed without review
+risk:
+  level: high
+  effects:
+  - network_access
+  - read_files
+  - write_files
+  - secret_exposure
+  requires_auth: true
+  destructive: false
+  confirmation_required_for:
+  - sending private repository content to a model
+  - executing model-suggested commands
+guardrails:
+- Treat model output as a suggestion, not an executable command.
+- Redact tokens, secrets, and private data before piping content to hosted models.

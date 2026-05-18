@@ -1,0 +1,37 @@
+name: actionlint
+binary: actionlint
+aliases: []
+category:
+- ci
+- lint
+lang:
+- yaml
+platform:
+- local
+summary: Static checker for GitHub Actions workflow files.
+homepage: https://github.com/rhysd/actionlint
+docs: https://github.com/rhysd/actionlint#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files: []
+    dirs:
+    - .github/workflows
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Validate GitHub Actions workflow syntax, expressions, and common mistakes
+- Check workflow edits before opening or updating a pull request
+avoid_when:
+- The repository does not use GitHub Actions
+risk:
+  level: low
+  effects:
+  - read_files
+  requires_auth: false
+  destructive: false
+  confirmation_required_for: []
+guardrails:
+- Run from the repository root so workflow includes and shell checks resolve consistently.
+- Treat findings as workflow-specific diagnostics, not general YAML validation.

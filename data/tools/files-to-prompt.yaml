@@ -1,0 +1,38 @@
+name: files-to-prompt
+binary: files-to-prompt
+aliases: []
+category:
+- agent-context
+- agent
+- text
+lang:
+- all
+summary: Concatenate selected files into prompt-ready text for LLM workflows.
+homepage: https://github.com/simonw/files-to-prompt
+docs: https://github.com/simonw/files-to-prompt#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files: []
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Build a controlled prompt from an explicit list of files
+- Share a small, auditable subset of repository context with another agent or model
+avoid_when:
+- A whole-repository packer with token accounting and ignore handling is needed
+- File selection has not been reviewed for sensitive content
+risk:
+  level: high
+  effects:
+  - read_files
+  - secret_exposure
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - including private or sensitive files in prompt context
+guardrails:
+- Use explicit file lists or reviewed globs; do not blindly include entire home directories or repositories.
+- Check prompt output for secrets before sharing externally.

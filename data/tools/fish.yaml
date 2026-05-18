@@ -1,0 +1,40 @@
+name: fish
+binary: fish
+aliases: []
+category:
+- shell
+lang:
+- all
+summary: Friendly interactive shell with syntax that is intentionally not POSIX-compatible.
+homepage: https://fishshell.com/
+docs: https://fishshell.com/docs/current/
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - config.fish
+    dirs:
+    - .config/fish
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Edit fish configuration, functions, or scripts that explicitly use fish syntax
+- Run commands in an environment standardized on fish
+avoid_when:
+- Instructions or scripts are written for bash, sh, zsh, PowerShell, or cmd
+risk:
+  level: medium
+  effects:
+  - execute_code
+  - read_files
+  - write_files
+  - environment_mutation
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - modifying fish startup files
+  - running unreviewed shell scripts
+guardrails:
+- Fish syntax is not POSIX shell syntax; do not translate bash snippets blindly.
+- Review config.fish changes because they affect future interactive sessions.

@@ -1,0 +1,42 @@
+name: cmd
+binary: cmd
+aliases:
+- cmd.exe
+category:
+- shell
+lang:
+- all
+platform:
+- windows
+summary: Windows Command Prompt interpreter for batch files and cmd.exe builtins.
+homepage: https://learn.microsoft.com/windows-server/administration/windows-commands/cmd
+docs: https://learn.microsoft.com/windows-server/administration/windows-commands/cmd
+detect:
+  version_args:
+  - /C
+  - ver
+  local:
+    files: []
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Run .bat or .cmd files and Windows command prompt builtins
+- Reproduce Windows instructions that explicitly require cmd.exe semantics
+avoid_when:
+- The command uses bash, fish, zsh, Nushell, or PowerShell syntax
+risk:
+  level: medium
+  effects:
+  - execute_code
+  - read_files
+  - write_files
+  - environment_mutation
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - recursive delete or move operations
+  - changing persistent environment variables
+guardrails:
+- Do not assume cmd variable expansion, quoting, or path syntax works in PowerShell or Unix shells.
+- Prefer explicit executables in scripts instead of relying on shell builtins when portability matters.

@@ -1,0 +1,42 @@
+name: gitingest
+binary: gitingest
+aliases: []
+category:
+- agent-context
+- agent
+- docs
+lang:
+- all
+summary: Turn a Git repository or URL into an LLM-friendly text digest.
+homepage: https://github.com/coderamp-labs/gitingest
+docs: https://github.com/coderamp-labs/gitingest#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files: []
+    dirs:
+    - .git
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Summarize repository contents for an LLM or agent review workflow
+- Ingest a remote Git repository into prompt-ready text
+avoid_when:
+- The target repository includes sensitive files that have not been excluded
+- A precise file subset is required instead of a broad repository digest
+risk:
+  level: high
+  effects:
+  - read_files
+  - write_files
+  - network_access
+  - secret_exposure
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - ingesting private repositories or authenticated URLs
+  - sharing generated digests externally
+guardrails:
+- Review included files and output before sending repository digests to external services.
+- Avoid ingesting secrets, credentials, private keys, and ignored build artifacts.

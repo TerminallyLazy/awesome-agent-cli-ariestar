@@ -1,0 +1,43 @@
+name: repomix
+binary: repomix
+aliases: []
+category:
+- agent-context
+- agent
+- docs
+lang:
+- all
+summary: Package repository contents into an AI-friendly context file.
+homepage: https://github.com/yamadashy/repomix
+docs: https://github.com/yamadashy/repomix#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files:
+    - repomix.config.json
+    - repomix.config.json5
+    - repomix.config.ts
+    - repomix.config.mjs
+    dirs: []
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Prepare selected repository files as context for an LLM or coding agent
+- Produce auditable prompt input for cross-agent review
+avoid_when:
+- The repository contains secrets, private data, or large generated files that have not been excluded
+risk:
+  level: high
+  effects:
+  - read_files
+  - write_files
+  - secret_exposure
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - packaging private repository content for an external model
+  - overriding ignore rules
+guardrails:
+- Review included paths and ignore patterns before sharing output with any model or service.
+- Do not package secrets, credentials, private keys, or unreviewed environment files.

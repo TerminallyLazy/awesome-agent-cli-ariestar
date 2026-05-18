@@ -1,0 +1,41 @@
+name: pueue
+binary: pueue
+aliases: []
+category:
+- automation
+- terminal
+lang:
+- all
+platform:
+- local
+summary: Command-line task queue for running and supervising background shell commands.
+homepage: https://github.com/Nukesor/pueue
+docs: https://github.com/Nukesor/pueue#readme
+detect:
+  version_args:
+  - --version
+  local:
+    files: []
+    dirs:
+    - .pueue
+    package_json:
+      package_manager_prefixes: []
+use_when:
+- Run long-lived or expensive commands in an inspectable local queue
+- Check status and logs of background tasks without opening new terminals
+avoid_when:
+- The command must run synchronously in CI or return a single deterministic exit code now
+risk:
+  level: medium
+  effects:
+  - execute_code
+  - read_files
+  - write_files
+  requires_auth: false
+  destructive: false
+  confirmation_required_for:
+  - killing or cleaning tasks
+  - queueing destructive commands
+guardrails:
+- Inspect queued command text before adding destructive or remote-write tasks.
+- Check task status and logs before assuming a background command succeeded.
