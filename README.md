@@ -4,7 +4,7 @@
 
 **A machine-readable awesome list of CLI tools, risks, effects, and guardrails for AI coding agents.**
 
-![tools: 237](https://img.shields.io/badge/tools-237-0969da) ![categories: 45](https://img.shields.io/badge/categories-45-8250df) ![yaml: registry](https://img.shields.io/badge/yaml-registry-2ea44f) [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re) [![Update README](https://github.com/Ariestar/awesome-agent-cli/actions/workflows/update-readme.yml/badge.svg)](https://github.com/Ariestar/awesome-agent-cli/actions/workflows/update-readme.yml)
+![tools: 237](https://img.shields.io/badge/tools-237-0969da) ![categories: 45](https://img.shields.io/badge/categories-45-8250df) ![yaml: registry](https://img.shields.io/badge/yaml-registry-2ea44f) [![GitHub Repo stars](https://img.shields.io/github/stars/Ariestar/awesome-agent-cli?style=social)](https://github.com/Ariestar/awesome-agent-cli) [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re) [![Update README](https://github.com/Ariestar/awesome-agent-cli/actions/workflows/update-readme.yml/badge.svg)](https://github.com/Ariestar/awesome-agent-cli/actions/workflows/update-readme.yml)
 
 </div>
 
@@ -23,6 +23,14 @@ AI coding agents do not just need a list of binaries. They need operational cont
 - **Which guardrails** are required before dangerous actions.
 - **How tools map** to categories like `shell`, `agent`, `mcp`, `security`, `deploy`, or `test`.
 
+## Designed for
+
+| Audience | What they get |
+| --- | --- |
+| Agent builders | A ready-made tool taxonomy with side-effect metadata. |
+| Coding agents | Decision hints for choosing safer CLIs before acting. |
+| Maintainers | A reviewable YAML source of truth instead of a hand-written list. |
+
 ## What's inside
 
 | Signal | Value |
@@ -30,6 +38,7 @@ AI coding agents do not just need a list of binaries. They need operational cont
 | Tool cards | **237** |
 | Category tags | **45** |
 | Language/ecosystem tags | **32** |
+| GitHub-backed tools | **172** with live star badges |
 | Risk distribution | Low: **28** · Medium: **122** · High: **87** |
 
 ## Quick use
@@ -66,35 +75,38 @@ These entries are especially useful when designing or hardening agent workflows:
 - [bash](https://www.gnu.org/software/bash/manual/) — GNU Bourne Again Shell for Unix-style command execution and scripting.  \
   `bash` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
 - [pwsh](https://learn.microsoft.com/powershell/) — PowerShell 7+ cross-platform shell and automation runtime.  \
-  `pwsh` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `pwsh` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/PowerShell/PowerShell?style=social)](https://github.com/PowerShell/PowerShell)
 - [tmux](https://github.com/tmux/tmux/wiki) — Terminal multiplexer for persistent Unix terminal sessions.  \
-  `tmux` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `terminal`
+  `tmux` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `terminal` · [![GitHub Repo stars](https://img.shields.io/github/stars/tmux/tmux?style=social)](https://github.com/tmux/tmux)
 - [pueue](https://github.com/Nukesor/pueue#readme) — Command-line task queue for running and supervising background shell commands.  \
-  `pueue` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `terminal`
+  `pueue` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `terminal` · [![GitHub Repo stars](https://img.shields.io/github/stars/Nukesor/pueue?style=social)](https://github.com/Nukesor/pueue)
 - [crush](https://github.com/charmbracelet/crush#readme) — Terminal-native AI coding agent from Charm.  \
-  `crush` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `crush` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/charmbracelet/crush?style=social)](https://github.com/charmbracelet/crush)
 - [repomix](https://github.com/yamadashy/repomix#readme) — Package repository contents into an AI-friendly context file.  \
-  `repomix` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `docs`
+  `repomix` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `docs` · [![GitHub Repo stars](https://img.shields.io/github/stars/yamadashy/repomix?style=social)](https://github.com/yamadashy/repomix)
 - [files-to-prompt](https://github.com/simonw/files-to-prompt#readme) — Concatenate selected files into prompt-ready text for LLM workflows.  \
-  `files-to-prompt` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `text`
+  `files-to-prompt` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `text` · [![GitHub Repo stars](https://img.shields.io/github/stars/simonw/files-to-prompt?style=social)](https://github.com/simonw/files-to-prompt)
 - [llm](https://llm.datasette.io/en/stable/) — Command-line utility and Python library for running prompts against large language models.  \
   `llm` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell`
 - [mcp-inspector](https://github.com/modelcontextprotocol/inspector#readme) — Interactive developer tool for inspecting and debugging Model Context Protocol servers.  \
-  `mcp-inspector` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `debug`
+  `mcp-inspector` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `debug` · [![GitHub Repo stars](https://img.shields.io/github/stars/modelcontextprotocol/inspector?style=social)](https://github.com/modelcontextprotocol/inspector)
 - [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy#readme) — Proxy and bridge for Model Context Protocol servers and transports.  \
-  `mcp-proxy` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `network`
+  `mcp-proxy` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `network` · [![GitHub Repo stars](https://img.shields.io/github/stars/sparfenyuk/mcp-proxy?style=social)](https://github.com/sparfenyuk/mcp-proxy)
 - [actionlint](https://github.com/rhysd/actionlint#readme) — Static checker for GitHub Actions workflow files.  \
-  `actionlint` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `yaml` · also: `lint`
+  `actionlint` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `yaml` · also: `lint` · [![GitHub Repo stars](https://img.shields.io/github/stars/rhysd/actionlint?style=social)](https://github.com/rhysd/actionlint)
 - [zizmor](https://docs.zizmor.sh/) — Static security analyzer for GitHub Actions workflows.  \
-  `zizmor` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `yaml` · also: `security`
+  `zizmor` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `yaml` · also: `security` · [![GitHub Repo stars](https://img.shields.io/github/stars/zizmorcore/zizmor?style=social)](https://github.com/zizmorcore/zizmor)
 - [detect-secrets](https://github.com/Yelp/detect-secrets#readme) — Secret scanner and baseline tool for preventing committed credentials.  \
-  `detect-secrets` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `detect-secrets` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/Yelp/detect-secrets?style=social)](https://github.com/Yelp/detect-secrets)
 - [osv-scanner](https://google.github.io/osv-scanner/) — Vulnerability scanner for dependencies using the OSV database.  \
-  `osv-scanner` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `osv-scanner` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/google/osv-scanner?style=social)](https://github.com/google/osv-scanner)
 
 ## Category map
 
 The matrix below shows category coverage and risk posture. A tool can appear in more than one category, so totals count category tags rather than unique files.
+
+> [!IMPORTANT]
+> `control plane` categories contain at least one high-risk tool and should be gated by stronger confirmation, auth, and rollback checks in agent workflows.
 
 | Category | Total | Low | Medium | High | Posture |
 | --- | ---: | ---: | ---: | ---: | --- |
@@ -165,76 +177,76 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 ### agent
 
 - [aichat](https://github.com/sigoden/aichat#readme) — All-in-one command-line LLM chat, shell assistant, and RAG tool.  \
-  `aichat` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell`
+  `aichat` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell` · [![GitHub Repo stars](https://img.shields.io/github/stars/sigoden/aichat?style=social)](https://github.com/sigoden/aichat)
 - [aider](https://aider.chat/docs/) — AI pair programming CLI that edits files through chat.  \
-  `aider` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `aider` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/Aider-AI/aider?style=social)](https://github.com/Aider-AI/aider)
 - [amp](https://ampcode.com/manual) — Terminal AI coding agent from Sourcegraph.  \
   `amp` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
 - [claude](https://docs.anthropic.com/en/docs/claude-code) — Anthropic Claude Code command-line coding assistant.  \
   `claude` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
 - [codex](https://github.com/openai/codex#readme) — OpenAI Codex command-line coding agent.  \
-  `codex` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `codex` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/openai/codex?style=social)](https://github.com/openai/codex)
 - [crush](https://github.com/charmbracelet/crush#readme) — Terminal-native AI coding agent from Charm.  \
-  `crush` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `crush` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/charmbracelet/crush?style=social)](https://github.com/charmbracelet/crush)
 - [cursor-agent](https://docs.cursor.com/) — Cursor's terminal coding agent.  \
   `cursor-agent` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
 - [files-to-prompt](https://github.com/simonw/files-to-prompt#readme) — Concatenate selected files into prompt-ready text for LLM workflows.  \
-  `files-to-prompt` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `text`
+  `files-to-prompt` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `text` · [![GitHub Repo stars](https://img.shields.io/github/stars/simonw/files-to-prompt?style=social)](https://github.com/simonw/files-to-prompt)
 - [gemini](https://github.com/google-gemini/gemini-cli#readme) — Google Gemini command-line AI assistant.  \
-  `gemini` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `gemini` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/google-gemini/gemini-cli?style=social)](https://github.com/google-gemini/gemini-cli)
 - [gh-copilot](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/use-copilot-cli) — GitHub CLI Copilot extension for shell assistance and command explanation.  \
-  `gh-copilot` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell`
+  `gh-copilot` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell` · [![GitHub Repo stars](https://img.shields.io/github/stars/github/gh-copilot?style=social)](https://github.com/github/gh-copilot)
 - [gitingest](https://github.com/coderamp-labs/gitingest#readme) — Turn a Git repository or URL into an LLM-friendly text digest.  \
-  `gitingest` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `docs`
+  `gitingest` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `docs` · [![GitHub Repo stars](https://img.shields.io/github/stars/coderamp-labs/gitingest?style=social)](https://github.com/coderamp-labs/gitingest)
 - [goose](https://block.github.io/goose/) — Open-source local AI agent framework and CLI from Block.  \
-  `goose` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `goose` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/block/goose?style=social)](https://github.com/block/goose)
 - [llm](https://llm.datasette.io/en/stable/) — Command-line utility and Python library for running prompts against large language models.  \
   `llm` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell`
 - [mcp-inspector](https://github.com/modelcontextprotocol/inspector#readme) — Interactive developer tool for inspecting and debugging Model Context Protocol servers.  \
-  `mcp-inspector` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `debug`
+  `mcp-inspector` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `debug` · [![GitHub Repo stars](https://img.shields.io/github/stars/modelcontextprotocol/inspector?style=social)](https://github.com/modelcontextprotocol/inspector)
 - [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy#readme) — Proxy and bridge for Model Context Protocol servers and transports.  \
-  `mcp-proxy` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `network`
+  `mcp-proxy` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `network` · [![GitHub Repo stars](https://img.shields.io/github/stars/sparfenyuk/mcp-proxy?style=social)](https://github.com/sparfenyuk/mcp-proxy)
 - [mcptools](https://github.com/f/mcptools#readme) — Command-line utilities for interacting with and debugging MCP servers.  \
-  `mcptools` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `debug`
+  `mcptools` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `debug` · [![GitHub Repo stars](https://img.shields.io/github/stars/f/mcptools?style=social)](https://github.com/f/mcptools)
 - [mods](https://github.com/charmbracelet/mods#readme) — Pipe-friendly AI assistant for the command line from Charm.  \
-  `mods` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell`
+  `mods` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell` · [![GitHub Repo stars](https://img.shields.io/github/stars/charmbracelet/mods?style=social)](https://github.com/charmbracelet/mods)
 - [opencode](https://opencode.ai/docs/) — Terminal-based AI coding agent.  \
-  `opencode` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `opencode` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/sst/opencode?style=social)](https://github.com/sst/opencode)
 - [paseo](https://github.com/mariozechner/pi-coding-agent) — Local daemon and CLI for supervising AI coding agents, worktrees, schedules, and terminals.  \
-  `paseo` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `automation`, `terminal`
+  `paseo` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `automation`, `terminal` · [![GitHub Repo stars](https://img.shields.io/github/stars/mariozechner/pi-coding-agent?style=social)](https://github.com/mariozechner/pi-coding-agent)
 - [q](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line.html) — Amazon Q Developer command-line assistant.  \
   `q` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
 - [qwen](https://github.com/QwenLM/qwen-code#readme) — Qwen command-line AI coding assistant.  \
-  `qwen` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `qwen` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/QwenLM/qwen-code?style=social)](https://github.com/QwenLM/qwen-code)
 - [repomix](https://github.com/yamadashy/repomix#readme) — Package repository contents into an AI-friendly context file.  \
-  `repomix` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `docs`
+  `repomix` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `docs` · [![GitHub Repo stars](https://img.shields.io/github/stars/yamadashy/repomix?style=social)](https://github.com/yamadashy/repomix)
 - [shell-gpt](https://github.com/TheR1D/shell_gpt#readme) — Command-line AI assistant for shell command generation and explanations.  \
-  `sgpt` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell`
+  `sgpt` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell` · [![GitHub Repo stars](https://img.shields.io/github/stars/TheR1D/shell_gpt?style=social)](https://github.com/TheR1D/shell_gpt)
 - [supergateway](https://github.com/supercorp-ai/supergateway#readme) — Gateway for exposing MCP stdio servers over SSE or HTTP-compatible transports.  \
-  `supergateway` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `network`
+  `supergateway` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `network` · [![GitHub Repo stars](https://img.shields.io/github/stars/supercorp-ai/supergateway?style=social)](https://github.com/supercorp-ai/supergateway)
 
 ### agent-context
 
 - [files-to-prompt](https://github.com/simonw/files-to-prompt#readme) — Concatenate selected files into prompt-ready text for LLM workflows.  \
-  `files-to-prompt` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `text`
+  `files-to-prompt` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `text` · [![GitHub Repo stars](https://img.shields.io/github/stars/simonw/files-to-prompt?style=social)](https://github.com/simonw/files-to-prompt)
 - [gitingest](https://github.com/coderamp-labs/gitingest#readme) — Turn a Git repository or URL into an LLM-friendly text digest.  \
-  `gitingest` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `docs`
+  `gitingest` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `docs` · [![GitHub Repo stars](https://img.shields.io/github/stars/coderamp-labs/gitingest?style=social)](https://github.com/coderamp-labs/gitingest)
 - [repomix](https://github.com/yamadashy/repomix#readme) — Package repository contents into an AI-friendly context file.  \
-  `repomix` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `docs`
+  `repomix` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `docs` · [![GitHub Repo stars](https://img.shields.io/github/stars/yamadashy/repomix?style=social)](https://github.com/yamadashy/repomix)
 
 ### api
 
 - [buf](https://buf.build/docs/reference/cli/) — Protobuf linting, breaking-change detection, and code generation CLI.  \
-  `buf` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `protobuf`
+  `buf` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `protobuf` · [![GitHub Repo stars](https://img.shields.io/github/stars/bufbuild/buf?style=social)](https://github.com/bufbuild/buf)
 - [grpcurl](https://github.com/fullstorydev/grpcurl#readme) — Command-line gRPC client for inspecting and calling services.  \
-  `grpcurl` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `protobuf`
+  `grpcurl` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `protobuf` · [![GitHub Repo stars](https://img.shields.io/github/stars/fullstorydev/grpcurl?style=social)](https://github.com/fullstorydev/grpcurl)
 - [websocat](https://github.com/vi/websocat#readme) — Command-line client and relay for WebSocket connections.  \
-  `websocat` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `api`
+  `websocat` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `api` · [![GitHub Repo stars](https://img.shields.io/github/stars/vi/websocat?style=social)](https://github.com/vi/websocat)
 
 ### archive
 
 - [ouch](https://github.com/ouch-org/ouch#readme) — User-friendly archive compression and extraction CLI.  \
-  `ouch` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `ouch` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/ouch-org/ouch?style=social)](https://github.com/ouch-org/ouch)
 - [tar](https://www.gnu.org/software/tar/manual/) — Create and extract tar archives.  \
   `tar` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
 - [unzip](https://linux.die.net/man/1/unzip) — Extract and inspect zip archives.  \
@@ -245,35 +257,35 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 ### automation
 
 - [bacon](https://dystroy.org/bacon/) — Background Rust checker that runs cargo tasks on changes.  \
-  `bacon` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust`
+  `bacon` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · [![GitHub Repo stars](https://img.shields.io/github/stars/Canop/bacon?style=social)](https://github.com/Canop/bacon)
 - [cargo-watch](https://github.com/watchexec/cargo-watch#readme) — Run Cargo commands whenever project files change.  \
-  `cargo-watch` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust`
+  `cargo-watch` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · [![GitHub Repo stars](https://img.shields.io/github/stars/watchexec/cargo-watch?style=social)](https://github.com/watchexec/cargo-watch)
 - [just](https://just.systems/man/en/) — Command runner for project recipes.  \
-  `just` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `build`, `test`
+  `just` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `build`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/casey/just?style=social)](https://github.com/casey/just)
 - [make](https://www.gnu.org/software/make/manual/) — Build automation tool driven by Makefile targets.  \
   `make` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `test`, `automation`
 - [paseo](https://github.com/mariozechner/pi-coding-agent) — Local daemon and CLI for supervising AI coding agents, worktrees, schedules, and terminals.  \
-  `paseo` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `automation`, `terminal`
+  `paseo` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `automation`, `terminal` · [![GitHub Repo stars](https://img.shields.io/github/stars/mariozechner/pi-coding-agent?style=social)](https://github.com/mariozechner/pi-coding-agent)
 - [pre-commit](https://pre-commit.com/) — Framework for running repository-defined checks before commits.  \
-  `pre-commit` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `lint`, `test`
+  `pre-commit` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `lint`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/pre-commit/pre-commit?style=social)](https://github.com/pre-commit/pre-commit)
 - [pueue](https://github.com/Nukesor/pueue#readme) — Command-line task queue for running and supervising background shell commands.  \
-  `pueue` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `terminal`
+  `pueue` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `terminal` · [![GitHub Repo stars](https://img.shields.io/github/stars/Nukesor/pueue?style=social)](https://github.com/Nukesor/pueue)
 - [task](https://taskfile.dev/) — Task runner using Taskfile.yml or Taskfile.yaml.  \
-  `task` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `build`, `test`
+  `task` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `build`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/go-task/task?style=social)](https://github.com/go-task/task)
 - [watchexec](https://watchexec.github.io/) — Run commands when watched files change.  \
-  `watchexec` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `watchexec` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/watchexec/watchexec?style=social)](https://github.com/watchexec/watchexec)
 
 ### benchmark
 
 - [hyperfine](https://github.com/sharkdp/hyperfine#readme) — Command-line benchmarking tool.  \
-  `hyperfine` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `hyperfine` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/sharkdp/hyperfine?style=social)](https://github.com/sharkdp/hyperfine)
 - [oha](https://github.com/hatoo/oha#readme) — HTTP load generator and benchmark tool.  \
-  `oha` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `network`
+  `oha` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `network` · [![GitHub Repo stars](https://img.shields.io/github/stars/hatoo/oha?style=social)](https://github.com/hatoo/oha)
 
 ### browser-test
 
 - [playwright](https://playwright.dev/docs/test-cli) — End-to-end browser testing and automation CLI.  \
-  `playwright` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`
+  `playwright` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · [![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/playwright?style=social)](https://github.com/microsoft/playwright)
 
 ### build
 
@@ -282,13 +294,13 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [capacitor](https://capacitorjs.com/docs/cli) — Capacitor CLI for syncing web apps into native Android and iOS projects.  \
   `cap` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · also: `mobile`
 - [cargo](https://doc.rust-lang.org/cargo/) — Rust package manager and build tool.  \
-  `cargo` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · also: `test`, `package-manager`
+  `cargo` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · also: `test`, `package-manager` · [![GitHub Repo stars](https://img.shields.io/github/stars/rust-lang/cargo?style=social)](https://github.com/rust-lang/cargo)
 - [cmake](https://cmake.org/cmake/help/latest/) — Cross-platform build system generator.  \
-  `cmake` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `c`, `cpp`
+  `cmake` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `c`, `cpp` · [![GitHub Repo stars](https://img.shields.io/github/stars/Kitware/CMake?style=social)](https://github.com/Kitware/CMake)
 - [docker](https://docs.docker.com/reference/cli/docker/) — Container build and runtime CLI.  \
   `docker` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `build`, `deploy`
 - [dotnet](https://learn.microsoft.com/dotnet/core/tools/) — .NET SDK command-line interface.  \
-  `dotnet` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `csharp`, `fsharp`, `visual-basic`
+  `dotnet` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `csharp`, `fsharp`, `visual-basic` · [![GitHub Repo stars](https://img.shields.io/github/stars/dotnet/sdk?style=social)](https://github.com/dotnet/sdk)
 - [eas](https://docs.expo.dev/eas/) — Expo Application Services CLI for cloud builds, submissions, updates, and credentials.  \
   `eas` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `javascript`, `typescript` · also: `build`, `mobile`
 - [expo](https://docs.expo.dev/more/expo-cli/) — Expo CLI for developing, prebuilding, and running React Native apps.  \
@@ -296,35 +308,35 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [flutter](https://docs.flutter.dev/reference/flutter-cli) — Flutter SDK CLI for building, testing, and running Dart applications across mobile, web, and desktop.  \
   `flutter` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `dart` · also: `test`, `package-manager`, `mobile`
 - [go](https://go.dev/doc/) — Go toolchain for modules, build, test, and run.  \
-  `go` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `go`
+  `go` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `go` · [![GitHub Repo stars](https://img.shields.io/github/stars/golang/go?style=social)](https://github.com/golang/go)
 - [gradle](https://docs.gradle.org/current/userguide/command_line_interface.html) — Gradle build automation CLI.  \
-  `gradle` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `java`, `kotlin`, `groovy`, `scala`
+  `gradle` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `java`, `kotlin`, `groovy`, `scala` · [![GitHub Repo stars](https://img.shields.io/github/stars/gradle/gradle?style=social)](https://github.com/gradle/gradle)
 - [just](https://just.systems/man/en/) — Command runner for project recipes.  \
-  `just` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `build`, `test`
+  `just` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `build`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/casey/just?style=social)](https://github.com/casey/just)
 - [make](https://www.gnu.org/software/make/manual/) — Build automation tool driven by Makefile targets.  \
   `make` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `test`, `automation`
 - [mvn](https://maven.apache.org/guides/) — Apache Maven build and dependency management CLI.  \
-  `mvn` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `java`, `kotlin`, `scala`
+  `mvn` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `java`, `kotlin`, `scala` · [![GitHub Repo stars](https://img.shields.io/github/stars/apache/maven?style=social)](https://github.com/apache/maven)
 - [ninja](https://ninja-build.org/manual.html) — Small build system focused on speed.  \
-  `ninja` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `c`, `cpp`
+  `ninja` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `c`, `cpp` · [![GitHub Repo stars](https://img.shields.io/github/stars/ninja-build/ninja?style=social)](https://github.com/ninja-build/ninja)
 - [npm](https://docs.npmjs.com/) — Node.js package manager bundled with npm.  \
   `npm` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · also: `build`, `test`
 - [pnpm](https://pnpm.io/motivation) — Fast disk-efficient JavaScript package manager.  \
   `pnpm` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · also: `build`, `test`
 - [poetry](https://python-poetry.org/docs/) — Python packaging and dependency management tool.  \
-  `poetry` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · also: `build`, `test`
+  `poetry` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · also: `build`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/python-poetry/poetry?style=social)](https://github.com/python-poetry/poetry)
 - [sccache](https://github.com/mozilla/sccache#readme) — Compiler cache for Rust, C, C++, and other compilers.  \
-  `sccache` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust`, `c`, `cpp`
+  `sccache` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust`, `c`, `cpp` · [![GitHub Repo stars](https://img.shields.io/github/stars/mozilla/sccache?style=social)](https://github.com/mozilla/sccache)
 - [task](https://taskfile.dev/) — Task runner using Taskfile.yml or Taskfile.yaml.  \
-  `task` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `build`, `test`
+  `task` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `build`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/go-task/task?style=social)](https://github.com/go-task/task)
 - [trunk](https://trunkrs.dev/) — Build, bundle, and serve Rust WebAssembly web applications.  \
-  `trunk` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust`
+  `trunk` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · [![GitHub Repo stars](https://img.shields.io/github/stars/trunk-rs/trunk?style=social)](https://github.com/trunk-rs/trunk)
 - [turbo](https://turborepo.com/docs/reference/run) — High-performance build system for JavaScript and TypeScript monorepos.  \
-  `turbo` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`
+  `turbo` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · [![GitHub Repo stars](https://img.shields.io/github/stars/vercel/turborepo?style=social)](https://github.com/vercel/turborepo)
 - [vite](https://vite.dev/guide/cli.html) — Frontend development server and build tool.  \
-  `vite` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`
+  `vite` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · [![GitHub Repo stars](https://img.shields.io/github/stars/vitejs/vite?style=social)](https://github.com/vitejs/vite)
 - [wasm-pack](https://rustwasm.github.io/wasm-pack/) — Build and package Rust-generated WebAssembly.  \
-  `wasm-pack` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust`
+  `wasm-pack` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · [![GitHub Repo stars](https://img.shields.io/github/stars/rustwasm/wasm-pack?style=social)](https://github.com/rustwasm/wasm-pack)
 - [xcodebuild](https://developer.apple.com/library/archive/technotes/tn2339/_index.html) — Xcode command-line build and test tool for Apple platforms.  \
   `xcodebuild` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `swift`, `objective-c` · also: `test`, `mobile`
 - [yarn](https://yarnpkg.com/cli) — JavaScript package manager.  \
@@ -333,32 +345,32 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 ### ci
 
 - [act](https://nektosact.com/) — Run GitHub Actions workflows locally.  \
-  `act` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `act` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/nektos/act?style=social)](https://github.com/nektos/act)
 - [actionlint](https://github.com/rhysd/actionlint#readme) — Static checker for GitHub Actions workflow files.  \
-  `actionlint` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `yaml` · also: `lint`
+  `actionlint` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `yaml` · also: `lint` · [![GitHub Repo stars](https://img.shields.io/github/stars/rhysd/actionlint?style=social)](https://github.com/rhysd/actionlint)
 - [zizmor](https://docs.zizmor.sh/) — Static security analyzer for GitHub Actions workflows.  \
-  `zizmor` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `yaml` · also: `security`
+  `zizmor` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `yaml` · also: `security` · [![GitHub Repo stars](https://img.shields.io/github/stars/zizmorcore/zizmor?style=social)](https://github.com/zizmorcore/zizmor)
 
 ### cloud
 
 - [aws](https://docs.aws.amazon.com/cli/) — Amazon Web Services command-line interface.  \
-  `aws` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `aws` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/aws/aws-cli?style=social)](https://github.com/aws/aws-cli)
 - [az](https://learn.microsoft.com/cli/azure/) — Microsoft Azure command-line interface.  \
-  `az` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `az` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/Azure/azure-cli?style=social)](https://github.com/Azure/azure-cli)
 - [firebase](https://firebase.google.com/docs/cli) — Firebase project management and deployment CLI.  \
-  `firebase` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `firebase` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/firebase/firebase-tools?style=social)](https://github.com/firebase/firebase-tools)
 - [flyctl](https://fly.io/docs/flyctl/) — Fly.io command-line tool.  \
-  `flyctl` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `flyctl` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/superfly/flyctl?style=social)](https://github.com/superfly/flyctl)
 - [gcloud](https://cloud.google.com/sdk/gcloud) — Google Cloud command-line interface.  \
-  `gcloud` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `gcloud` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/google-cloud-sdk-unofficial/google-cloud-sdk?style=social)](https://github.com/google-cloud-sdk-unofficial/google-cloud-sdk)
 - [netlify](https://cli.netlify.com/) — Netlify CLI for local development and deployment.  \
-  `netlify` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `netlify` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/netlify/cli?style=social)](https://github.com/netlify/cli)
 - [stripe](https://docs.stripe.com/stripe-cli) — Stripe CLI for local webhooks, API calls, and developer workflows.  \
-  `stripe` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `stripe` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/stripe/stripe-cli?style=social)](https://github.com/stripe/stripe-cli)
 - [supabase](https://supabase.com/docs/reference/cli/introduction) — Supabase local development and project management CLI.  \
-  `supabase` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `supabase` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/supabase/cli?style=social)](https://github.com/supabase/cli)
 - [wrangler](https://developers.cloudflare.com/workers/wrangler/) — Cloudflare Workers and Pages CLI.  \
-  `wrangler` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `javascript`, `typescript`, `rust`
+  `wrangler` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `javascript`, `typescript`, `rust` · [![GitHub Repo stars](https://img.shields.io/github/stars/cloudflare/workers-sdk?style=social)](https://github.com/cloudflare/workers-sdk)
 
 ### compiler
 
@@ -374,31 +386,31 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [docker-compose](https://docs.docker.com/compose/reference/) — Docker Compose standalone CLI.  \
   `docker-compose` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `deploy`
 - [hadolint](https://github.com/hadolint/hadolint#readme) — Dockerfile linter that checks common mistakes and shell best practices.  \
-  `hadolint` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `dockerfile` · also: `lint`
+  `hadolint` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `dockerfile` · also: `lint` · [![GitHub Repo stars](https://img.shields.io/github/stars/hadolint/hadolint?style=social)](https://github.com/hadolint/hadolint)
 - [podman](https://docs.podman.io/) — Daemonless container engine compatible with many Docker workflows.  \
-  `podman` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `podman` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/containers/podman?style=social)](https://github.com/containers/podman)
 
 ### data
 
 - [jq](https://jqlang.github.io/jq/manual/) — Command-line JSON processor.  \
-  `jq` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `json`
+  `jq` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `json` · [![GitHub Repo stars](https://img.shields.io/github/stars/jqlang/jq?style=social)](https://github.com/jqlang/jq)
 - [yq](https://mikefarah.gitbook.io/yq/) — Command-line YAML, JSON, XML, CSV, and properties processor.  \
-  `yq` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `yaml`, `json`
+  `yq` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `yaml`, `json` · [![GitHub Repo stars](https://img.shields.io/github/stars/mikefarah/yq?style=social)](https://github.com/mikefarah/yq)
 
 ### database
 
 - [clickhouse](https://clickhouse.com/docs/interfaces/cli) — ClickHouse command-line client and local database tooling.  \
-  `clickhouse` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `sql`
+  `clickhouse` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `sql` · [![GitHub Repo stars](https://img.shields.io/github/stars/ClickHouse/ClickHouse?style=social)](https://github.com/ClickHouse/ClickHouse)
 - [duckdb](https://duckdb.org/docs/stable/clients/cli/) — Embedded analytical database CLI.  \
-  `duckdb` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `sql`
+  `duckdb` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `sql` · [![GitHub Repo stars](https://img.shields.io/github/stars/duckdb/duckdb?style=social)](https://github.com/duckdb/duckdb)
 - [mongosh](https://www.mongodb.com/docs/mongodb-shell/) — MongoDB Shell for querying and administering MongoDB.  \
-  `mongosh` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `mongosh` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/mongodb-js/mongosh?style=social)](https://github.com/mongodb-js/mongosh)
 - [mysql](https://dev.mysql.com/doc/refman/en/mysql.html) — MySQL command-line client.  \
   `mysql` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `sql`
 - [psql](https://www.postgresql.org/docs/current/app-psql.html) — PostgreSQL interactive terminal.  \
   `psql` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `sql`
 - [redis-cli](https://redis.io/docs/latest/develop/tools/cli/) — Redis command-line client.  \
-  `redis-cli` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `redis-cli` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/redis/redis?style=social)](https://github.com/redis/redis)
 - [sqlite3](https://www.sqlite.org/cli.html) — SQLite command-line shell.  \
   `sqlite3` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `sql`
 
@@ -407,9 +419,9 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [adb](https://developer.android.com/tools/adb) — Android Debug Bridge for interacting with Android devices and emulators.  \
   `adb` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `device`, `debug`
 - [mcp-inspector](https://github.com/modelcontextprotocol/inspector#readme) — Interactive developer tool for inspecting and debugging Model Context Protocol servers.  \
-  `mcp-inspector` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `debug`
+  `mcp-inspector` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `debug` · [![GitHub Repo stars](https://img.shields.io/github/stars/modelcontextprotocol/inspector?style=social)](https://github.com/modelcontextprotocol/inspector)
 - [mcptools](https://github.com/f/mcptools#readme) — Command-line utilities for interacting with and debugging MCP servers.  \
-  `mcptools` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `debug`
+  `mcptools` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `debug` · [![GitHub Repo stars](https://img.shields.io/github/stars/f/mcptools?style=social)](https://github.com/f/mcptools)
 
 ### deploy
 
@@ -422,9 +434,9 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [fastlane](https://docs.fastlane.tools/) — Automation CLI for mobile build, signing, beta distribution, and app store release workflows.  \
   `fastlane` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `ruby` · also: `mobile`, `signing`
 - [railway](https://docs.railway.com/reference/cli-api) — Railway deployment and project management CLI.  \
-  `railway` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `railway` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/railwayapp/cli?style=social)](https://github.com/railwayapp/cli)
 - [vercel](https://vercel.com/docs/cli) — Vercel project deployment CLI.  \
-  `vercel` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `javascript`, `typescript`
+  `vercel` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `javascript`, `typescript` · [![GitHub Repo stars](https://img.shields.io/github/stars/vercel/vercel?style=social)](https://github.com/vercel/vercel)
 
 ### device
 
@@ -436,17 +448,17 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 ### docs
 
 - [gitingest](https://github.com/coderamp-labs/gitingest#readme) — Turn a Git repository or URL into an LLM-friendly text digest.  \
-  `gitingest` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `docs`
+  `gitingest` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `docs` · [![GitHub Repo stars](https://img.shields.io/github/stars/coderamp-labs/gitingest?style=social)](https://github.com/coderamp-labs/gitingest)
 - [glow](https://github.com/charmbracelet/glow#readme) — Terminal Markdown renderer.  \
-  `glow` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `glow` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/charmbracelet/glow?style=social)](https://github.com/charmbracelet/glow)
 - [imagemagick](https://imagemagick.org/script/command-line-processing.php) — ImageMagick CLI suite for inspecting, converting, and transforming images.  \
   `magick` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `docs`
 - [lychee](https://lychee.cli.rs/) — Fast link checker for Markdown, HTML, and other text files.  \
-  `lychee` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `network`, `lint`
+  `lychee` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `network`, `lint` · [![GitHub Repo stars](https://img.shields.io/github/stars/lycheeverse/lychee?style=social)](https://github.com/lycheeverse/lychee)
 - [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2#readme) — Fast Markdown/CommonMark style linter for documentation files.  \
-  `markdownlint-cli2` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `markdown` · also: `lint`
+  `markdownlint-cli2` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `markdown` · also: `lint` · [![GitHub Repo stars](https://img.shields.io/github/stars/DavidAnson/markdownlint-cli2?style=social)](https://github.com/DavidAnson/markdownlint-cli2)
 - [mdbook](https://rust-lang.github.io/mdBook/) — Build books and documentation sites from Markdown.  \
-  `mdbook` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `markdown`
+  `mdbook` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `markdown` · [![GitHub Repo stars](https://img.shields.io/github/stars/rust-lang/mdBook?style=social)](https://github.com/rust-lang/mdBook)
 - [pandoc](https://pandoc.org/MANUAL.html) — Universal document converter for Markdown, HTML, DOCX, LaTeX, and more.  \
   `pandoc` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `markdown` · also: `text`
 - [pdftoppm](https://www.mankier.com/1/pdftoppm) — Poppler CLI for rendering PDF pages to image files.  \
@@ -454,20 +466,20 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [pdftotext](https://www.mankier.com/1/pdftotext) — Poppler CLI for extracting text from PDF files.  \
   `pdftotext` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · also: `text`, `file-viewer`
 - [qpdf](https://qpdf.readthedocs.io/) — Command-line tool for inspecting, transforming, splitting, and repairing PDF files.  \
-  `qpdf` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `file-viewer`
+  `qpdf` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `file-viewer` · [![GitHub Repo stars](https://img.shields.io/github/stars/qpdf/qpdf?style=social)](https://github.com/qpdf/qpdf)
 - [repomix](https://github.com/yamadashy/repomix#readme) — Package repository contents into an AI-friendly context file.  \
-  `repomix` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `docs`
+  `repomix` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `docs` · [![GitHub Repo stars](https://img.shields.io/github/stars/yamadashy/repomix?style=social)](https://github.com/yamadashy/repomix)
 - [tesseract](https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html) — OCR engine CLI for extracting text from images and scanned documents.  \
-  `tesseract` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `image`, `text`
+  `tesseract` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `image`, `text` · [![GitHub Repo stars](https://img.shields.io/github/stars/tesseract-ocr/tesseract?style=social)](https://github.com/tesseract-ocr/tesseract)
 - [tldr](https://tldr.sh/) — Community-maintained concise command examples.  \
-  `tldr` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `tldr` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/tldr-pages/tldr?style=social)](https://github.com/tldr-pages/tldr)
 - [vale](https://vale.sh/docs/) — Prose linter for documentation, technical writing, and style guides.  \
   `vale` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `markdown`, `text` · also: `lint`
 
 ### editor
 
 - [helix](https://docs.helix-editor.com/) — Modal terminal editor with built-in LSP and tree-sitter support.  \
-  `hx` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `hx` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/helix-editor/helix?style=social)](https://github.com/helix-editor/helix)
 
 ### environment
 
@@ -482,151 +494,151 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [choco](https://docs.chocolatey.org/en-us/choco/commands/) — Chocolatey package manager for installing and maintaining Windows software from the command line.  \
   `choco` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment`
 - [devcontainer](https://github.com/devcontainers/cli#readme) — CLI for building and running Development Containers.  \
-  `devcontainer` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `devcontainer` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/devcontainers/cli?style=social)](https://github.com/devcontainers/cli)
 - [direnv](https://direnv.net/) — Per-directory shell environment loader.  \
-  `direnv` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `direnv` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/direnv/direnv?style=social)](https://github.com/direnv/direnv)
 - [dnf](https://dnf.readthedocs.io/en/latest/command_ref.html) — Fedora, RHEL, and compatible Linux package manager for system packages.  \
-  `dnf` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment`
+  `dnf` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment` · [![GitHub Repo stars](https://img.shields.io/github/stars/rpm-software-management/dnf?style=social)](https://github.com/rpm-software-management/dnf)
 - [fnm](https://github.com/Schniz/fnm#readme) — Fast Node.js version manager.  \
-  `fnm` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `fnm` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/Schniz/fnm?style=social)](https://github.com/Schniz/fnm)
 - [mise](https://mise.jdx.dev/) — Development tool version manager and task runner.  \
-  `mise` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `package-manager`
+  `mise` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `package-manager` · [![GitHub Repo stars](https://img.shields.io/github/stars/jdx/mise?style=social)](https://github.com/jdx/mise)
 - [nix](https://nixos.org/manual/nix/stable/) — Reproducible package manager and build system.  \
-  `nix` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `nix` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/NixOS/nix?style=social)](https://github.com/NixOS/nix)
 - [pacman](https://man.archlinux.org/man/pacman.8) — Arch Linux package manager for installing and updating system packages.  \
   `pacman` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment`
 - [scoop](https://github.com/ScoopInstaller/Scoop/wiki) — Windows command-line package manager for installing developer tools and applications without admin by default.  \
-  `scoop` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment`
+  `scoop` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment` · [![GitHub Repo stars](https://img.shields.io/github/stars/ScoopInstaller/Scoop?style=social)](https://github.com/ScoopInstaller/Scoop)
 - [volta](https://docs.volta.sh/) — JavaScript toolchain manager for pinning Node, npm, pnpm, and yarn.  \
-  `volta` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`
+  `volta` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · [![GitHub Repo stars](https://img.shields.io/github/stars/volta-cli/volta?style=social)](https://github.com/volta-cli/volta)
 - [winget](https://learn.microsoft.com/windows/package-manager/winget/) — Microsoft Windows Package Manager for installing and updating desktop apps and developer tools.  \
-  `winget` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment`
+  `winget` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment` · [![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/winget-cli?style=social)](https://github.com/microsoft/winget-cli)
 - [zypper](https://documentation.suse.com/smart/systems-management/html/concept-zypper/index.html) — openSUSE and SUSE Linux package manager for installing and updating system packages.  \
   `zypper` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment`
 
 ### file-viewer
 
 - [bat](https://github.com/sharkdp/bat#readme) — Syntax-highlighted cat replacement for reading files.  \
-  `bat` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `bat` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/sharkdp/bat?style=social)](https://github.com/sharkdp/bat)
 - [broot](https://dystroy.org/broot/) — Interactive directory tree navigator with fuzzy search.  \
-  `broot` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `broot` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/Canop/broot?style=social)](https://github.com/Canop/broot)
 - [dua](https://github.com/Byron/dua-cli#readme) — Disk usage analyzer for finding large files and directories.  \
-  `dua` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `dua` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/Byron/dua-cli?style=social)](https://github.com/Byron/dua-cli)
 - [dust](https://github.com/bootandy/dust#readme) — Visual disk usage summary for directories.  \
-  `dust` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `dust` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/bootandy/dust?style=social)](https://github.com/bootandy/dust)
 - [eza](https://eza.rocks/) — Modern directory listing tool.  \
-  `eza` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `eza` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/eza-community/eza?style=social)](https://github.com/eza-community/eza)
 - [lsd](https://github.com/lsd-rs/lsd#readme) — Modern ls alternative with colors, icons, and tree output.  \
-  `lsd` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `lsd` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/lsd-rs/lsd?style=social)](https://github.com/lsd-rs/lsd)
 - [pdftoppm](https://www.mankier.com/1/pdftoppm) — Poppler CLI for rendering PDF pages to image files.  \
   `pdftoppm` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `file-viewer`
 - [pdftotext](https://www.mankier.com/1/pdftotext) — Poppler CLI for extracting text from PDF files.  \
   `pdftotext` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · also: `text`, `file-viewer`
 - [qpdf](https://qpdf.readthedocs.io/) — Command-line tool for inspecting, transforming, splitting, and repairing PDF files.  \
-  `qpdf` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `file-viewer`
+  `qpdf` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `file-viewer` · [![GitHub Repo stars](https://img.shields.io/github/stars/qpdf/qpdf?style=social)](https://github.com/qpdf/qpdf)
 - [tree](https://www.mankier.com/1/tree) — Display directory structure as a tree.  \
   `tree` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
 - [yazi](https://yazi-rs.github.io/) — Fast terminal file manager with async I/O.  \
-  `yazi` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `yazi` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/sxyazi/yazi?style=social)](https://github.com/sxyazi/yazi)
 
 ### formatter
 
 - [cargo-fmt](https://github.com/rust-lang/rustfmt#readme) — Rust formatter distributed as a Cargo subcommand.  \
-  `cargo-fmt` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust`
+  `cargo-fmt` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · [![GitHub Repo stars](https://img.shields.io/github/stars/rust-lang/rustfmt?style=social)](https://github.com/rust-lang/rustfmt)
 - [clang-format](https://clang.llvm.org/docs/ClangFormat.html) — Formatter for C, C++, Objective-C, Java, JavaScript, and related languages.  \
   `clang-format` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `c`, `cpp`, `objective-c`, `java`
 - [gofmt](https://pkg.go.dev/cmd/gofmt) — Standard Go source formatter.  \
-  `gofmt` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `go`
+  `gofmt` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `go` · [![GitHub Repo stars](https://img.shields.io/github/stars/golang/go?style=social)](https://github.com/golang/go)
 - [prettier](https://prettier.io/docs/cli) — Opinionated code formatter for JavaScript and related formats.  \
-  `prettier` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`, `css`, `html`
+  `prettier` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`, `css`, `html` · [![GitHub Repo stars](https://img.shields.io/github/stars/prettier/prettier?style=social)](https://github.com/prettier/prettier)
 - [taplo](https://taplo.tamasfe.dev/cli/usage/) — TOML formatter, linter, and language tooling.  \
-  `taplo` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `toml`
+  `taplo` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `toml` · [![GitHub Repo stars](https://img.shields.io/github/stars/tamasfe/taplo?style=social)](https://github.com/tamasfe/taplo)
 - [yamllint](https://yamllint.readthedocs.io/) — Linter for YAML files and style conventions.  \
-  `yamllint` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `yaml` · also: `formatter`
+  `yamllint` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `yaml` · also: `formatter` · [![GitHub Repo stars](https://img.shields.io/github/stars/adrienverge/yamllint?style=social)](https://github.com/adrienverge/yamllint)
 
 ### image
 
 - [imagemagick](https://imagemagick.org/script/command-line-processing.php) — ImageMagick CLI suite for inspecting, converting, and transforming images.  \
   `magick` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `docs`
 - [tesseract](https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html) — OCR engine CLI for extracting text from images and scanned documents.  \
-  `tesseract` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `image`, `text`
+  `tesseract` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `image`, `text` · [![GitHub Repo stars](https://img.shields.io/github/stars/tesseract-ocr/tesseract?style=social)](https://github.com/tesseract-ocr/tesseract)
 
 ### infra
 
 - [ansible](https://docs.ansible.com/) — Automation and configuration management CLI.  \
-  `ansible` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `ansible` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/ansible/ansible?style=social)](https://github.com/ansible/ansible)
 - [pulumi](https://www.pulumi.com/docs/iac/cli/) — Infrastructure as code CLI for Pulumi stacks.  \
-  `pulumi` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `pulumi` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/pulumi/pulumi?style=social)](https://github.com/pulumi/pulumi)
 - [terraform](https://developer.hashicorp.com/terraform/cli) — Infrastructure as code CLI.  \
-  `terraform` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `hcl`
+  `terraform` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `hcl` · [![GitHub Repo stars](https://img.shields.io/github/stars/hashicorp/terraform?style=social)](https://github.com/hashicorp/terraform)
 - [terragrunt](https://terragrunt.gruntwork.io/docs/) — Thin wrapper for Terraform that manages remote state and repeated configuration.  \
-  `terragrunt` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `hcl`
+  `terragrunt` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `hcl` · [![GitHub Repo stars](https://img.shields.io/github/stars/gruntwork-io/terragrunt?style=social)](https://github.com/gruntwork-io/terragrunt)
 - [tofu](https://opentofu.org/docs/) — OpenTofu infrastructure as code CLI.  \
-  `tofu` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `hcl`
+  `tofu` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `hcl` · [![GitHub Repo stars](https://img.shields.io/github/stars/opentofu/opentofu?style=social)](https://github.com/opentofu/opentofu)
 
 ### kubernetes
 
 - [helm](https://helm.sh/docs/helm/) — Kubernetes package manager for charts.  \
-  `helm` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `helm` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/helm/helm?style=social)](https://github.com/helm/helm)
 - [k9s](https://k9scli.io/) — Terminal UI for managing Kubernetes clusters.  \
-  `k9s` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `k9s` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/derailed/k9s?style=social)](https://github.com/derailed/k9s)
 - [kind](https://kind.sigs.k8s.io/) — Run local Kubernetes clusters in Docker containers.  \
-  `kind` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `kind` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/kubernetes-sigs/kind?style=social)](https://github.com/kubernetes-sigs/kind)
 - [kubectl](https://kubernetes.io/docs/reference/kubectl/) — Kubernetes command-line tool.  \
   `kubectl` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
 - [kustomize](https://kubectl.docs.kubernetes.io/references/kustomize/) — Kubernetes configuration customization tool.  \
-  `kustomize` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `kustomize` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/kubernetes-sigs/kustomize?style=social)](https://github.com/kubernetes-sigs/kustomize)
 - [minikube](https://minikube.sigs.k8s.io/docs/) — Local Kubernetes development cluster manager.  \
-  `minikube` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `minikube` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/kubernetes/minikube?style=social)](https://github.com/kubernetes/minikube)
 - [stern](https://github.com/stern/stern#readme) — Multi-pod Kubernetes log tailing CLI.  \
-  `stern` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `stern` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/stern/stern?style=social)](https://github.com/stern/stern)
 
 ### lint
 
 - [actionlint](https://github.com/rhysd/actionlint#readme) — Static checker for GitHub Actions workflow files.  \
-  `actionlint` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `yaml` · also: `lint`
+  `actionlint` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `yaml` · also: `lint` · [![GitHub Repo stars](https://img.shields.io/github/stars/rhysd/actionlint?style=social)](https://github.com/rhysd/actionlint)
 - [biome](https://biomejs.dev/reference/cli/) — Fast formatter and linter for JavaScript, TypeScript, JSON, and CSS.  \
-  `biome` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`, `json`, `css`
+  `biome` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`, `json`, `css` · [![GitHub Repo stars](https://img.shields.io/github/stars/biomejs/biome?style=social)](https://github.com/biomejs/biome)
 - [cargo-clippy](https://doc.rust-lang.org/clippy/) — Rust linter distributed as a Cargo subcommand.  \
-  `cargo-clippy` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust`
+  `cargo-clippy` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · [![GitHub Repo stars](https://img.shields.io/github/stars/rust-lang/rust-clippy?style=social)](https://github.com/rust-lang/rust-clippy)
 - [clang-tidy](https://clang.llvm.org/extra/clang-tidy/) — C and C++ linter and static analysis tool.  \
   `clang-tidy` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `c`, `cpp`
 - [eslint](https://eslint.org/docs/latest/use/command-line-interface) — JavaScript and TypeScript linting CLI.  \
-  `eslint` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`
+  `eslint` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · [![GitHub Repo stars](https://img.shields.io/github/stars/eslint/eslint?style=social)](https://github.com/eslint/eslint)
 - [hadolint](https://github.com/hadolint/hadolint#readme) — Dockerfile linter that checks common mistakes and shell best practices.  \
-  `hadolint` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `dockerfile` · also: `lint`
+  `hadolint` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `dockerfile` · also: `lint` · [![GitHub Repo stars](https://img.shields.io/github/stars/hadolint/hadolint?style=social)](https://github.com/hadolint/hadolint)
 - [lychee](https://lychee.cli.rs/) — Fast link checker for Markdown, HTML, and other text files.  \
-  `lychee` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `network`, `lint`
+  `lychee` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `network`, `lint` · [![GitHub Repo stars](https://img.shields.io/github/stars/lycheeverse/lychee?style=social)](https://github.com/lycheeverse/lychee)
 - [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2#readme) — Fast Markdown/CommonMark style linter for documentation files.  \
-  `markdownlint-cli2` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `markdown` · also: `lint`
+  `markdownlint-cli2` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `markdown` · also: `lint` · [![GitHub Repo stars](https://img.shields.io/github/stars/DavidAnson/markdownlint-cli2?style=social)](https://github.com/DavidAnson/markdownlint-cli2)
 - [pre-commit](https://pre-commit.com/) — Framework for running repository-defined checks before commits.  \
-  `pre-commit` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `lint`, `test`
+  `pre-commit` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `lint`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/pre-commit/pre-commit?style=social)](https://github.com/pre-commit/pre-commit)
 - [ruff](https://docs.astral.sh/ruff/) — Fast Python linter and formatter.  \
-  `ruff` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python`
+  `ruff` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · [![GitHub Repo stars](https://img.shields.io/github/stars/astral-sh/ruff?style=social)](https://github.com/astral-sh/ruff)
 - [shellcheck](https://www.shellcheck.net/wiki/Home) — Static analysis tool for shell scripts.  \
-  `shellcheck` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `shell`
+  `shellcheck` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `shell` · [![GitHub Repo stars](https://img.shields.io/github/stars/koalaman/shellcheck?style=social)](https://github.com/koalaman/shellcheck)
 - [typos](https://github.com/crate-ci/typos#readme) — Source code spell checker.  \
-  `typos` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `typos` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/crate-ci/typos?style=social)](https://github.com/crate-ci/typos)
 - [vale](https://vale.sh/docs/) — Prose linter for documentation, technical writing, and style guides.  \
   `vale` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `markdown`, `text` · also: `lint`
 - [yamllint](https://yamllint.readthedocs.io/) — Linter for YAML files and style conventions.  \
-  `yamllint` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `yaml` · also: `formatter`
+  `yamllint` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `yaml` · also: `formatter` · [![GitHub Repo stars](https://img.shields.io/github/stars/adrienverge/yamllint?style=social)](https://github.com/adrienverge/yamllint)
 
 ### mcp
 
 - [mcp-inspector](https://github.com/modelcontextprotocol/inspector#readme) — Interactive developer tool for inspecting and debugging Model Context Protocol servers.  \
-  `mcp-inspector` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `debug`
+  `mcp-inspector` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `debug` · [![GitHub Repo stars](https://img.shields.io/github/stars/modelcontextprotocol/inspector?style=social)](https://github.com/modelcontextprotocol/inspector)
 - [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy#readme) — Proxy and bridge for Model Context Protocol servers and transports.  \
-  `mcp-proxy` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `network`
+  `mcp-proxy` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `network` · [![GitHub Repo stars](https://img.shields.io/github/stars/sparfenyuk/mcp-proxy?style=social)](https://github.com/sparfenyuk/mcp-proxy)
 - [mcptools](https://github.com/f/mcptools#readme) — Command-line utilities for interacting with and debugging MCP servers.  \
-  `mcptools` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `debug`
+  `mcptools` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `debug` · [![GitHub Repo stars](https://img.shields.io/github/stars/f/mcptools?style=social)](https://github.com/f/mcptools)
 - [supergateway](https://github.com/supercorp-ai/supergateway#readme) — Gateway for exposing MCP stdio servers over SSE or HTTP-compatible transports.  \
-  `supergateway` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `network`
+  `supergateway` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `network` · [![GitHub Repo stars](https://img.shields.io/github/stars/supercorp-ai/supergateway?style=social)](https://github.com/supercorp-ai/supergateway)
 
 ### metrics
 
 - [tokei](https://github.com/XAMPPRocky/tokei#readme) — Count code, comments, blanks, and files by language.  \
-  `tokei` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `tokei` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/XAMPPRocky/tokei?style=social)](https://github.com/XAMPPRocky/tokei)
 
 ### mobile
 
@@ -656,21 +668,21 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [curl](https://curl.se/docs/manpage.html) — Command-line HTTP and network transfer client.  \
   `curl` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
 - [httpie](https://httpie.io/docs/cli) — Human-friendly command-line HTTP client.  \
-  `http` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `http` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/httpie/cli?style=social)](https://github.com/httpie/cli)
 - [lychee](https://lychee.cli.rs/) — Fast link checker for Markdown, HTML, and other text files.  \
-  `lychee` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `network`, `lint`
+  `lychee` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `network`, `lint` · [![GitHub Repo stars](https://img.shields.io/github/stars/lycheeverse/lychee?style=social)](https://github.com/lycheeverse/lychee)
 - [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy#readme) — Proxy and bridge for Model Context Protocol servers and transports.  \
-  `mcp-proxy` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `network`
+  `mcp-proxy` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `network` · [![GitHub Repo stars](https://img.shields.io/github/stars/sparfenyuk/mcp-proxy?style=social)](https://github.com/sparfenyuk/mcp-proxy)
 - [miniserve](https://github.com/svenstaro/miniserve#readme) — Small CLI for serving files over HTTP.  \
-  `miniserve` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `miniserve` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/svenstaro/miniserve?style=social)](https://github.com/svenstaro/miniserve)
 - [oha](https://github.com/hatoo/oha#readme) — HTTP load generator and benchmark tool.  \
-  `oha` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `network`
+  `oha` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `network` · [![GitHub Repo stars](https://img.shields.io/github/stars/hatoo/oha?style=social)](https://github.com/hatoo/oha)
 - [supergateway](https://github.com/supercorp-ai/supergateway#readme) — Gateway for exposing MCP stdio servers over SSE or HTTP-compatible transports.  \
-  `supergateway` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `network`
+  `supergateway` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `network` · [![GitHub Repo stars](https://img.shields.io/github/stars/supercorp-ai/supergateway?style=social)](https://github.com/supercorp-ai/supergateway)
 - [websocat](https://github.com/vi/websocat#readme) — Command-line client and relay for WebSocket connections.  \
-  `websocat` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `api`
+  `websocat` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `api` · [![GitHub Repo stars](https://img.shields.io/github/stars/vi/websocat?style=social)](https://github.com/vi/websocat)
 - [xh](https://github.com/ducaale/xh#readme) — Fast and friendly HTTP client inspired by HTTPie.  \
-  `xh` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `xh` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/ducaale/xh?style=social)](https://github.com/ducaale/xh)
 
 ### package-manager
 
@@ -685,25 +697,25 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [bun](https://bun.sh/docs) — JavaScript runtime and package manager.  \
   `bun` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · also: `runtime`, `build`, `test`
 - [bundle](https://bundler.io/docs.html) — Ruby dependency manager and command runner.  \
-  `bundle` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `ruby`
+  `bundle` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `ruby` · [![GitHub Repo stars](https://img.shields.io/github/stars/rubygems/rubygems?style=social)](https://github.com/rubygems/rubygems)
 - [cargo](https://doc.rust-lang.org/cargo/) — Rust package manager and build tool.  \
-  `cargo` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · also: `test`, `package-manager`
+  `cargo` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · also: `test`, `package-manager` · [![GitHub Repo stars](https://img.shields.io/github/stars/rust-lang/cargo?style=social)](https://github.com/rust-lang/cargo)
 - [cargo-binstall](https://github.com/cargo-bins/cargo-binstall#readme) — Install Rust binary crates from prebuilt artifacts when available.  \
-  `cargo-binstall` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust`
+  `cargo-binstall` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · [![GitHub Repo stars](https://img.shields.io/github/stars/cargo-bins/cargo-binstall?style=social)](https://github.com/cargo-bins/cargo-binstall)
 - [choco](https://docs.chocolatey.org/en-us/choco/commands/) — Chocolatey package manager for installing and maintaining Windows software from the command line.  \
   `choco` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment`
 - [composer](https://getcomposer.org/doc/) — PHP dependency manager and project command runner.  \
-  `composer` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `php`
+  `composer` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `php` · [![GitHub Repo stars](https://img.shields.io/github/stars/composer/composer?style=social)](https://github.com/composer/composer)
 - [corepack](https://nodejs.org/api/corepack.html) — Node.js package manager shim for pnpm and Yarn.  \
-  `corepack` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`
+  `corepack` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · [![GitHub Repo stars](https://img.shields.io/github/stars/nodejs/corepack?style=social)](https://github.com/nodejs/corepack)
 - [dnf](https://dnf.readthedocs.io/en/latest/command_ref.html) — Fedora, RHEL, and compatible Linux package manager for system packages.  \
-  `dnf` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment`
+  `dnf` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment` · [![GitHub Repo stars](https://img.shields.io/github/stars/rpm-software-management/dnf?style=social)](https://github.com/rpm-software-management/dnf)
 - [flutter](https://docs.flutter.dev/reference/flutter-cli) — Flutter SDK CLI for building, testing, and running Dart applications across mobile, web, and desktop.  \
   `flutter` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `dart` · also: `test`, `package-manager`, `mobile`
 - [hatch](https://hatch.pypa.io/latest/) — Python project, environment, and packaging manager.  \
-  `hatch` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python`
+  `hatch` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · [![GitHub Repo stars](https://img.shields.io/github/stars/pypa/hatch?style=social)](https://github.com/pypa/hatch)
 - [mise](https://mise.jdx.dev/) — Development tool version manager and task runner.  \
-  `mise` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `package-manager`
+  `mise` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `package-manager` · [![GitHub Repo stars](https://img.shields.io/github/stars/jdx/mise?style=social)](https://github.com/jdx/mise)
 - [npm](https://docs.npmjs.com/) — Node.js package manager bundled with npm.  \
   `npm` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · also: `build`, `test`
 - [pacman](https://man.archlinux.org/man/pacman.8) — Arch Linux package manager for installing and updating system packages.  \
@@ -711,19 +723,19 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [pip](https://pip.pypa.io/en/stable/cli/) — Python package installer.  \
   `pip` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python`
 - [pipx](https://pipx.pypa.io/stable/) — Install and run Python CLI applications in isolated environments.  \
-  `pipx` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python`
+  `pipx` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · [![GitHub Repo stars](https://img.shields.io/github/stars/pypa/pipx?style=social)](https://github.com/pypa/pipx)
 - [pnpm](https://pnpm.io/motivation) — Fast disk-efficient JavaScript package manager.  \
   `pnpm` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · also: `build`, `test`
 - [pod](https://guides.cocoapods.org/terminal/commands.html) — CocoaPods dependency manager CLI for Apple platform projects.  \
   `pod` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `swift`, `objective-c` · also: `mobile`
 - [poetry](https://python-poetry.org/docs/) — Python packaging and dependency management tool.  \
-  `poetry` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · also: `build`, `test`
+  `poetry` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · also: `build`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/python-poetry/poetry?style=social)](https://github.com/python-poetry/poetry)
 - [scoop](https://github.com/ScoopInstaller/Scoop/wiki) — Windows command-line package manager for installing developer tools and applications without admin by default.  \
-  `scoop` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment`
+  `scoop` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment` · [![GitHub Repo stars](https://img.shields.io/github/stars/ScoopInstaller/Scoop?style=social)](https://github.com/ScoopInstaller/Scoop)
 - [uv](https://docs.astral.sh/uv/) — Fast Python package and environment manager.  \
-  `uv` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · also: `runtime`, `test`
+  `uv` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · also: `runtime`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/astral-sh/uv?style=social)](https://github.com/astral-sh/uv)
 - [winget](https://learn.microsoft.com/windows/package-manager/winget/) — Microsoft Windows Package Manager for installing and updating desktop apps and developer tools.  \
-  `winget` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment`
+  `winget` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment` · [![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/winget-cli?style=social)](https://github.com/microsoft/winget-cli)
 - [yarn](https://yarnpkg.com/cli) — JavaScript package manager.  \
   `yarn` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · also: `build`, `test`
 - [zypper](https://documentation.suse.com/smart/systems-management/html/concept-zypper/index.html) — openSUSE and SUSE Linux package manager for installing and updating system packages.  \
@@ -734,7 +746,7 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [bun](https://bun.sh/docs) — JavaScript runtime and package manager.  \
   `bun` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · also: `runtime`, `build`, `test`
 - [deno](https://docs.deno.com/) — Secure JavaScript and TypeScript runtime with built-in tooling.  \
-  `deno` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`
+  `deno` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · [![GitHub Repo stars](https://img.shields.io/github/stars/denoland/deno?style=social)](https://github.com/denoland/deno)
 - [expo](https://docs.expo.dev/more/expo-cli/) — Expo CLI for developing, prebuilding, and running React Native apps.  \
   `expo` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · also: `runtime`, `mobile`
 - [java](https://docs.oracle.com/en/java/javase/) — Java runtime command-line launcher.  \
@@ -742,77 +754,77 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [node](https://nodejs.org/docs/) — JavaScript runtime for Node.js projects.  \
   `node` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`
 - [php](https://www.php.net/manual/en/features.commandline.php) — PHP runtime command-line interface.  \
-  `php` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `php`
+  `php` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `php` · [![GitHub Repo stars](https://img.shields.io/github/stars/php/php-src?style=social)](https://github.com/php/php-src)
 - [python](https://docs.python.org/) — Python interpreter.  \
   `python` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python`
 - [ruby](https://www.ruby-lang.org/en/documentation/) — Ruby language runtime CLI.  \
-  `ruby` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `ruby`
+  `ruby` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `ruby` · [![GitHub Repo stars](https://img.shields.io/github/stars/ruby/ruby?style=social)](https://github.com/ruby/ruby)
 - [uv](https://docs.astral.sh/uv/) — Fast Python package and environment manager.  \
-  `uv` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · also: `runtime`, `test`
+  `uv` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · also: `runtime`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/astral-sh/uv?style=social)](https://github.com/astral-sh/uv)
 
 ### search
 
 - [ast-grep](https://ast-grep.github.io/) — Structural code search and rewrite tool based on AST patterns.  \
-  `ast-grep` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `ast-grep` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/ast-grep/ast-grep?style=social)](https://github.com/ast-grep/ast-grep)
 - [fd](https://github.com/sharkdp/fd#readme) — Fast filesystem entry finder.  \
-  `fd` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `fd` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/sharkdp/fd?style=social)](https://github.com/sharkdp/fd)
 - [find](https://www.gnu.org/software/findutils/manual/) — GNU find for locating files by name, type, time, and predicates.  \
   `gfind` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
 - [fzf](https://github.com/junegunn/fzf#readme) — General-purpose command-line fuzzy finder.  \
-  `fzf` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `fzf` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/junegunn/fzf?style=social)](https://github.com/junegunn/fzf)
 - [grep](https://www.gnu.org/software/grep/manual/) — Classic line-oriented text search.  \
   `grep` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
 - [rg](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md) — Fast recursive text search for codebases.  \
-  `rg` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `rg` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/BurntSushi/ripgrep?style=social)](https://github.com/BurntSushi/ripgrep)
 - [rga](https://github.com/phiresky/ripgrep-all#readme) — ripgrep wrapper for PDFs, archives, e-books, Office documents, and more.  \
-  `rga` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `rga` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/phiresky/ripgrep-all?style=social)](https://github.com/phiresky/ripgrep-all)
 
 ### secrets
 
 - [op](https://developer.1password.com/docs/cli/reference/) — 1Password CLI for secrets, vaults, and service accounts.  \
   `op` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
 - [sops](https://getsops.io/docs/) — Editor and automation tool for encrypted secrets files.  \
-  `sops` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `sops` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/getsops/sops?style=social)](https://github.com/getsops/sops)
 
 ### security
 
 - [age](https://github.com/FiloSottile/age#readme) — Simple file encryption tool and format.  \
-  `age` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `age` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/FiloSottile/age?style=social)](https://github.com/FiloSottile/age)
 - [cargo-audit](https://github.com/rustsec/rustsec/tree/main/cargo-audit#readme) — Audit Rust dependency trees for known security vulnerabilities.  \
-  `cargo-audit` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust`
+  `cargo-audit` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · [![GitHub Repo stars](https://img.shields.io/github/stars/rustsec/rustsec?style=social)](https://github.com/rustsec/rustsec)
 - [cargo-deny](https://embarkstudios.github.io/cargo-deny/) — Rust dependency policy checker for advisories, licenses, bans, and sources.  \
-  `cargo-deny` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust`
+  `cargo-deny` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · [![GitHub Repo stars](https://img.shields.io/github/stars/EmbarkStudios/cargo-deny?style=social)](https://github.com/EmbarkStudios/cargo-deny)
 - [cosign](https://docs.sigstore.dev/cosign/) — Container image and artifact signing CLI from Sigstore.  \
-  `cosign` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `cosign` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/sigstore/cosign?style=social)](https://github.com/sigstore/cosign)
 - [detect-secrets](https://github.com/Yelp/detect-secrets#readme) — Secret scanner and baseline tool for preventing committed credentials.  \
-  `detect-secrets` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `detect-secrets` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/Yelp/detect-secrets?style=social)](https://github.com/Yelp/detect-secrets)
 - [gitleaks](https://github.com/gitleaks/gitleaks#readme) — Secret scanner for git repositories and filesystems.  \
-  `gitleaks` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `gitleaks` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/gitleaks/gitleaks?style=social)](https://github.com/gitleaks/gitleaks)
 - [grype](https://github.com/anchore/grype#readme) — Vulnerability scanner for container images and filesystems.  \
-  `grype` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `grype` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/anchore/grype?style=social)](https://github.com/anchore/grype)
 - [openssl](https://docs.openssl.org/) — Cryptography, certificate, and TLS inspection toolkit.  \
-  `openssl` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `openssl` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/openssl/openssl?style=social)](https://github.com/openssl/openssl)
 - [osv-scanner](https://google.github.io/osv-scanner/) — Vulnerability scanner for dependencies using the OSV database.  \
-  `osv-scanner` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `osv-scanner` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/google/osv-scanner?style=social)](https://github.com/google/osv-scanner)
 - [pip-audit](https://github.com/pypa/pip-audit#readme) — Python dependency vulnerability scanner from PyPA.  \
-  `pip-audit` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python`
+  `pip-audit` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · [![GitHub Repo stars](https://img.shields.io/github/stars/pypa/pip-audit?style=social)](https://github.com/pypa/pip-audit)
 - [semgrep](https://semgrep.dev/docs/cli-reference/) — Static analysis and code search tool using semantic rules.  \
-  `semgrep` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `semgrep` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/semgrep/semgrep?style=social)](https://github.com/semgrep/semgrep)
 - [syft](https://github.com/anchore/syft#readme) — SBOM generator for container images and filesystems.  \
-  `syft` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `syft` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/anchore/syft?style=social)](https://github.com/anchore/syft)
 - [trivy](https://trivy.dev/latest/docs/references/configuration/cli/trivy/) — Vulnerability, misconfiguration, secret, and SBOM scanner.  \
-  `trivy` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `trivy` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/aquasecurity/trivy?style=social)](https://github.com/aquasecurity/trivy)
 - [trufflehog](https://github.com/trufflesecurity/trufflehog#readme) — Secret scanner for repositories, filesystems, and remote sources.  \
-  `trufflehog` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `trufflehog` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/trufflesecurity/trufflehog?style=social)](https://github.com/trufflesecurity/trufflehog)
 - [zizmor](https://docs.zizmor.sh/) — Static security analyzer for GitHub Actions workflows.  \
-  `zizmor` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `yaml` · also: `security`
+  `zizmor` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `yaml` · also: `security` · [![GitHub Repo stars](https://img.shields.io/github/stars/zizmorcore/zizmor?style=social)](https://github.com/zizmorcore/zizmor)
 
 ### shell
 
 - [aichat](https://github.com/sigoden/aichat#readme) — All-in-one command-line LLM chat, shell assistant, and RAG tool.  \
-  `aichat` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell`
+  `aichat` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell` · [![GitHub Repo stars](https://img.shields.io/github/stars/sigoden/aichat?style=social)](https://github.com/sigoden/aichat)
 - [atuin](https://docs.atuin.sh/) — Searchable shell history with optional sync.  \
-  `atuin` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `atuin` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/atuinsh/atuin?style=social)](https://github.com/atuinsh/atuin)
 - [bash](https://www.gnu.org/software/bash/manual/) — GNU Bourne Again Shell for Unix-style command execution and scripting.  \
   `bash` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
 - [brush](https://github.com) — Unix-like shell tool for Windows command workflows.  \
@@ -822,31 +834,31 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [fish](https://fishshell.com/docs/current/) — Friendly interactive shell with syntax that is intentionally not POSIX-compatible.  \
   `fish` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
 - [gh-copilot](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/use-copilot-cli) — GitHub CLI Copilot extension for shell assistance and command explanation.  \
-  `gh-copilot` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell`
+  `gh-copilot` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell` · [![GitHub Repo stars](https://img.shields.io/github/stars/github/gh-copilot?style=social)](https://github.com/github/gh-copilot)
 - [llm](https://llm.datasette.io/en/stable/) — Command-line utility and Python library for running prompts against large language models.  \
   `llm` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell`
 - [mods](https://github.com/charmbracelet/mods#readme) — Pipe-friendly AI assistant for the command line from Charm.  \
-  `mods` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell`
+  `mods` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell` · [![GitHub Repo stars](https://img.shields.io/github/stars/charmbracelet/mods?style=social)](https://github.com/charmbracelet/mods)
 - [nu](https://www.nushell.sh/book/) — Structured shell and scripting language.  \
-  `nu` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `nu` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/nushell/nushell?style=social)](https://github.com/nushell/nushell)
 - [powershell](https://learn.microsoft.com/powershell/scripting/windows-powershell/starting-windows-powershell) — Windows PowerShell 5.1 shell and automation runtime.  \
   `powershell` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
 - [pwsh](https://learn.microsoft.com/powershell/) — PowerShell 7+ cross-platform shell and automation runtime.  \
-  `pwsh` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `pwsh` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/PowerShell/PowerShell?style=social)](https://github.com/PowerShell/PowerShell)
 - [rtk](https://github.com) — Local shell wrapper used to run commands with workspace-specific behavior.  \
   `rtk` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
 - [sh](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/sh.html) — POSIX-style shell for portable command execution and scripts.  \
   `sh` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
 - [shell-gpt](https://github.com/TheR1D/shell_gpt#readme) — Command-line AI assistant for shell command generation and explanations.  \
-  `sgpt` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell`
+  `sgpt` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `shell` · [![GitHub Repo stars](https://img.shields.io/github/stars/TheR1D/shell_gpt?style=social)](https://github.com/TheR1D/shell_gpt)
 - [starship](https://starship.rs/config/) — Cross-shell prompt renderer.  \
-  `starship` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `starship` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/starship/starship?style=social)](https://github.com/starship/starship)
 - [tmux](https://github.com/tmux/tmux/wiki) — Terminal multiplexer for persistent Unix terminal sessions.  \
-  `tmux` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `terminal`
+  `tmux` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `terminal` · [![GitHub Repo stars](https://img.shields.io/github/stars/tmux/tmux?style=social)](https://github.com/tmux/tmux)
 - [zellij](https://zellij.dev/documentation/) — Terminal workspace and multiplexer.  \
-  `zellij` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `zellij` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/zellij-org/zellij?style=social)](https://github.com/zellij-org/zellij)
 - [zoxide](https://github.com/ajeetdsouza/zoxide#readme) — Smarter cd command based on frecency.  \
-  `zoxide` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `zoxide` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/ajeetdsouza/zoxide?style=social)](https://github.com/ajeetdsouza/zoxide)
 - [zsh](https://zsh.sourceforge.io/Doc/) — Z shell for interactive Unix shells and zsh-specific scripts.  \
   `zsh` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
 
@@ -865,35 +877,35 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 ### system
 
 - [bottom](https://clementtsang.github.io/bottom/stable/) — Terminal system monitor for processes, CPU, memory, disks, and network.  \
-  `btm` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `btm` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/ClementTsang/bottom?style=social)](https://github.com/ClementTsang/bottom)
 - [procs](https://github.com/dalance/procs#readme) — Modern process viewer.  \
-  `procs` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `procs` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/dalance/procs?style=social)](https://github.com/dalance/procs)
 
 ### terminal
 
 - [paseo](https://github.com/mariozechner/pi-coding-agent) — Local daemon and CLI for supervising AI coding agents, worktrees, schedules, and terminals.  \
-  `paseo` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `automation`, `terminal`
+  `paseo` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `automation`, `terminal` · [![GitHub Repo stars](https://img.shields.io/github/stars/mariozechner/pi-coding-agent?style=social)](https://github.com/mariozechner/pi-coding-agent)
 - [pueue](https://github.com/Nukesor/pueue#readme) — Command-line task queue for running and supervising background shell commands.  \
-  `pueue` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `terminal`
+  `pueue` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `terminal` · [![GitHub Repo stars](https://img.shields.io/github/stars/Nukesor/pueue?style=social)](https://github.com/Nukesor/pueue)
 - [tmux](https://github.com/tmux/tmux/wiki) — Terminal multiplexer for persistent Unix terminal sessions.  \
-  `tmux` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `terminal`
+  `tmux` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `terminal` · [![GitHub Repo stars](https://img.shields.io/github/stars/tmux/tmux?style=social)](https://github.com/tmux/tmux)
 
 ### test
 
 - [bun](https://bun.sh/docs) — JavaScript runtime and package manager.  \
   `bun` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · also: `runtime`, `build`, `test`
 - [cargo](https://doc.rust-lang.org/cargo/) — Rust package manager and build tool.  \
-  `cargo` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · also: `test`, `package-manager`
+  `cargo` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · also: `test`, `package-manager` · [![GitHub Repo stars](https://img.shields.io/github/stars/rust-lang/cargo?style=social)](https://github.com/rust-lang/cargo)
 - [cargo-nextest](https://nexte.st/docs/) — Fast Rust test runner for Cargo projects.  \
-  `cargo-nextest` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust`
+  `cargo-nextest` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · [![GitHub Repo stars](https://img.shields.io/github/stars/nextest-rs/nextest?style=social)](https://github.com/nextest-rs/nextest)
 - [flutter](https://docs.flutter.dev/reference/flutter-cli) — Flutter SDK CLI for building, testing, and running Dart applications across mobile, web, and desktop.  \
   `flutter` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `dart` · also: `test`, `package-manager`, `mobile`
 - [jest](https://jestjs.io/docs/cli) — JavaScript testing framework CLI.  \
-  `jest` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`
+  `jest` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · [![GitHub Repo stars](https://img.shields.io/github/stars/jestjs/jest?style=social)](https://github.com/jestjs/jest)
 - [just](https://just.systems/man/en/) — Command runner for project recipes.  \
-  `just` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `build`, `test`
+  `just` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `build`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/casey/just?style=social)](https://github.com/casey/just)
 - [k6](https://grafana.com/docs/k6/latest/using-k6/k6-options/reference/) — Load testing CLI for APIs and services.  \
-  `k6` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `javascript`
+  `k6` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `javascript` · [![GitHub Repo stars](https://img.shields.io/github/stars/grafana/k6?style=social)](https://github.com/grafana/k6)
 - [make](https://www.gnu.org/software/make/manual/) — Build automation tool driven by Makefile targets.  \
   `make` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `test`, `automation`
 - [npm](https://docs.npmjs.com/) — Node.js package manager bundled with npm.  \
@@ -901,19 +913,19 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [pnpm](https://pnpm.io/motivation) — Fast disk-efficient JavaScript package manager.  \
   `pnpm` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · also: `build`, `test`
 - [poetry](https://python-poetry.org/docs/) — Python packaging and dependency management tool.  \
-  `poetry` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · also: `build`, `test`
+  `poetry` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · also: `build`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/python-poetry/poetry?style=social)](https://github.com/python-poetry/poetry)
 - [pre-commit](https://pre-commit.com/) — Framework for running repository-defined checks before commits.  \
-  `pre-commit` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `lint`, `test`
+  `pre-commit` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `lint`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/pre-commit/pre-commit?style=social)](https://github.com/pre-commit/pre-commit)
 - [pytest](https://docs.pytest.org/) — Python testing framework CLI.  \
-  `pytest` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python`
+  `pytest` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · [![GitHub Repo stars](https://img.shields.io/github/stars/pytest-dev/pytest?style=social)](https://github.com/pytest-dev/pytest)
 - [task](https://taskfile.dev/) — Task runner using Taskfile.yml or Taskfile.yaml.  \
-  `task` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `build`, `test`
+  `task` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `build`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/go-task/task?style=social)](https://github.com/go-task/task)
 - [tox](https://tox.wiki/) — Python test automation across environments.  \
-  `tox` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python`
+  `tox` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · [![GitHub Repo stars](https://img.shields.io/github/stars/tox-dev/tox?style=social)](https://github.com/tox-dev/tox)
 - [uv](https://docs.astral.sh/uv/) — Fast Python package and environment manager.  \
-  `uv` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · also: `runtime`, `test`
+  `uv` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `python` · also: `runtime`, `test` · [![GitHub Repo stars](https://img.shields.io/github/stars/astral-sh/uv?style=social)](https://github.com/astral-sh/uv)
 - [vitest](https://vitest.dev/guide/cli) — Vite-native JavaScript and TypeScript test runner.  \
-  `vitest` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`
+  `vitest` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · [![GitHub Repo stars](https://img.shields.io/github/stars/vitest-dev/vitest?style=social)](https://github.com/vitest-dev/vitest)
 - [xcodebuild](https://developer.apple.com/library/archive/technotes/tn2339/_index.html) — Xcode command-line build and test tool for Apple platforms.  \
   `xcodebuild` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `swift`, `objective-c` · also: `test`, `mobile`
 - [yarn](https://yarnpkg.com/cli) — JavaScript package manager.  \
@@ -924,46 +936,46 @@ Browse by category. Multi-category tools intentionally appear in every relevant 
 - [awk](https://www.gnu.org/software/gawk/manual/) — Pattern scanning and text processing language.  \
   `awk` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
 - [files-to-prompt](https://github.com/simonw/files-to-prompt#readme) — Concatenate selected files into prompt-ready text for LLM workflows.  \
-  `files-to-prompt` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `text`
+  `files-to-prompt` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `agent`, `text` · [![GitHub Repo stars](https://img.shields.io/github/stars/simonw/files-to-prompt?style=social)](https://github.com/simonw/files-to-prompt)
 - [pandoc](https://pandoc.org/MANUAL.html) — Universal document converter for Markdown, HTML, DOCX, LaTeX, and more.  \
   `pandoc` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `markdown` · also: `text`
 - [pdftotext](https://www.mankier.com/1/pdftotext) — Poppler CLI for extracting text from PDF files.  \
   `pdftotext` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · also: `text`, `file-viewer`
 - [sd](https://github.com/chmln/sd#readme) — Simple and fast find-and-replace CLI.  \
-  `sd` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `sd` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/chmln/sd?style=social)](https://github.com/chmln/sd)
 - [sed](https://www.gnu.org/software/sed/manual/) — Stream editor for text substitution and filtering.  \
   `sed` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
 - [tesseract](https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html) — OCR engine CLI for extracting text from images and scanned documents.  \
-  `tesseract` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `image`, `text`
+  `tesseract` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · also: `image`, `text` · [![GitHub Repo stars](https://img.shields.io/github/stars/tesseract-ocr/tesseract?style=social)](https://github.com/tesseract-ocr/tesseract)
 
 ### toolchain
 
 - [asdf](https://asdf-vm.com/manage/commands.html) — Multi-language runtime and tool version manager driven by .tool-versions and plugins.  \
   `asdf` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · also: `environment`, `toolchain`
 - [rustup](https://rust-lang.github.io/rustup/) — Rust toolchain installer and version manager.  \
-  `rustup` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust`
+  `rustup` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `rust` · [![GitHub Repo stars](https://img.shields.io/github/stars/rust-lang/rustup?style=social)](https://github.com/rust-lang/rustup)
 
 ### type-checker
 
 - [mypy](https://mypy.readthedocs.io/) — Static type checker for Python.  \
-  `mypy` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `python`
+  `mypy` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `python` · [![GitHub Repo stars](https://img.shields.io/github/stars/python/mypy?style=social)](https://github.com/python/mypy)
 - [pyright](https://microsoft.github.io/pyright/) — Static type checker for Python.  \
-  `pyright` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `python`
+  `pyright` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `python` · [![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/pyright?style=social)](https://github.com/microsoft/pyright)
 - [tsc](https://www.typescriptlang.org/docs/handbook/compiler-options.html) — TypeScript compiler and type checker.  \
-  `tsc` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript`
+  `tsc` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `javascript`, `typescript` · [![GitHub Repo stars](https://img.shields.io/github/stars/microsoft/TypeScript?style=social)](https://github.com/microsoft/TypeScript)
 
 ### vcs
 
 - [delta](https://dandavison.github.io/delta/) — Syntax-highlighting pager for git, diff, and grep output.  \
-  `delta` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all`
+  `delta` · ![risk: low](https://img.shields.io/badge/risk-low-2ea44f) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/dandavison/delta?style=social)](https://github.com/dandavison/delta)
 - [gh](https://cli.github.com/manual/) — GitHub command-line interface.  \
-  `gh` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
+  `gh` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/cli/cli?style=social)](https://github.com/cli/cli)
 - [git](https://git-scm.com/docs) — Distributed version control system.  \
   `git` · ![risk: high](https://img.shields.io/badge/risk-high-cf222e) · lang: `all`
 - [git-lfs](https://github.com/git-lfs/git-lfs#readme) — Git extension for large file storage.  \
-  `git-lfs` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `git-lfs` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/git-lfs/git-lfs?style=social)](https://github.com/git-lfs/git-lfs)
 - [lazygit](https://github.com/jesseduffield/lazygit#readme) — Terminal UI for git repositories.  \
-  `lazygit` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all`
+  `lazygit` · ![risk: medium](https://img.shields.io/badge/risk-medium-d29922) · lang: `all` · [![GitHub Repo stars](https://img.shields.io/github/stars/jesseduffield/lazygit?style=social)](https://github.com/jesseduffield/lazygit)
 
 ## Maintaining the registry
 
@@ -979,3 +991,13 @@ Add or edit a YAML card under [`data/tools/`](data/tools/). Keep entries short, 
 > If a tool can mutate remote state, expose secrets, execute generated code, or deploy infrastructure, mark it as high risk and add concrete guardrails.
 
 The GitHub workflow regenerates this README on pushes to `main` and checks generated output on pull requests.
+
+---
+
+<div align="center">
+
+If this registry saves you time when building or evaluating agents, please consider starring the repo.
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/Ariestar/awesome-agent-cli?style=social)](https://github.com/Ariestar/awesome-agent-cli)
+
+</div>

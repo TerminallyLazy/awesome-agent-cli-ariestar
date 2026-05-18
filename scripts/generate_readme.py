@@ -12,6 +12,7 @@ from __future__ import annotations
 from collections import Counter, defaultdict
 from pathlib import Path
 import re
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 TOOLS_DIR = ROOT / "data" / "tools"
@@ -127,6 +128,32 @@ def risk_badge(level: str) -> str:
     return badge("risk", level, color)
 
 
+def github_repo(value: str) -> tuple[str, str] | None:
+    if not value:
+        return None
+    parsed = urlparse(value)
+    if parsed.netloc.lower() != "github.com":
+        return None
+    parts = [part for part in parsed.path.split("/") if part]
+    if len(parts) < 2:
+        return None
+    owner, repo = parts[0], parts[1].removesuffix(".git")
+    if owner in {"orgs", "topics", "marketplace", "features"}:
+        return None
+    return owner, repo
+
+
+def github_stars_badge(tool: dict) -> str | None:
+    for field in ("homepage", "docs"):
+        repo = github_repo(str(tool.get(field) or ""))
+        if repo:
+            owner, name = repo
+            href = f"https://github.com/{owner}/{name}"
+            image = f"https://img.shields.io/github/stars/{owner}/{name}?style=social"
+            return f"[![GitHub Repo stars]({image})]({href})"
+    return None
+
+
 def format_meta(tool: dict) -> str:
     parts = [f"`{tool['binary']}`", risk_badge(str(tool.get("risk_level") or "medium"))]
     langs = tool.get("lang") or []
@@ -135,6 +162,9 @@ def format_meta(tool: dict) -> str:
     cats = tool.get("category") or []
     if len(cats) > 1:
         parts.append("also: " + ", ".join(f"`{cat}`" for cat in cats[1:4]))
+    stars = github_stars_badge(tool)
+    if stars:
+        parts.append(stars)
     return " · ".join(parts)
 
 
@@ -173,11 +203,14 @@ def main() -> None:
     risk_by_category: dict[str, Counter[str]] = defaultdict(Counter)
     lang_counts: Counter[str] = Counter()
     risk_counts: Counter[str] = Counter()
+    github_backed = 0
     tool_by_name = {str(tool["name"]): tool for tool in tools}
 
     for tool in tools:
         categories = tool.get("category") or ["uncategorized"]
         risk_level = str(tool.get("risk_level") or "medium")
+        if github_stars_badge(tool):
+            github_backed += 1
         for category in categories:
             category_groups[category].append(tool)
             risk_by_category[category].update([risk_level])
@@ -197,7 +230,7 @@ def main() -> None:
             "",
             "**A machine-readable awesome list of CLI tools, risks, effects, and guardrails for AI coding agents.**",
             "",
-            f"{badge('tools', str(len(tools)), '0969da')} {badge('categories', str(len(category_counts)), '8250df')} {badge('yaml', 'registry', '2ea44f')} [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re) [![Update README](https://github.com/Ariestar/awesome-agent-cli/actions/workflows/update-readme.yml/badge.svg)](https://github.com/Ariestar/awesome-agent-cli/actions/workflows/update-readme.yml)",
+            f"{badge('tools', str(len(tools)), '0969da')} {badge('categories', str(len(category_counts)), '8250df')} {badge('yaml', 'registry', '2ea44f')} [![GitHub Repo stars](https://img.shields.io/github/stars/Ariestar/awesome-agent-cli?style=social)](https://github.com/Ariestar/awesome-agent-cli) [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re) [![Update README](https://github.com/Ariestar/awesome-agent-cli/actions/workflows/update-readme.yml/badge.svg)](https://github.com/Ariestar/awesome-agent-cli/actions/workflows/update-readme.yml)",
             "",
             "</div>",
             "",
@@ -216,6 +249,14 @@ def main() -> None:
             "- **Which guardrails** are required before dangerous actions.",
             "- **How tools map** to categories like `shell`, `agent`, `mcp`, `security`, `deploy`, or `test`.",
             "",
+            "## Designed for",
+            "",
+            "| Audience | What they get |",
+            "| --- | --- |",
+            "| Agent builders | A ready-made tool taxonomy with side-effect metadata. |",
+            "| Coding agents | Decision hints for choosing safer CLIs before acting. |",
+            "| Maintainers | A reviewable YAML source of truth instead of a hand-written list. |",
+            "",
             "## What's inside",
             "",
             "| Signal | Value |",
@@ -223,6 +264,7 @@ def main() -> None:
             f"| Tool cards | **{len(tools)}** |",
             f"| Category tags | **{len(category_counts)}** |",
             f"| Language/ecosystem tags | **{len(lang_counts)}** |",
+            f"| GitHub-backed tools | **{github_backed}** with live star badges |",
             f"| Risk distribution | {risk_summary} |",
             "",
             "## Quick use",
@@ -276,6 +318,9 @@ def main() -> None:
             "",
             "The matrix below shows category coverage and risk posture. A tool can appear in more than one category, so totals count category tags rather than unique files.",
             "",
+            "> [!IMPORTANT]",
+            "> `control plane` categories contain at least one high-risk tool and should be gated by stronger confirmation, auth, and rollback checks in agent workflows.",
+            "",
             "| Category | Total | Low | Medium | High | Posture |",
             "| --- | ---: | ---: | ---: | ---: | --- |",
         ]
@@ -322,6 +367,16 @@ def main() -> None:
             "> If a tool can mutate remote state, expose secrets, execute generated code, or deploy infrastructure, mark it as high risk and add concrete guardrails.",
             "",
             "The GitHub workflow regenerates this README on pushes to `main` and checks generated output on pull requests.",
+            "",
+            "---",
+            "",
+            '<div align="center">',
+            "",
+            "If this registry saves you time when building or evaluating agents, please consider starring the repo.",
+            "",
+            "[![GitHub Repo stars](https://img.shields.io/github/stars/Ariestar/awesome-agent-cli?style=social)](https://github.com/Ariestar/awesome-agent-cli)",
+            "",
+            "</div>",
             "",
         ]
     )
