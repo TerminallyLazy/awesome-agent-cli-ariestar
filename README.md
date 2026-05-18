@@ -905,55 +905,55 @@ A short starting set for agent-oriented shell work, repository context packaging
 
 ## Category index
 
-Tools can belong to multiple categories, so a tool may appear in more than one section. This index counts every category tag.
+Tools can belong to multiple categories, so a tool may appear in more than one section. This matrix counts every category tag and splits it by declared risk level.
 
-| Category | Tools |
-| --- | ---: |
-| `agent` | 24 |
-| `agent-context` | 3 |
-| `api` | 3 |
-| `archive` | 4 |
-| `automation` | 9 |
-| `benchmark` | 2 |
-| `browser-test` | 1 |
-| `build` | 26 |
-| `ci` | 3 |
-| `cloud` | 9 |
-| `compiler` | 2 |
-| `container` | 4 |
-| `data` | 2 |
-| `database` | 7 |
-| `debug` | 3 |
-| `deploy` | 6 |
-| `device` | 2 |
-| `docs` | 14 |
-| `editor` | 1 |
-| `environment` | 16 |
-| `file-viewer` | 11 |
-| `formatter` | 6 |
-| `image` | 2 |
-| `infra` | 5 |
-| `kubernetes` | 7 |
-| `lint` | 14 |
-| `mcp` | 4 |
-| `metrics` | 1 |
-| `mobile` | 10 |
-| `network` | 9 |
-| `package-manager` | 27 |
-| `runtime` | 9 |
-| `search` | 7 |
-| `secrets` | 2 |
-| `security` | 15 |
-| `shell` | 20 |
-| `signing` | 1 |
-| `simulator` | 2 |
-| `system` | 2 |
-| `terminal` | 3 |
-| `test` | 19 |
-| `text` | 7 |
-| `toolchain` | 2 |
-| `type-checker` | 3 |
-| `vcs` | 5 |
+| Category | Total | Low risk | Medium risk | High risk |
+| --- | ---: | ---: | ---: | ---: |
+| `agent` | 24 | 0 | 0 | 24 |
+| `agent-context` | 3 | 0 | 0 | 3 |
+| `api` | 3 | 0 | 2 | 1 |
+| `archive` | 4 | 0 | 4 | 0 |
+| `automation` | 9 | 0 | 8 | 1 |
+| `benchmark` | 2 | 0 | 1 | 1 |
+| `browser-test` | 1 | 0 | 1 | 0 |
+| `build` | 26 | 0 | 23 | 3 |
+| `ci` | 3 | 1 | 1 | 1 |
+| `cloud` | 9 | 0 | 0 | 9 |
+| `compiler` | 2 | 0 | 2 | 0 |
+| `container` | 4 | 1 | 0 | 3 |
+| `data` | 2 | 0 | 2 | 0 |
+| `database` | 7 | 0 | 1 | 6 |
+| `debug` | 3 | 0 | 0 | 3 |
+| `deploy` | 6 | 0 | 0 | 6 |
+| `device` | 2 | 0 | 0 | 2 |
+| `docs` | 14 | 5 | 7 | 2 |
+| `editor` | 1 | 0 | 1 | 0 |
+| `environment` | 16 | 0 | 4 | 12 |
+| `file-viewer` | 11 | 7 | 4 | 0 |
+| `formatter` | 6 | 1 | 5 | 0 |
+| `image` | 2 | 0 | 2 | 0 |
+| `infra` | 5 | 0 | 0 | 5 |
+| `kubernetes` | 7 | 0 | 2 | 5 |
+| `lint` | 14 | 6 | 8 | 0 |
+| `mcp` | 4 | 0 | 0 | 4 |
+| `metrics` | 1 | 1 | 0 | 0 |
+| `mobile` | 10 | 0 | 5 | 5 |
+| `network` | 9 | 0 | 5 | 4 |
+| `package-manager` | 27 | 0 | 17 | 10 |
+| `runtime` | 9 | 0 | 9 | 0 |
+| `search` | 7 | 4 | 2 | 1 |
+| `secrets` | 2 | 0 | 0 | 2 |
+| `security` | 15 | 0 | 9 | 6 |
+| `shell` | 20 | 2 | 13 | 5 |
+| `signing` | 1 | 0 | 0 | 1 |
+| `simulator` | 2 | 0 | 1 | 1 |
+| `system` | 2 | 2 | 0 | 0 |
+| `terminal` | 3 | 0 | 2 | 1 |
+| `test` | 19 | 0 | 17 | 2 |
+| `text` | 7 | 2 | 4 | 1 |
+| `toolchain` | 2 | 0 | 1 | 1 |
+| `type-checker` | 3 | 2 | 1 | 0 |
+| `vcs` | 5 | 1 | 2 | 2 |
 
 ## Contributing
 

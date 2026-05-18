@@ -144,17 +144,20 @@ def main() -> None:
 
     category_groups: dict[str, list[dict]] = defaultdict(list)
     category_counts: Counter[str] = Counter()
+    risk_by_category: dict[str, Counter[str]] = defaultdict(Counter)
     lang_counts: Counter[str] = Counter()
     risk_counts: Counter[str] = Counter()
     tool_by_name = {str(tool["name"]): tool for tool in tools}
 
     for tool in tools:
         categories = tool.get("category") or ["uncategorized"]
+        risk_level = tool.get("risk_level") or "medium"
         for category in categories:
             category_groups[category].append(tool)
+            risk_by_category[category].update([risk_level])
         category_counts.update(categories)
         lang_counts.update(tool.get("lang") or [])
-        risk_counts.update([tool.get("risk_level") or "medium"])
+        risk_counts.update([risk_level])
 
     lines: list[str] = []
     lines.extend(
@@ -224,14 +227,18 @@ def main() -> None:
         [
             "## Category index",
             "",
-            "Tools can belong to multiple categories, so a tool may appear in more than one section. This index counts every category tag.",
+            "Tools can belong to multiple categories, so a tool may appear in more than one section. This matrix counts every category tag and splits it by declared risk level.",
             "",
-            "| Category | Tools |",
-            "| --- | ---: |",
+            "| Category | Total | Low risk | Medium risk | High risk |",
+            "| --- | ---: | ---: | ---: | ---: |",
         ]
     )
-    for category, count in sorted(category_counts.items()):
-        lines.append(f"| `{md_escape(category)}` | {count} |")
+    for category in sorted(category_counts):
+        risks = risk_by_category[category]
+        total = sum(risks.values())
+        lines.append(
+            f"| `{md_escape(category)}` | {total} | {risks.get('low', 0)} | {risks.get('medium', 0)} | {risks.get('high', 0)} |"
+        )
 
     lines.extend(
         [
