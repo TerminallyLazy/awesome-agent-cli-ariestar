@@ -43,9 +43,6 @@
     "lang": [
       "all"
     ],
-    "platform": [
-      "android"
-    ],
     "risk": "high",
     "effects": [
       "execute_code",
@@ -62,7 +59,10 @@
     "guardrails": [
       "Confirm the target device with `adb devices` before mutating device state."
     ],
-    "docs": "https://developer.android.com/tools/adb"
+    "docs": "https://developer.android.com/tools/adb",
+    "platform": [
+      "android"
+    ]
   },
   {
     "slug": "age",
@@ -184,6 +184,125 @@
       "Prefer check mode before applying changes to hosts."
     ],
     "docs": "https://docs.ansible.com/"
+  },
+  {
+    "slug": "apk",
+    "name": "apk",
+    "binary": "apk",
+    "description": "Alpine Linux package manager for installing and updating system packages in Alpine hosts and containers.",
+    "category": [
+      "package-manager",
+      "environment"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files",
+      "environment_mutation"
+    ],
+    "aliases": [
+      "alpine-package-keeper"
+    ],
+    "use_when": [
+      "Install OS-level dependencies on Alpine Linux hosts or containers",
+      "Reproduce Dockerfile or setup instructions that require apk packages"
+    ],
+    "avoid_when": [
+      "The dependency belongs in the project package manager instead of the host OS",
+      "Running on a non-Alpine Linux distribution"
+    ],
+    "guardrails": [
+      "Check the Alpine version and package availability before installing.",
+      "Ask before add, upgrade, del, repository, or cache mutation commands.",
+      "In Dockerfiles, prefer explicit packages and avoid unnecessary cache writes."
+    ],
+    "docs": "https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html",
+    "platform": [
+      "linux"
+    ]
+  },
+  {
+    "slug": "apt",
+    "name": "apt",
+    "binary": "apt",
+    "description": "Debian and Ubuntu package manager for installing and updating system packages.",
+    "category": [
+      "package-manager",
+      "environment"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files",
+      "environment_mutation"
+    ],
+    "aliases": [
+      "apt-get"
+    ],
+    "use_when": [
+      "Install OS-level dependencies on Debian, Ubuntu, or compatible images",
+      "Reproduce setup instructions that require apt packages"
+    ],
+    "avoid_when": [
+      "The dependency belongs in the project package manager instead of the host OS",
+      "Running on a non-Debian Linux distribution or a locked-down environment"
+    ],
+    "guardrails": [
+      "Check the distribution and package availability before installing.",
+      "Ask before install, upgrade, remove, autoremove, dist-upgrade, or repository/key changes.",
+      "Prefer minimal package installs and avoid broad system upgrades during project tasks."
+    ],
+    "docs": "https://manpages.debian.org/apt/apt.8.en.html",
+    "platform": [
+      "linux"
+    ]
+  },
+  {
+    "slug": "asdf",
+    "name": "asdf",
+    "binary": "asdf",
+    "description": "Multi-language runtime and tool version manager driven by .tool-versions and plugins.",
+    "category": [
+      "package-manager",
+      "environment",
+      "toolchain"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files",
+      "environment_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Install or select project runtime and CLI versions declared in .tool-versions",
+      "Reproduce development environments that standardize on asdf plugins"
+    ],
+    "avoid_when": [
+      "The project uses mise, volta, rustup, fnm, pyenv, or another tool-specific version manager instead",
+      "The task only needs project dependencies from npm, pnpm, Cargo, uv, or another local package manager"
+    ],
+    "guardrails": [
+      "Review .tool-versions and plugin repository URLs before installing.",
+      "Ask before plugin add, install, global, uninstall, or plugin remove commands.",
+      "Prefer project-local version selection over changing global defaults."
+    ],
+    "docs": "https://asdf-vm.com/manage/commands.html"
   },
   {
     "slug": "ast-grep",
@@ -457,6 +576,48 @@
     "docs": "https://clementtsang.github.io/bottom/stable/"
   },
   {
+    "slug": "brew",
+    "name": "brew",
+    "binary": "brew",
+    "description": "Homebrew package manager for installing command-line tools, libraries, and applications on macOS and Linux.",
+    "category": [
+      "package-manager",
+      "environment"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files",
+      "environment_mutation"
+    ],
+    "aliases": [
+      "homebrew"
+    ],
+    "use_when": [
+      "Install or update developer tools on macOS or Linux hosts managed with Homebrew",
+      "Run Brewfile-based machine bootstrap with `brew bundle`"
+    ],
+    "avoid_when": [
+      "The task requires repository-local dependencies handled by the language package manager",
+      "The host uses OS packages, Nix, or another standardized environment manager instead"
+    ],
+    "guardrails": [
+      "Review taps and Brewfile entries before installing or bundling.",
+      "Ask before install, upgrade, uninstall, tap, untap, bundle, or cleanup commands.",
+      "Prefer project-local package managers for application dependencies."
+    ],
+    "docs": "https://docs.brew.sh/Manpage",
+    "platform": [
+      "macos",
+      "linux"
+    ]
+  },
+  {
     "slug": "broot",
     "name": "broot",
     "binary": "broot",
@@ -618,11 +779,6 @@
       "javascript",
       "typescript"
     ],
-    "platform": [
-      "android",
-      "ios",
-      "web"
-    ],
     "risk": "medium",
     "effects": [
       "execute_code",
@@ -642,7 +798,12 @@
     "guardrails": [
       "Ask before running sync/update commands that rewrite native Android or iOS project files."
     ],
-    "docs": "https://capacitorjs.com/docs/cli"
+    "docs": "https://capacitorjs.com/docs/cli",
+    "platform": [
+      "android",
+      "ios",
+      "web"
+    ]
   },
   {
     "slug": "cargo",
@@ -876,6 +1037,47 @@
       "Stop watchers before running final validation commands."
     ],
     "docs": "https://github.com/watchexec/cargo-watch#readme"
+  },
+  {
+    "slug": "choco",
+    "name": "choco",
+    "binary": "choco",
+    "description": "Chocolatey package manager for installing and maintaining Windows software from the command line.",
+    "category": [
+      "package-manager",
+      "environment"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files",
+      "environment_mutation"
+    ],
+    "aliases": [
+      "chocolatey"
+    ],
+    "use_when": [
+      "Install or update Windows developer tools on machines standardized around Chocolatey",
+      "Reproduce setup instructions that explicitly use Chocolatey packages"
+    ],
+    "avoid_when": [
+      "The project has local dependency instructions through another package manager",
+      "Organization policy prefers winget, Scoop, or managed software deployment"
+    ],
+    "guardrails": [
+      "Confirm package names and sources before installing.",
+      "Ask before install, upgrade, uninstall, source, or feature mutation commands.",
+      "Do not bypass confirmation flags on unfamiliar packages."
+    ],
+    "docs": "https://docs.chocolatey.org/en-us/choco/commands/",
+    "platform": [
+      "windows"
+    ]
   },
   {
     "slug": "clang",
@@ -1363,6 +1565,47 @@
     "docs": "https://direnv.net/"
   },
   {
+    "slug": "dnf",
+    "name": "dnf",
+    "binary": "dnf",
+    "description": "Fedora, RHEL, and compatible Linux package manager for system packages.",
+    "category": [
+      "package-manager",
+      "environment"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files",
+      "environment_mutation"
+    ],
+    "aliases": [
+      "yum"
+    ],
+    "use_when": [
+      "Install OS-level dependencies on Fedora, RHEL, Rocky, AlmaLinux, or compatible images",
+      "Reproduce setup instructions that require dnf or yum packages"
+    ],
+    "avoid_when": [
+      "The dependency belongs in the project package manager instead of the host OS",
+      "Running on a non-RPM Linux distribution or a locked-down environment"
+    ],
+    "guardrails": [
+      "Check the distribution and package name before installing.",
+      "Ask before install, upgrade, remove, autoremove, module, or repository mutation commands.",
+      "Avoid broad system upgrades during project tasks unless explicitly requested."
+    ],
+    "docs": "https://dnf.readthedocs.io/en/latest/command_ref.html",
+    "platform": [
+      "linux"
+    ]
+  },
+  {
     "slug": "docker",
     "name": "docker",
     "binary": "docker",
@@ -1559,10 +1802,6 @@
       "javascript",
       "typescript"
     ],
-    "platform": [
-      "android",
-      "ios"
-    ],
     "risk": "high",
     "effects": [
       "network_access",
@@ -1580,7 +1819,11 @@
     "guardrails": [
       "Treat EAS build, submit, update, and credentials commands as confirmation-gated remote writes."
     ],
-    "docs": "https://docs.expo.dev/eas/"
+    "docs": "https://docs.expo.dev/eas/",
+    "platform": [
+      "android",
+      "ios"
+    ]
   },
   {
     "slug": "emulator",
@@ -1593,9 +1836,6 @@
     ],
     "lang": [
       "all"
-    ],
-    "platform": [
-      "android"
     ],
     "risk": "medium",
     "effects": [
@@ -1612,7 +1852,10 @@
     "guardrails": [
       "Avoid wipe-data or snapshot deletion flags unless explicitly requested."
     ],
-    "docs": "https://developer.android.com/studio/run/emulator-commandline"
+    "docs": "https://developer.android.com/studio/run/emulator-commandline",
+    "platform": [
+      "android"
+    ]
   },
   {
     "slug": "eslint",
@@ -1658,11 +1901,6 @@
       "javascript",
       "typescript"
     ],
-    "platform": [
-      "android",
-      "ios",
-      "web"
-    ],
     "risk": "medium",
     "effects": [
       "execute_code",
@@ -1679,7 +1917,12 @@
     "guardrails": [
       "Prefer package-manager scripts and ask before running `expo prebuild` because it writes native project files."
     ],
-    "docs": "https://docs.expo.dev/more/expo-cli/"
+    "docs": "https://docs.expo.dev/more/expo-cli/",
+    "platform": [
+      "android",
+      "ios",
+      "web"
+    ]
   },
   {
     "slug": "eza",
@@ -1723,10 +1966,6 @@
     "lang": [
       "ruby"
     ],
-    "platform": [
-      "android",
-      "ios"
-    ],
     "risk": "high",
     "effects": [
       "execute_code",
@@ -1746,7 +1985,11 @@
     "guardrails": [
       "Inspect Fastfile lanes and verify authentication before running release or signing lanes."
     ],
-    "docs": "https://docs.fastlane.tools/"
+    "docs": "https://docs.fastlane.tools/",
+    "platform": [
+      "android",
+      "ios"
+    ]
   },
   {
     "slug": "fd",
@@ -1854,12 +2097,6 @@
     "lang": [
       "dart"
     ],
-    "platform": [
-      "android",
-      "ios",
-      "web",
-      "desktop"
-    ],
     "risk": "medium",
     "effects": [
       "install_packages",
@@ -1877,7 +2114,13 @@
     "guardrails": [
       "Prefer project-defined Flutter scripts when present and confirm before touching connected devices."
     ],
-    "docs": "https://docs.flutter.dev/reference/flutter-cli"
+    "docs": "https://docs.flutter.dev/reference/flutter-cli",
+    "platform": [
+      "android",
+      "ios",
+      "web",
+      "desktop"
+    ]
   },
   {
     "slug": "flyctl",
@@ -2575,9 +2818,6 @@
     "lang": [
       "all"
     ],
-    "platform": [
-      "local"
-    ],
     "risk": "medium",
     "effects": [
       "read_files",
@@ -2595,7 +2835,10 @@
     "guardrails": [
       "Write transformed images to new files unless replacement is requested."
     ],
-    "docs": "https://imagemagick.org/script/command-line-processing.php"
+    "docs": "https://imagemagick.org/script/command-line-processing.php",
+    "platform": [
+      "local"
+    ]
   },
   {
     "slug": "java",
@@ -3043,7 +3286,8 @@
     "binary": "mise",
     "description": "Development tool version manager and task runner.",
     "category": [
-      "environment"
+      "environment",
+      "package-manager"
     ],
     "lang": [
       "all"
@@ -3388,9 +3632,6 @@
     "lang": [
       "all"
     ],
-    "platform": [
-      "network"
-    ],
     "risk": "high",
     "effects": [
       "network_access",
@@ -3406,7 +3647,10 @@
     "guardrails": [
       "Benchmark localhost by default and ask before load testing shared or remote services."
     ],
-    "docs": "https://github.com/hatoo/oha#readme"
+    "docs": "https://github.com/hatoo/oha#readme",
+    "platform": [
+      "network"
+    ]
   },
   {
     "slug": "op",
@@ -3528,6 +3772,45 @@
     "docs": "https://github.com/ouch-org/ouch#readme"
   },
   {
+    "slug": "pacman",
+    "name": "pacman",
+    "binary": "pacman",
+    "description": "Arch Linux package manager for installing and updating system packages.",
+    "category": [
+      "package-manager",
+      "environment"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files",
+      "environment_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Install OS-level dependencies on Arch Linux or compatible images",
+      "Reproduce setup instructions that require pacman packages"
+    ],
+    "avoid_when": [
+      "The dependency belongs in the project package manager instead of the host OS",
+      "Running on a non-Arch Linux distribution or a locked-down environment"
+    ],
+    "guardrails": [
+      "Check package names and repository availability before installing.",
+      "Ask before -S, -Syu, -R, -Rs, database refresh, or cache cleanup commands.",
+      "Avoid partial upgrades and broad system updates during project tasks unless explicitly requested."
+    ],
+    "docs": "https://man.archlinux.org/man/pacman.8",
+    "platform": [
+      "linux"
+    ]
+  },
+  {
     "slug": "pandoc",
     "name": "pandoc",
     "binary": "pandoc",
@@ -3538,9 +3821,6 @@
     ],
     "lang": [
       "markdown"
-    ],
-    "platform": [
-      "local"
     ],
     "risk": "medium",
     "effects": [
@@ -3558,7 +3838,10 @@
     "guardrails": [
       "Write converted output to a new file unless the user requests replacement."
     ],
-    "docs": "https://pandoc.org/MANUAL.html"
+    "docs": "https://pandoc.org/MANUAL.html",
+    "platform": [
+      "local"
+    ]
   },
   {
     "slug": "paseo",
@@ -3572,9 +3855,6 @@
     ],
     "lang": [
       "all"
-    ],
-    "platform": [
-      "local"
     ],
     "risk": "high",
     "effects": [
@@ -3595,7 +3875,10 @@
     "guardrails": [
       "Never restart the daemon without explicit user approval."
     ],
-    "docs": "https://github.com/mariozechner/pi-coding-agent"
+    "docs": "https://github.com/mariozechner/pi-coding-agent",
+    "platform": [
+      "local"
+    ]
   },
   {
     "slug": "pdftoppm",
@@ -3608,9 +3891,6 @@
     ],
     "lang": [
       "all"
-    ],
-    "platform": [
-      "local"
     ],
     "risk": "medium",
     "effects": [
@@ -3627,7 +3907,10 @@
     "guardrails": [
       "Limit page ranges when rendering large PDFs."
     ],
-    "docs": "https://www.mankier.com/1/pdftoppm"
+    "docs": "https://www.mankier.com/1/pdftoppm",
+    "platform": [
+      "local"
+    ]
   },
   {
     "slug": "pdftotext",
@@ -3641,9 +3924,6 @@
     ],
     "lang": [
       "all"
-    ],
-    "platform": [
-      "local"
     ],
     "risk": "low",
     "effects": [
@@ -3660,7 +3940,10 @@
     "guardrails": [
       "Use OCR tools for image-only PDFs when extracted text is empty or garbled."
     ],
-    "docs": "https://www.mankier.com/1/pdftotext"
+    "docs": "https://www.mankier.com/1/pdftotext",
+    "platform": [
+      "local"
+    ]
   },
   {
     "slug": "php",
@@ -3734,9 +4017,6 @@
     "lang": [
       "python"
     ],
-    "platform": [
-      "local"
-    ],
     "risk": "medium",
     "effects": [
       "read_files",
@@ -3752,7 +4032,10 @@
     "guardrails": [
       "Treat vulnerability output as potentially sensitive before sharing externally."
     ],
-    "docs": "https://github.com/pypa/pip-audit#readme"
+    "docs": "https://github.com/pypa/pip-audit#readme",
+    "platform": [
+      "local"
+    ]
   },
   {
     "slug": "pipx",
@@ -3860,10 +4143,6 @@
       "swift",
       "objective-c"
     ],
-    "platform": [
-      "ios",
-      "macos"
-    ],
     "risk": "medium",
     "effects": [
       "install_packages",
@@ -3882,7 +4161,11 @@
     "guardrails": [
       "Prefer `pod install` over `pod update` unless dependency updates are requested."
     ],
-    "docs": "https://guides.cocoapods.org/terminal/commands.html"
+    "docs": "https://guides.cocoapods.org/terminal/commands.html",
+    "platform": [
+      "ios",
+      "macos"
+    ]
   },
   {
     "slug": "podman",
@@ -3959,9 +4242,6 @@
     "lang": [
       "all"
     ],
-    "platform": [
-      "local"
-    ],
     "risk": "medium",
     "effects": [
       "execute_code",
@@ -3980,7 +4260,10 @@
     "guardrails": [
       "Inspect .pre-commit-config.yaml before running unfamiliar hooks."
     ],
-    "docs": "https://pre-commit.com/"
+    "docs": "https://pre-commit.com/",
+    "platform": [
+      "local"
+    ]
   },
   {
     "slug": "prettier",
@@ -4238,9 +4521,6 @@
     "lang": [
       "all"
     ],
-    "platform": [
-      "local"
-    ],
     "risk": "medium",
     "effects": [
       "read_files",
@@ -4256,7 +4536,10 @@
     "guardrails": [
       "Preserve original PDF files and write transformed output separately."
     ],
-    "docs": "https://qpdf.readthedocs.io/"
+    "docs": "https://qpdf.readthedocs.io/",
+    "platform": [
+      "local"
+    ]
   },
   {
     "slug": "qwen",
@@ -4559,6 +4842,46 @@
     "docs": "https://github.com/mozilla/sccache#readme"
   },
   {
+    "slug": "scoop",
+    "name": "scoop",
+    "binary": "scoop",
+    "description": "Windows command-line package manager for installing developer tools and applications without admin by default.",
+    "category": [
+      "package-manager",
+      "environment"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files",
+      "environment_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Install or update developer CLI tools on Windows",
+      "Check whether a Windows tool is available through Scoop buckets",
+      "Set up user-scoped command-line utilities without changing a project lockfile"
+    ],
+    "avoid_when": [
+      "The task requires project-local dependencies managed by npm, pnpm, Cargo, uv, or another repo-specific package manager",
+      "System policy requires winget, Chocolatey, or an organization-managed installer instead"
+    ],
+    "guardrails": [
+      "Prefer project-local package managers for repository dependencies; use Scoop for machine-level CLI availability.",
+      "Review bucket sources and manifests before installing tools from unfamiliar buckets.",
+      "Ask before running install, update, uninstall, bucket add, or reset commands because they mutate the user environment."
+    ],
+    "docs": "https://github.com/ScoopInstaller/Scoop/wiki",
+    "platform": [
+      "windows"
+    ]
+  },
+  {
     "slug": "sd",
     "name": "sd",
     "binary": "sd",
@@ -4654,9 +4977,6 @@
     "lang": [
       "shell"
     ],
-    "platform": [
-      "local"
-    ],
     "risk": "low",
     "effects": [
       "read_files"
@@ -4671,7 +4991,10 @@
     "guardrails": [
       "Review warnings in context before applying broad shell rewrites."
     ],
-    "docs": "https://www.shellcheck.net/wiki/Home"
+    "docs": "https://www.shellcheck.net/wiki/Home",
+    "platform": [
+      "local"
+    ]
   },
   {
     "slug": "simctl",
@@ -4685,10 +5008,6 @@
     ],
     "lang": [
       "all"
-    ],
-    "platform": [
-      "ios",
-      "macos"
     ],
     "risk": "high",
     "effects": [
@@ -4706,7 +5025,11 @@
     "guardrails": [
       "Prefer `xcrun simctl list` before mutating simulator state."
     ],
-    "docs": "https://developer.apple.com/documentation/xcode/simctl"
+    "docs": "https://developer.apple.com/documentation/xcode/simctl",
+    "platform": [
+      "ios",
+      "macos"
+    ]
   },
   {
     "slug": "sops",
@@ -5081,9 +5404,6 @@
     "lang": [
       "all"
     ],
-    "platform": [
-      "local"
-    ],
     "risk": "medium",
     "effects": [
       "read_files",
@@ -5099,7 +5419,10 @@
     "guardrails": [
       "Verify OCR output against the image when accuracy matters."
     ],
-    "docs": "https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html"
+    "docs": "https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html",
+    "platform": [
+      "local"
+    ]
   },
   {
     "slug": "tldr",
@@ -5674,10 +5997,6 @@
     "lang": [
       "all"
     ],
-    "platform": [
-      "local",
-      "network"
-    ],
     "risk": "medium",
     "effects": [
       "network_access",
@@ -5694,7 +6013,52 @@
     "guardrails": [
       "Redact tokens and confirm before sending mutating WebSocket messages."
     ],
-    "docs": "https://github.com/vi/websocat#readme"
+    "docs": "https://github.com/vi/websocat#readme",
+    "platform": [
+      "local",
+      "network"
+    ]
+  },
+  {
+    "slug": "winget",
+    "name": "winget",
+    "binary": "winget",
+    "description": "Microsoft Windows Package Manager for installing and updating desktop apps and developer tools.",
+    "category": [
+      "package-manager",
+      "environment"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files",
+      "environment_mutation"
+    ],
+    "aliases": [
+      "Windows Package Manager"
+    ],
+    "use_when": [
+      "Install or update Windows applications and developer tools from configured winget sources",
+      "Check whether a Windows tool has an official package id"
+    ],
+    "avoid_when": [
+      "The task requires project-local dependencies managed by the repository package manager",
+      "A reproducible machine bootstrap script already standardizes on Scoop, Chocolatey, or Nix"
+    ],
+    "guardrails": [
+      "Prefer exact package ids over fuzzy names before installing.",
+      "Ask before install, upgrade, uninstall, import, or source mutation commands.",
+      "Review installer source and publisher for unfamiliar packages."
+    ],
+    "docs": "https://learn.microsoft.com/windows/package-manager/winget/",
+    "platform": [
+      "windows"
+    ]
   },
   {
     "slug": "wrangler",
@@ -5743,12 +6107,6 @@
       "swift",
       "objective-c"
     ],
-    "platform": [
-      "ios",
-      "macos",
-      "watchos",
-      "tvos"
-    ],
     "risk": "high",
     "effects": [
       "execute_code",
@@ -5765,7 +6123,13 @@
     "guardrails": [
       "Prefer read-only build and test actions before changing signing or provisioning settings."
     ],
-    "docs": "https://developer.apple.com/library/archive/technotes/tn2339/_index.html"
+    "docs": "https://developer.apple.com/library/archive/technotes/tn2339/_index.html",
+    "platform": [
+      "ios",
+      "macos",
+      "watchos",
+      "tvos"
+    ]
   },
   {
     "slug": "xh",
@@ -5974,5 +6338,44 @@
       "Use explicit paths in scripts and reproducible instructions."
     ],
     "docs": "https://github.com/ajeetdsouza/zoxide#readme"
+  },
+  {
+    "slug": "zypper",
+    "name": "zypper",
+    "binary": "zypper",
+    "description": "openSUSE and SUSE Linux package manager for installing and updating system packages.",
+    "category": [
+      "package-manager",
+      "environment"
+    ],
+    "lang": [
+      "all"
+    ],
+    "risk": "high",
+    "effects": [
+      "install_packages",
+      "execute_code",
+      "network_access",
+      "write_files",
+      "environment_mutation"
+    ],
+    "aliases": [],
+    "use_when": [
+      "Install OS-level dependencies on openSUSE, SLES, or compatible images",
+      "Reproduce setup instructions that require zypper packages"
+    ],
+    "avoid_when": [
+      "The dependency belongs in the project package manager instead of the host OS",
+      "Running on a non-SUSE Linux distribution or a locked-down environment"
+    ],
+    "guardrails": [
+      "Check the distribution and package name before installing.",
+      "Ask before install, update, dist-upgrade, remove, repository, or service mutation commands.",
+      "Avoid broad system upgrades during project tasks unless explicitly requested."
+    ],
+    "docs": "https://documentation.suse.com/smart/systems-management/html/concept-zypper/index.html",
+    "platform": [
+      "linux"
+    ]
   }
 ]
